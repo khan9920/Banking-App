@@ -6,77 +6,86 @@
      --- #e45b39
 */
 
-.bank-name{
-    padding-left: 60px;
+.section {
+    height: 100vh;
+    padding-top: 50px;
 }
+
+
+/* Heading styles */
+.heading-wrapper i,
+.heading-wrapper h1 {
+    color: #e58c28;
+}
+
+.heading-wrapper i {
+    font-size: 45px;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.heading-wrapper h1 {
+    display: inline-block;
+}
+
+.heading-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Login form styles */
 
 .login-content{
     margin-top: 50px;
 
 }
 
-.bank-desc{
-    color:#f29b5e;
-    display:block;
-    font-weight: 200;
-    font-size: 400%;
-    margin-bottom: 60px;
-}
-.fa-university{
-    text-align:center;
-    padding-left:20px;
-    color: #f29b5e;
-}
-
-.login-desc{
-    padding-top: 30px;
-    text-align: center;
-    font-weight: 400;
-}
-
-/* Login form  */
-
-.login-container{
+.login-wrapper{
     background-color:#9c9b7e1c;
-    margin: 50px 100px;
-    padding: 5% 0% 20% 0;
+    padding: 50px 25px 120px 25px;
     border-radius: 4px;
     width: 80%;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
-#login{
-    font-size: 200%;
-    margin: 0;
+.login-wrapper p {
+    font-size: 20px;
+    margin-bottom: 15px;
     color: #f29b5e;
-    padding-left: 40px;
+    font-weight: 600;
+    text-align: center;
 }
 
-.login-container *{
+.login-wrapper *{
     display: block;
-    margin: 20px;
 }
 
-.input{
-    width : 90%;
-    padding: 2% 0%;
+input{
+    width : 100%;
+    padding: 10px;
     border: 1px #f29c5e57 solid;
     border-radius: 3px;
+    margin-bottom: 15px;
 }
 
 input::placeholder{
     color: #dfdfdff5;
-    padding-left: 10px;
 }
 
-
-
-
-.btn-login:hover{
-    background-color: #9c9b7e1c;
-    color: #f29b5e;
-    
+button {
+    width: 100%;
+    margin-bottom: 15px;
 }
-.buttons{
-    margin: 50px 0;
+
+a {
+    color: #848383;
+}
+
+a:hover {
+    color: #848383;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 30px;
 }

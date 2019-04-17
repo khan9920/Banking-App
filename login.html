@@ -20,73 +20,49 @@
         <link rel="stylesheet" href="css/login.css">
 
         <!-- Title -->
-        <title>World Bank</title>
+        <title>World Bank | Login</title>
     </head>
 
     <body>
         
-        <header>
+
+        <div class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="login-content">
-                            <div class="bank-desc">
-                                <div class="row">
-                                    <div class="login-heading col-sm-2">
-                                        <i class="fas fa-university"></i>
-                                    </div>
-                                    <div class="bank-name col-sm-10"> World Bank
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="description">
-                                        <p class="login-desc">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur optio amet tempora suscipit magni quia exercitationem deserunt alias rerum tenetur impedit voluptas est placeat, corrupti voluptatibus vitae. Voluptatibus, nulla. Reiciendis.
-                                        </p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                
-                                <div class="login-container">
-                                    <p id="login">Login</p>
-                                    <form action="" class = "login">
-                                        <input type="text" class = "input" id = "bank-id" placeholder="BankID">
-                                        <input type="password" class = "input" id="password" placeholder="Password">
-                                        <div class="buttons">
-                                                <a href="#" class="link btn btn-login">Login</a>
-                                                <a href="forgotPass.html" class="link forgot-pass">Forgot password?</a>
-                                                <a href="#" class="link have-account">Create an account?</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                </div>
-            
-            </div>
-        </header>
-
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                    <div class="footer-content">
-                            <hr>
-                            <p class="footer-para">
-                                Bank name - Retail Version © year
-                            </p>
-                                <a href="#" class="link about-us">About Us</a>
-                                <span class = "devide-span">|</span>
-                                <a href="#" class="link contact-us">Contact Us</a>
+                        <div class="heading-wrapper">
+                            <i class="fas fa-university"></i> <h1>World Bank</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur optio amet tempora suscipit magni quia exercitationem deserunt alias rerum tenetur impedit voluptas est placeat, corrupti voluptatibus vitae. Voluptatibus, nulla. Reiciendis.</p>
                         </div>
-                            
-                            
+                    </div>
+                    <div class="col-md-6">
+                        <div class="login-wrapper">
+                            <p>LOGIN</p>
+                            <form action="dashboard.html" class="login">
+                                <input type="text" id="bankId" placeholder="Bank ID">
+                                <input type="password" id="password" placeholder="Password">
+                                <button class="btn btn-orange">LOGIN</button>
+                                <a href="forgot-password.html">Forgot password?</a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="footer-content">
+                                <hr>
+                                <p class="footer-para"> Bank name - Retail Version © year</p>
+                                <a href="#" class="link about-us">About Us</a> <span class = "devide-span">|</span>
+                                <a href="#" class="link contact-us">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src = "js/script.js"></script>
