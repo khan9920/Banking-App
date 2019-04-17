@@ -1,6 +1,21 @@
+/* Sieepanel styles */
+
 .active {
     background-color: #fff;
     border-radius: 5px;
+}
+
+.container-fluid {
+    padding-left: 0;
+}
+
+.col-sidepanel {
+    padding-right: 0;
+}
+
+.col-dash-body {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .header {
@@ -20,8 +35,11 @@
     margin-right: 25px;
 }
 
+.dashboard {
+    width: 100%;
+}
+
 .sidepanel {
-    width: 20%;
     background-color: #f6f6f6;
     height: 90vh;
 }
@@ -76,4 +94,22 @@
 
 .sidepanel-nav ul li a img {
     margin-right: 10px;
+}
+
+
+/* Dashboard body styles */
+
+.dash-header {
+    background-color: #a2a2a2;
+    padding: 10px 10px 10px 50px;
+}
+
+.dash-header h6 {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    top: 3px;
+    left: 10px;
 }
