@@ -1,0 +1,62 @@
+/* Colors 
+     --- #455852
+     --- #9c9b7e
+     --- #f9d49b
+     --- #f29b5e
+     --- #e45b39
+*/
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+.link:hover{
+    color:black;
+    text-decoration: none;
+}
+
+.col-centered{
+    margin:0 auto;
+}
+
+.footer-para{
+    font-size: 70%;
+    color: rgb(168, 168, 168);
+    font-weight: 400;
+    margin: 0;
+}
+
+.about-us, .contact-us, .devide-span{
+    font-size: 70%;
+    color: #455852;
+}
+
+.about-us:hover, .contact-us:hover{
+    color:#e45b39;
+}
+
+.footer-content{
+    text-align: center;
+}
+
+.btn{
+    margin-top: 30px;
+    padding: 10px 40px;
+    background-color: #f29b5e;
+    color: white;
+    border-radius: 3px;
+    border: 1px #f29b5e solid;
+}
+
+.btn:hover{
+    background-color: white;
+    border: 1px #f29b5e solid;
+}

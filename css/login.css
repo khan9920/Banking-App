@@ -1,0 +1,82 @@
+/* Colors 
+     --- #455852
+     --- #9c9b7e
+     --- #f9d49b
+     --- #f29b5e
+     --- #e45b39
+*/
+
+.bank-name{
+    padding-left: 60px;
+}
+
+.login-content{
+    margin-top: 50px;
+
+}
+
+.bank-desc{
+    color:#f29b5e;
+    display:block;
+    font-weight: 200;
+    font-size: 400%;
+    margin-bottom: 60px;
+}
+.fa-university{
+    text-align:center;
+    padding-left:20px;
+    color: #f29b5e;
+}
+
+.login-desc{
+    padding-top: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Login form  */
+
+.login-container{
+    background-color:#9c9b7e1c;
+    margin: 50px 100px;
+    padding: 5% 0% 20% 0;
+    border-radius: 4px;
+    width: 80%;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+#login{
+    font-size: 200%;
+    margin: 0;
+    color: #f29b5e;
+    padding-left: 40px;
+}
+
+.login-container *{
+    display: block;
+    margin: 20px;
+}
+
+.input{
+    width : 90%;
+    padding: 2% 0%;
+    border: 1px #f29c5e57 solid;
+    border-radius: 3px;
+}
+
+input::placeholder{
+    color: #dfdfdff5;
+    padding-left: 10px;
+}
+
+
+
+
+.btn-login:hover{
+    background-color: #9c9b7e1c;
+    color: #f29b5e;
+    
+}
+.buttons{
+    margin: 50px 0;
+}
