@@ -6,58 +6,86 @@
      --- #e45b39
 */
 
-.forgotPass{
-    border-bottom: 1px #4558525d solid;
-    padding-bottom: 30px;
-    position: relative;
+.section {
+    height: 100vh;
+    padding-top: 50px;
 }
 
-.forgotPass-header{
-    color:#575757;
-    font-size: 28px;
+
+/* Heading styles */
+.heading-wrapper i,
+.heading-wrapper h1 {
+    color: #e58c28;
 }
 
-.enter-bank-id{
-    color:rgb(129, 129, 129);
-    font-size: 90%;
-}
-.bank-id *{
-    display:inline;
+.heading-wrapper i {
+    font-size: 45px;
+    margin-right: 20px;
+    padding: 0;
 }
 
-.option-1{
-    padding: 30px 0 0 20px;
+.heading-wrapper h1 {
+    display: inline-block;
 }
 
-.bankID{
-    padding: 5px 0;
-    width: 40%;
-    border-radius: 3px;
+.heading-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Password reset form styles */
+
+.forgot-password-wrapper-content{
+    margin-top: 50px;
+
+}
+
+.forgot-password-wrapper{
+    background-color:#9c9b7e1c;
+    padding: 50px 25px 120px 25px;
+    border-radius: 4px;
+    width: 80%;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.forgot-password-wrapper p {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #f29b5e;
+    font-weight: 600;
+    text-align: center;
+}
+
+.forgot-password-wrapper *{
+    display: block;
+}
+
+input{
+    width : 100%;
+    padding: 10px;
     border: 1px #f29c5e57 solid;
-
-
+    border-radius: 3px;
+    margin-bottom: 15px;
 }
 
-.submit-btn-div{
-    margin-top: 20px;
+input::placeholder{
+    color: #dfdfdff5;
 }
 
-.option-2{
-    padding-left: 20px;
-    margin: 40px auto;
-    color: rgb(129, 129, 129);
-    font-size: 90%;
+button {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-.opt-2-heading{
-    font-size: 22px;
-    color: #585858;
+a {
+    color: #848383;
 }
 
-.steps-ol{
-    padding-left: 25px;
+a:hover {
+    color: #848383;
 }
 
-.steps-ol li{
-    padding: 15px 0;
+/* Footer styles */
+footer {
+    margin-top: 30px;
 }
