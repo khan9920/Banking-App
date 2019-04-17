@@ -13,6 +13,10 @@ body{
     font-size: 14px;
 }
 
+input:focus,
+button:focus {
+    outline: 0;
+}
 
 .link{
     text-decoration: none;
@@ -40,23 +44,25 @@ body{
 }
 
 .about-us:hover, .contact-us:hover{
-    color:#e45b39;
+    color:#e58c28;
 }
 
 .footer-content{
     text-align: center;
 }
 
-.btn{
-    margin-top: 30px;
-    padding: 10px 40px;
-    background-color: #f29b5e;
+.btn-orange {
+    padding: 5px 30px;
+    background-color: #e58c28;
     color: white;
-    border-radius: 3px;
-    border: 1px #f29b5e solid;
+    font-weight: 600;
+    border: 2px solid #e58c28;
+    border-radius: 5px;
 }
 
-.btn:hover{
+.btn-orange:hover{
     background-color: white;
-    border: 1px #f29b5e solid;
+    border: 2px solid #e58c28;
+    color: #e58c28;
+    font-weight: 600;
 }
