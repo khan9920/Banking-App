@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>World Bank | Transfer Money</title>
+    <title>World Bank | Dashboard</title>
     
-    <!-- Google fonts Montserrat 200, 400, 600, 700 -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,700" rel="stylesheet">
+    <!-- Google fonts Montserrat 200, 400, 600 -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Bootstrap CSS Framework 4.3.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Styles -->
     <link  rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css"> 
-    <link rel="stylesheet" href="css/dashboard/transfer-money.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel = "stylesheet" href = "css/transfer.css">
 </head>
 <body>
     
@@ -76,7 +79,7 @@
                                 </a></li>
                                 <li><a href="help.html">
                                     <img src="assets/icons/icon_help.png" alt="Help Icon">
-                                    Help
+                                    Make a Payment
                                 </a></li>
                             </ul>
                         </div>
@@ -84,14 +87,55 @@
                 </div>
             </div>
             <div class="col-md-9 col-dash-body">
-
                 <div class="dash-header">
-                    <img src="assets/icons/icon_dashboard_transfer_money.png" alt="Transfer Header Icon">
-                    <h6>TRANSFER MONEY</h6>
+                    <img src="assets/icons/icon_dashboard_header.png" alt="Dashboard Header Icon">
+                    <h6>Transfer Money</h6>
                 </div>
+                <div class="dash-body">
+                    <div class="transfer-det">
+                        <h3>Transfer From</h3>
+                        <select>
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                        </select>
+                    </div>
+                    <div class="transfer-details">
+                        <h3>Effective Available Balance</h3>
+                        <p class="bal">Rs -100000000.00</p>
 
-                <div class="row dash-body">
-                    
+                        <form action="post" class = "transfer-form">
+                        <div class = "amount">
+                            <p>Transfer Amount</p>
+                            <input type="number" name = "amount" id = "amount">
+                        </div>
+                            
+                        <div class = "mode">
+                            <p>Transfer mode</p>
+                            <label class="radio">
+                                <input type="radio" name="select-mode" checked>
+                                Online
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="select-mode">
+                                Set up standing order
+                            </label>
+
+                        </div>
+
+                        <div class = "regards">
+                            <p>Sender Regards</p>
+                            <input type="text" name = "regards" id = "regards">
+                        </div>
+
+                        <div class="acc-no">
+                            <p>Account Number </p>
+                            <input type="number" name="acc-number" id="acc-no">
+                        </div>
+
+                            <a href="#" class="link btn btn-proceed">Proceed</a>
+                        </form>
+                        
+
                     </div>
                 </div>
             </div>
