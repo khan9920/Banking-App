@@ -1,0 +1,67 @@
+
+.contactus-container{
+    background-color:#9c9b7e1c;
+    margin: 0px 0px;
+    padding: 5% 0% 20% 0;
+    border-radius: 4px;
+    width: 95%;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+#contactus{
+    font-size: 200%;
+    margin: 0;
+    color: #f29b5e;
+    padding-left: 40px;
+}
+#title{
+    font-size: 150%;
+    text-align: center;
+    margin: 0;
+    color: #f29b5e;
+    /*padding-left: 40px;*/
+}
+
+.contactus-container *{
+    display: block;
+    margin: 20px;
+}
+
+
+.label{
+    width : 90%;
+    font-size: 18px;
+    
+}
+
+.input{
+    width : 70%;
+    padding: 2% 0%;
+    border: 1px #f29c5e57 solid;
+    border-radius: 3px;
+}
+
+input::placeholder{
+    color: #dfdfdff5;
+    padding-left: 10px;
+}
+
+
+.btn-register:hover{
+    background-color: #9c9b7e1c;
+    color: #f29b5e;
+    
+}
+.buttons{
+    width: 50%;
+    margin: 50px 0;
+}
+
+
+#deta{
+    text-align: center;
+  /*  padding-left: 150px;
+    margin-left: 50px;
+    font-style: italic;*/
+
+}
