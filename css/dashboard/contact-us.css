@@ -34,14 +34,14 @@ address {
 
 .input{
     width: 85%;
-    padding: 2% 0%;
+    padding: 10px;
     border: 1px #f29c5e57 solid;
     border-radius: 3px;
 }
 
 input::placeholder{
     color: #dfdfdff5;
-    padding-left: 10px;
+    /* padding-left: 10px; */
 }
 
 
