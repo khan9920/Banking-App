@@ -92,51 +92,37 @@
                     <h6>Transfer Money</h6>
                 </div>
                 <div class="dash-body">
-                    <div class="transfer-det">
-                        <h3>Transfer From</h3>
-                        <select>
-                            <option value="primary">Primary</option>
-                            <option value="secondary">Secondary</option>
-                        </select>
-                    </div>
-                    <div class="transfer-details">
-                        <h3>Effective Available Balance</h3>
-                        <p class="bal">Rs -100000000.00</p>
+                    <h6 class="dash-title">Effective Available Balance</h6>
+                    <h3>321,432.<span>90 LKR</span></h3>
 
-                        <form action="post" class = "transfer-form">
-                        <div class = "amount">
+                    <form action="post" class = "transfer-form">
+                        <div class="form-element-wrapper">
                             <p>Transfer Amount</p>
-                            <input type="number" name = "amount" id = "amount">
+                            <input type="number" name="amount" id="amount">
                         </div>
                             
-                        <div class = "mode">
-                            <p>Transfer mode</p>
-                            <label class="radio">
-                                <input type="radio" name="select-mode" checked>
-                                Online
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="select-mode">
-                                Set up standing order
-                            </label>
-
+                        <div class="form-element-wrapper">
+                            <p>Sender Remarks</p>
+                            <input type="text" name="regards" placeholder="(Optional)">
                         </div>
-
-                        <div class = "regards">
-                            <p>Sender Regards</p>
-                            <input type="text" name = "regards" id = "regards">
+                        
+                        <div class="form-element-wrapper">
+                            <p>Beneficiary Remarks</p>
+                            <input type="text" name="regards" placeholder="(Optional)">
                         </div>
-
-                        <div class="acc-no">
+                        
+                        <div class="form-element-wrapper">
                             <p>Account Number </p>
                             <input type="number" name="acc-number" id="acc-no">
                         </div>
-
-                            <a href="#" class="link btn-orange btn-proceed">Proceed</a>
-                        </form>
                         
+                        <div class="form-element-wrapper">
+                            <p>Re-enter Account Number </p>
+                            <input type="number" name="re-acc-number" id="re-acc-no">
+                        </div>
 
-                    </div>
+                        <button type="submit" class="btn-orange btn-proceed">Proceed</a>
+                    </form>
                 </div>
             </div>
         </div>

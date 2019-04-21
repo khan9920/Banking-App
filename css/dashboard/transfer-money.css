@@ -41,3 +41,12 @@ input[type = text], input[type = number]{
 .radio{
     padding-right: 10px;
 }
+
+span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input {
+    padding: 10px;
+}
