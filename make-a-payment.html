@@ -90,43 +90,48 @@
                     <h6>MAKE A PAYMENT</h6>
                 </div>
                 <div class="dash-body">
-                
-                    <p class="payees">Select from available payees</p>
-                    <select name="payees" id="payees">
-                        <option value="1">op1</option>
-                        <option value="2">op2</option>
-                        <option value="3">op3</option>
-                        <option value="4">op4</option>
+                    <div class="payment-category">
+                        <h6 class="dash-title">Select from available payees</h6>
+                        <select name="payees" id="payees">
+                            <option value="0">Select category</option>
+                            <option value="1">Education</option>
+                            <option value="2">Electricity</option>
+                            <option value="3">Higher Education Institutes</option>
+                            <option value="4">Internet</option>
+                            <option value="5">Telephone</option>
+                            <option value="6">Water Board</option>
 
-                    </select>
-                    <select name="payee-option" id="payees">
-                        <option value="1">op1</option>
-                        <option value="2">op2</option>
-                        <option value="3">op3</option>
-                        <option value="4">op4</option>
+                        </select>
+                        <select name="payee-option" id="payees">
+                            <option value="1">op1</option>
+                            <option value="2">op2</option>
+                            <option value="3">op3</option>
+                            <option value="4">op4</option>
+                        </select>
+                        <button type="submit" class="btn-orange">Make Payment</a>
+                    </div>
 
-                    </select>
-                    <a href="#" class="link btn-orange btn-payment">Make Payment</a>
-
-                    <div class="saved-payments">
-                        <p>Saved Payments</p>
+                    <div class="payments-hisroy">
+                        <h6 class="dash-title">PAYMENT HISTORY</h6>
                         <table>
                             <tr>
-                            <th>Nickname</th>
-                            <th colspan="2">Details</th>
-
+                                <th>Category</th>
+                                <th>Paid to</th>
+                                <th>Date</th>
+                                <th>Amount</th>
                             </tr>
                             <tr>
-                            <td><input type="checkbox" name="chk1"><a href="#">My mobile recharge</a></td>
-                            <td>230940923</td>
-                            <td><a href="#" >Remove</a></td>
+                                <td>Telehpone</td>
+                                <td>Dialog Axiata</td>
+                                <td>23.04.2019</td>
+                                <td>1500.00 LKR</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="chk1"><a href="#" >My mobile recharge</a></td>
-                                <td>230940923</td>
-                                <td><a href="#" >Remove</a></td>
+                                <td>Telehpone</td>
+                                <td>Dialog Axiata</td>
+                                <td>23.04.2019</td>
+                                <td>1500.00 LKR</td>
                             </tr>
-                            
                         </table>
                         
                     </div>
