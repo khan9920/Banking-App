@@ -27,3 +27,20 @@ span {
     font-size: 14px;
     font-weight: 600;
 }
+
+/* TRANSACTION SUMMARY STYLES */
+h3 {
+    margin-bottom: 35px;
+}
+
+.transaction-summary-element p {
+    margin-bottom: 5px;
+    margin-right: 40px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.transaction-summary-element span {
+    display: inline-block;
+    font-weight: 500;
+}
