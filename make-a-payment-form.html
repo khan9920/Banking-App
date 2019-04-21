@@ -15,7 +15,8 @@
     <!-- Styles -->
     <link  rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css"> 
-    <link rel="stylesheet" href="css/dashboard/make-a-payment.css">
+    <!-- <link rel="stylesheet" href="css/dashboard/make-a-payment.css"> -->
+    <link rel="stylesheet" href="css/dashboard/make-a-payment-form.css">
 </head>
 <body>
     
@@ -90,52 +91,36 @@
                     <h6>MAKE A PAYMENT</h6>
                 </div>
                 <div class="dash-body">
-                    <div class="payment-category">
-                        <form action="make-a-payment-form.html" method="POST">
-                            <h6 class="dash-title">Select from available payees</h6>
-                            <select name="payees" id="payees">
-                                <option value="0">Select category</option>
-                                <option value="1">Education</option>
-                                <option value="2">Electricity</option>
-                                <option value="3">Higher Education Institutes</option>
-                                <option value="4">Internet</option>
-                                <option value="5">Telephone</option>
-                                <option value="6">Water Board</option>
+                    <h6 class="dash-title">Effective Available Balance</h6>
+                    <h3>321,432.<span>90 LKR</span></h3>
 
-                            </select>
-                            <select name="payee-option" id="payees">
-                                <option value="1">op1</option>
-                                <option value="2">op2</option>
-                                <option value="3">op3</option>
-                                <option value="4">op4</option>
-                            </select>
-                            <button type="submit" class="btn-orange">Make Payment</a>
-                        </form>
-                    </div>
+                    <form action="make-a-payment-summary.html" method="POST" class="make-a-payment-form">
+                        <div class="form-element-wrapper">
+                            <p>Pay to</p> <span>Dialog Axiata</span> 
+                        </div>
+                            
+                        <div class="form-element-wrapper">
+                            <p>Amount</p>
+                            <input type="number" name="regards">
+                        </div>
+                        
+                        <div class="form-element-wrapper">
+                            <p>Dialog Axiata Account Number</p>
+                            <input type="number">
+                        </div>
+                        
+                        <div class="form-element-wrapper">
+                            <p>Re-enter Dialog Axiata Account Number </p>
+                            <input type="number">
+                        </div>
+                        
+                        <div class="form-element-wrapper">
+                            <p>Re-enter Account Number </p>
+                            <input type="number" name="re-acc-number" id="re-acc-no">
+                        </div>
 
-                    <div class="payments-hisroy">
-                        <h6 class="dash-title">PAYMENT HISTORY</h6>
-                        <table>
-                            <tr>
-                                <th>Category</th>
-                                <th>Paid to</th>
-                                <th>Date</th>
-                                <th>Amount</th>
-                            </tr>
-                            <tr>
-                                <td>Telehpone</td>
-                                <td>Dialog Axiata</td>
-                                <td>23.04.2019</td>
-                                <td>1500.00 LKR</td>
-                            </tr>
-                            <tr>
-                                <td>Telehpone</td>
-                                <td>Dialog Axiata</td>
-                                <td>23.04.2019</td>
-                                <td>1500.00 LKR</td>
-                            </tr>
-                        </table>                        
-                    </div>
+                        <button type="submit" class="btn-orange btn-proceed" >Proceed</a>
+                    </form>
                 </div>
             </div>
         </div>
