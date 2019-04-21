@@ -6,47 +6,24 @@
      --- #e45b39
 */
 
-.transfer-det{
-    padding: 4% 0 0 4%;
-}
-
-.transfer-det select{
-    width: 100px;
-   border: none;
-}
-
-.transfer-details{
-    padding: 4% 0 0 4%;
-}
-
 .transfer-form{
     padding-top: 3%;
-}
-
-.transfer-details div{
-    padding-bottom: 23px;
 }
 
 .transfer-form p{
     display: inline-block;
     width: 200px;
 }
-input[type = text], input[type = number]{
+
+input {
     width: 300px;
     height: 40px;
     border:1px rgb(216, 216, 216) solid ;
     border-radius: 3px;
-}
-
-.radio{
-    padding-right: 10px;
+    padding: 10px;
 }
 
 span {
     font-size: 14px;
     font-weight: 600;
-}
-
-input {
-    padding: 10px;
 }
