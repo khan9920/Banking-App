@@ -15,8 +15,15 @@ body{
 
 input:focus,
 button:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     outline: 0;
+}
+
+.dash-title {
+    color: #e48515;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .link{

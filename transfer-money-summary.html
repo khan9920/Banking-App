@@ -95,33 +95,42 @@
                     <h6 class="dash-title">Effective Available Balance</h6>
                     <h3>321,432.<span>90 LKR</span></h3>
 
-                    <form action="transfer-money-summary.html" method="POST" class="transfer-form">
+                    <h6 class="dash-title">TRANSACTION SUMMARY</h6>
+                    <div class="transaction-summary">
+                        <div class="transaction-summary-element">
+                            <p class="title">Transfer Amount : </p>
+                            <span>1200.00</span>
+                        </div>
+                            
+                        <div class="transaction-summary-element">
+                            <p class="title">Sender Remraks : </p>
+                            <span>Some remarks</span>
+                        </div>
+
+                        <div class="transaction-summary-element">
+                            <p class="title">Beneficiary Remraks : </p>
+                            <span>Some remarks</span>
+                        </div>
+
+                        <div class="transaction-summary-element">
+                            <p class="title">Account Number : </p>
+                            <span>4321432143214321</span>
+                        </div>
+                    </div>
+
+                    <form action="transfer-money.html" class="transfer-form transfer-confirm">
+                        <h6 class="dash-title">CONFIRM TRANSACTION</h6>
                         <div class="form-element-wrapper">
-                            <p>Transfer Amount</p>
-                            <input type="number" name="amount" id="amount">
+                            <p>Banking ID</p>
+                            <input type="text">
                         </div>
                             
                         <div class="form-element-wrapper">
-                            <p>Sender Remarks</p>
-                            <input type="text" name="regards" placeholder="(Optional)">
-                        </div>
-                        
-                        <div class="form-element-wrapper">
-                            <p>Beneficiary Remarks</p>
-                            <input type="text" name="regards" placeholder="(Optional)">
-                        </div>
-                        
-                        <div class="form-element-wrapper">
-                            <p>Account Number </p>
-                            <input type="number" name="acc-number" id="acc-no">
-                        </div>
-                        
-                        <div class="form-element-wrapper">
-                            <p>Re-enter Account Number </p>
-                            <input type="number" name="re-acc-number" id="re-acc-no">
+                            <p>Password</p>
+                            <input type="password">
                         </div>
 
-                        <button type="submit" class="btn-orange btn-proceed" >Proceed</a>
+                        <button type="submit" class="btn-orange">CONFIRM</button>
                     </form>
                 </div>
             </div>
