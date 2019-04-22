@@ -69,8 +69,27 @@ select:focus {
 }
 
 .btn-orange:hover{
-    background-color: white;
+    background-color: fff;
     border: 2px solid #e58c28;
     color: #e58c28;
     font-weight: 600;
 }
+
+.btn-red {
+    background-color: #e74c3c;
+    padding: 5px 30px;
+    color: white;
+    font-weight: 600;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+}
+
+.btn-red:hover {
+    background-color: #fff;
+    padding: 5px 30px;
+    color: #e74c3c;
+    font-weight: 600;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+}
+
