@@ -69,7 +69,7 @@ select:focus {
 }
 
 .btn-orange:hover{
-    background-color: fff;
+    background-color: #fff;
     border: 2px solid #e58c28;
     color: #e58c28;
     font-weight: 600;
