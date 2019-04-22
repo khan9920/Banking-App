@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>World Bank | Dashboard</title>
+    <title>World Bank | Make a Payment</title>
     
     <!-- Google fonts Montserrat 200, 400, 600, 700 -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,700" rel="stylesheet">
@@ -14,7 +14,9 @@
 
     <!-- Styles -->
     <link  rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css"> 
+    <!-- <link rel="stylesheet" href="css/dashboard/make-a-payment.css"> -->
+    <link rel="stylesheet" href="css/dashboard/make-a-payment-form.css">
 </head>
 <body>
     
@@ -45,7 +47,7 @@
                         <div class="sidepanel-nav">
                             <h6>BANKING OPTIONS</h6>
                             <ul>
-                                <li class="active"><a href="dashboard.html">
+                                <li><a href="dashboard.html">
                                     <img src="assets/icons/icon_dashboard.png" alt="Dashboard Icon">
                                     Dashboard
                                 </a></li>
@@ -59,7 +61,7 @@
                                     <img src="assets/icons/icon_transfer_money.png" alt="Transfer Monoey Icon">
                                     Transfer Money
                                 </a></li>
-                                <li><a href="make-a-payment.html">
+                                <li class="active"><a href="make-a-payment.html">
                                     <img src="assets/icons/icon_make_a_payment.png" alt="Make a Payment Icon">
                                     Make a Payment
                                 </a></li>
@@ -85,33 +87,40 @@
             <div class="col-md-9 col-dash-body">
 
                 <div class="dash-header">
-                    <img src="assets/icons/icon_dashboard_header.png" alt="Dashboard Header Icon">
-                    <h6>DASHBOARD</h6>
+                    <img src="assets/icons/icon_dashboard_make_a_payment.png" alt="Make a Payment Header Icon">
+                    <h6>MAKE A PAYMENT</h6>
                 </div>
+                <div class="dash-body">
+                    <h6 class="dash-title">Effective Available Balance</h6>
+                    <h3>321,432.<span>90 LKR</span></h3>
 
-                <div class="row dash-body">
-                    <div class="col-md-6">
-                        <div class="balance-wrapper">
-                            <div class="bank-balanace-wrapper">
-                                <p class="acc-no">4321432143214321</p>
-                            </div>
-                            <div class="balance">
-                                <p>Balance</p>
-                                <h3>321,432.<span>90 LKR</span></h3>
-                            </div>
-                            <div class="recent-transaction">
-                                <p>Recent Transactions</p>
-                                <div class="debit">
-                                    <p>1000.00</p> <img src="assets/icons/icon_minus.png" alt="Minus Icon"> <br>
-                                    <p class="transation-date">23.03.2019</p>
-                                </div>
-                                <div class="credit">
-                                    <p>1350.00</p> <img src="assets/icons/icon_plus.png" alt="Plus Icon"> <br>
-                                    <p class="transation-date">23.03.2019</p>
-                                </div>
-                            </div>
+                    <form action="make-a-payment-summary.html" method="POST" class="make-a-payment-form">
+                        <div class="form-element-wrapper">
+                            <p>Pay to</p> <span>Dialog Axiata</span> 
                         </div>
-                    </div>
+                            
+                        <div class="form-element-wrapper">
+                            <p>Amount</p>
+                            <input type="number" name="regards">
+                        </div>
+                        
+                        <div class="form-element-wrapper">
+                            <p>Dialog Axiata Account Number</p>
+                            <input type="number">
+                        </div>
+                        
+                        <div class="form-element-wrapper">
+                            <p>Re-enter Dialog Axiata Account Number </p>
+                            <input type="number">
+                        </div>
+                        
+                        <div class="form-element-wrapper">
+                            <p>Re-enter Account Number </p>
+                            <input type="number" name="re-acc-number" id="re-acc-no">
+                        </div>
+
+                        <button type="submit" class="btn-orange btn-proceed" >Proceed</a>
+                    </form>
                 </div>
             </div>
         </div>

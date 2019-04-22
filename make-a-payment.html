@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="header-icon-wrapper">
-                    <a href="#"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
+                    <a href="settings.html"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
                     <a href="#"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a>
                 </div>
             </div>
@@ -89,9 +89,52 @@
                     <img src="assets/icons/icon_dashboard_make_a_payment.png" alt="Make a Payment Header Icon">
                     <h6>MAKE A PAYMENT</h6>
                 </div>
+                <div class="dash-body">
+                    <div class="payment-category">
+                        <form action="make-a-payment-form.html" method="POST">
+                            <h6 class="dash-title">Select from available payees</h6>
+                            <select name="payees" id="payees">
+                                <option value="0">Select category</option>
+                                <option value="1">Education</option>
+                                <option value="2">Electricity</option>
+                                <option value="3">Higher Education Institutes</option>
+                                <option value="4">Internet</option>
+                                <option value="5">Telephone</option>
+                                <option value="6">Water Board</option>
 
-                <div class="row dash-body">
-                    
+                            </select>
+                            <select name="payee-option" id="payees">
+                                <option value="1">op1</option>
+                                <option value="2">op2</option>
+                                <option value="3">op3</option>
+                                <option value="4">op4</option>
+                            </select>
+                            <button type="submit" class="btn-orange">Make Payment</a>
+                        </form>
+                    </div>
+
+                    <div class="payments-hisroy">
+                        <h6 class="dash-title">PAYMENT HISTORY</h6>
+                        <table>
+                            <tr>
+                                <th>Category</th>
+                                <th>Paid to</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr>
+                                <td>Telehpone</td>
+                                <td>Dialog Axiata</td>
+                                <td>23.04.2019</td>
+                                <td>1500.00 LKR</td>
+                            </tr>
+                            <tr>
+                                <td>Telehpone</td>
+                                <td>Dialog Axiata</td>
+                                <td>23.04.2019</td>
+                                <td>1500.00 LKR</td>
+                            </tr>
+                        </table>                        
                     </div>
                 </div>
             </div>

@@ -6,11 +6,11 @@
      --- #e45b39
 */
 
-.transfer-form{
+.make-a-payment-form {
     padding-top: 3%;
 }
 
-.transfer-form p{
+.make-a-payment-form p{
     display: inline-block;
     width: 200px;
 }
@@ -28,19 +28,31 @@ span {
     font-weight: 600;
 }
 
-/* TRANSACTION SUMMARY STYLES */
+.form-element-wrapper {
+    margin-bottom: 5px;
+}
+
+.form-element-wrapper p {
+    margin-bottom: 0px;
+}
+
+/* MAKE A PAYMENT SUMMARY STYLES */
 h3 {
     margin-bottom: 35px;
 }
 
-.transaction-summary-element p {
+.make-a-payment-summary-element p {
     margin-bottom: 5px;
     margin-right: 40px;
     font-weight: 600;
     display: inline-block;
 }
 
-.transaction-summary-element span {
+.make-a-payment-summary-element span {
     display: inline-block;
     font-weight: 500;
+}
+
+.transaction-summary {
+    margin-bottom: 30px;
 }

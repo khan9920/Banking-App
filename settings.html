@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>World Bank | Dashboard</title>
+    <title>World Bank | Help</title>
     
     <!-- Google fonts Montserrat 200, 400, 600, 700 -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,700" rel="stylesheet">
@@ -14,7 +14,8 @@
 
     <!-- Styles -->
     <link  rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css"> 
+    <link rel="stylesheet" href="css/dashboard/settings.css">
 </head>
 <body>
     
@@ -23,7 +24,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="header-icon-wrapper">
-                    <a href="settings.html"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
+                    <a href="#"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
                     <a href="#"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a>
                 </div>
             </div>
@@ -45,7 +46,7 @@
                         <div class="sidepanel-nav">
                             <h6>BANKING OPTIONS</h6>
                             <ul>
-                                <li class="active"><a href="dashboard.html">
+                                <li><a href="dashboard.html">
                                     <img src="assets/icons/icon_dashboard.png" alt="Dashboard Icon">
                                     Dashboard
                                 </a></li>
@@ -85,31 +86,32 @@
             <div class="col-md-9 col-dash-body">
 
                 <div class="dash-header">
-                    <img src="assets/icons/icon_dashboard_header.png" alt="Dashboard Header Icon">
-                    <h6>DASHBOARD</h6>
+                    <img src="assets/icons/icon_dashboard_settings.png" alt="Settings Header Icon">
+                    <h6>SETTINGS</h6>
                 </div>
 
                 <div class="row dash-body">
-                    <div class="col-md-6">
-                        <div class="balance-wrapper">
-                            <div class="bank-balanace-wrapper">
-                                <p class="acc-no">4321432143214321</p>
-                            </div>
-                            <div class="balance">
-                                <p>Balance</p>
-                                <h3>321,432.<span>90 LKR</span></h3>
-                            </div>
-                            <div class="recent-transaction">
-                                <p>Recent Transactions</p>
-                                <div class="debit">
-                                    <p>1000.00</p> <img src="assets/icons/icon_minus.png" alt="Minus Icon"> <br>
-                                    <p class="transation-date">23.03.2019</p>
-                                </div>
-                                <div class="credit">
-                                    <p>1350.00</p> <img src="assets/icons/icon_plus.png" alt="Plus Icon"> <br>
-                                    <p class="transation-date">23.03.2019</p>
-                                </div>
-                            </div>
+                    <div class="settings-wrapper">
+                        <div class="col-md-12">
+                            <form action="settings-edit.html" method="POST">
+                                <h6 class="dash-title">PERSONAL INFORMATION</h6>
+                                <p>Full name : </p><span>Shafkhan Mohamed</span> <br>
+                                <p>Address : </p><span>24 Melford Crescent Dehiwela</span> <br>
+                                <p>Mobile : </p><span>+94775867889</span> <br>
+                                <button type="submit" class="btn-orange">EDIT</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="settings-wrapper">
+                        <div class="col-md-12">
+                            <form action="" method="POST">
+                                <h6 class="dash-title">PASSWORD SETTINGS</h6>
+                                <input type="password" placeholder="Old password">
+                                <input type="password" placeholder="New password">
+                                <input type="password" placeholder="Re-enter new password">
+                                <button type="submit" class="btn-orange">UPDATE PASSWORD</button>
+                            </form>
                         </div>
                     </div>
                 </div>
