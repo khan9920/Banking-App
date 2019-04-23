@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Bank | Create-Acc</title>
+    
+    <!-- Google fonts Montserrat 200, 400, 600, 700 -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS Framework 4.3.1 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Fontawesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link  rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/create-account.css">
+
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-icon-wrapper">
+                        <a href="#"><img src="../assets/icons/icon_settings.png" alt="Settings Icon"></a>
+                        <a href="#"><img src="../assets/icons/icon_logout.png" alt="Logout Icon"></a>
+                    </div><!--header-icon-wraper-->
+                </div><!--col-md0-12-->
+            </div><!--row-->
+        </div><!--container-fluid-->
+    </div><!---header-->
+
+    <div class="section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-sidepanel">
+                    <div class="sidepanel">
+                        <div class="sidepanel-wrapper">
+                            <div class="userprofile-wrapper">
+                                <h6>ADMIN <br>Jon Snow</h6>
+                                <p>Monday, 22 April 2019</p>
+                            </div><!--userprofile-wrapper-->
+                        
+                            <div class="sidepanel-nav">
+                                <h6>OPTIONS</h6>
+                                <ul>
+                                    <li><a href="Admin-dashboard.html">
+                                        <i class="fas fa-landmark"></i>
+                                        Dashboard
+                                    </a></li>
+                                    <li><a href="#">
+                                        <i class="fas fa-search"></i>
+                                        Search
+                                    </a></li>
+                                </ul>
+                            </div>
+                        
+                            <div class="sidepanel-nav">
+                                <h6>ACTIONS</h6>
+                                <ul>
+                                    <li class="active"><a href="#">
+                                        <i class="fas fa-user-plus"></i>
+                                        Create Account
+                                    </a></li>
+                                    <li><a href="#">
+                                        <i class="fas fa-user-edit"></i>
+                                        Edit Account
+                                    </a></li>
+                                    <li><a href="#">
+                                        <i class="fas fa-user-minus"></i>
+                                        Delete Account
+                                    </a></li>
+                                </ul>
+                            </div>
+                        
+                            <div class="sidepanel-nav">
+                                <h6>LISTS</h6>
+                                <ul>
+                                    <li><a href="#">
+                                        <i class="fas fa-list-ul"></i>
+                                        Customer List
+                                    </a></li>
+                                    <li><a href="#">
+                                        <i class="fas fa-list-ul"></i>
+                                        Banker List
+                                    </a></li>
+                                    <li><a href="#">
+                                        <i class="fas fa-list-ul"></i>
+                                        Admin List
+                                    </a></li>
+                                </ul>
+                            </div> 
+                            
+                            <div class="sidepanel-nav">
+                                <h6>ACTIVITIES</h6>
+                                <ul>
+                                    <li><a href="#">
+                                        <i class="fas fa-chart-line"></i>
+                                        Employee Activities
+                                    </a></li>
+                                    <li><a href="#">
+                                        <i class="fas fa-chart-line"></i>
+                                        Admin Activites
+                                    </a></li>
+                                </ul>
+                            </div>
+                            
+                        </div><!--sidepanel-wrapper-->
+                    </div><!--sidepanel-->
+                </div><!--col-md-3 col-sidepanel-->
+                <div class="col-md-9 col-dash-body">
+
+                    <div class="dash-header">
+                        <img src="../assets/icons/icon_dashboard_header.png" alt="Dashboard Header Icon">
+                        <h6>DASHBOARD</h6>
+                    </div>
+
+                    <div class="row dash-body">
+                        <form name="regForm" onsubmit="" method="post">
+                                <div class="row">
+                                        <div class="col-md-6">
+
+
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="fullname">Full Name :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="text" name="fullname" id="fullnameid" placeholder="Full Name" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->
+                                                        
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="name-initials">Initials:</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="text" name="nameWithInitials" id="Initialsid" placeholder="Name with Initials" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->
+                                        
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="nicNO">NIC No :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="text" name="NICno" id="nicNOid" placeholder="NIC No" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->
+
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="mail" >Email :</label>
+                                                                </div>
+                                                                <div class="col-sm-8"	>	 
+                                                                        <input type="email" name="email"  id="emailid"placeholder="Email" class="form-control ">
+                                                                </div>
+                                                        </div>
+                                                                        
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="pass">Password :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="password" name="password" id="passwordid" placeholder="Password" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->
+                                                        
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="cpass">Conform Password :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="password" name="cpassword" id="cpasswordid" placeholder="Conform Password" class="form-control">
+                                                                </div>
+                                                        </div><!--row-->
+                                                        
+                                                        
+                                                        <div class = "row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="genderclass">Gender :</label>
+                                                                </div>						
+                                
+                                                                <div class="col-sm-4 male">	 
+                                                                        <input type="radio" name="gender"  id="genderb" value="male" checked>Male</input>
+                                                                </div>
+                                                             
+                                                                <div class="col-sm-4 female">
+                                                                        <input type="radio"  name="gender" id="genderf" value="female" >Female</input>
+                                                                </div>
+                                                        </div><!--row-->
+
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="address">Address :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="address" name="address"  id="addressid" placeholder="Address" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->	
+
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="city" >City :</label>
+                                                                </div>
+                                                                <div class="col-sm-8"	>	 
+                                                                        <input type="city" name="city"  id="cityid" placeholder="City" class="form-control ">
+                                                                </div>
+                                                        </div>
+                                                                
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="Country" >Country :</label>
+                                                                </div>
+                                                                <div class="col-sm-8"	>	 
+                                                                        <input type="Country" name="country"  id="countryid" placeholder="Country" class="form-control ">
+                                                                </div>
+                                                        </div>
+                                                                
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="pcode" >Postal Code :</label>
+                                                                </div>
+                                                                <div class="col-sm-8"	>	 
+                                                                        <input type="pcode" name="pcode"  id="pcodeid" placeholder="Postal Code" class="form-control ">
+                                                                </div>
+                                                        </div>
+                                                              
+                                        </div>
+                                        <div class="col-md-6">
+                                    
+                                                        <div class = "row">
+                                                                <div class = "col-sm-4">
+                                                                        <label class = "typeclass">Account type :</label>
+                                                                </div>
+                                                                <div class = "col-sm-8">
+                                                                        <input type="radio" name="type" id = "type1" value="Customer" checked> Customer
+                                                                        <input type="radio" name="type" id = "type2" value="Banker"> Banker<br>
+                                                                </div>
+                                                        </div>
+                                    	
+                                
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="birthday">Birthday :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="text" name="birthday" id="birthdayid" placeholder="dd/mm/yy" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->
+                                
+                                
+                                                        <div class="row">
+                                                                <div class="col-sm-4">
+                                                                        <label class="contact">Contact :</label>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                        <input type="text" name="contact" id="contactid" placeholder="Telephone Number" class="form-control ">
+                                                                </div>
+                                                        </div><!--row-->
+                                
+                                                       
+                                                        <div class = "col-sm-12">
+                                                                <button id = "submit" type="submit" name="btnSubmit">Submit to Registration</button>
+                                                        </div>
+                                             
+                                                        
+
+
+                                        </div>
+                                </div>
+                                   
+                        </form>	
+                    </div><!--row dash-body-->
+                </div><!--col-md-9 col-dash-body-->
+            </div><!--row-->
+        </div><!--container-fluid-->
+    </div><!--section-->
+</div> <!-- dashboard -->
+</body>
+</html>
+
