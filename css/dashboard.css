@@ -120,3 +120,19 @@
     width: 100%;
     padding: 30px 10px 10px 50px;
 }
+
+/* ADMIN DASHBOARD TEABLE STYLES */
+
+table{
+    width: 100%;
+}
+
+td, th {
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table td a {
+    margin-right: 15px;
+}
