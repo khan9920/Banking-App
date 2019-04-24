@@ -167,4 +167,14 @@
     margin-left: 41%;
     margin-top: 16px; 	   
 }
+.btn-orange1 {
+    margin-top: 8px;
+   margin-left: 50px;
+    padding: 5px 30px;
+    background-color: #e58c28;
+    color: white;
+    font-weight: 600;
+    border: 2px solid #e58c28;
+    border-radius: 5px;
+}
 
