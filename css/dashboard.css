@@ -1,5 +1,10 @@
 /* Sieepanel styles */
 
+.dashboard {
+    width: 100%;
+    overflow: hidden;
+}
+
 .active {
     background-color: #fff;
     border-radius: 5px;
