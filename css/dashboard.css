@@ -185,3 +185,8 @@ td, th {
 table td a {
     margin-right: 15px;
 }
+
+.btn-add-user {
+    float: right;
+    margin-bottom: 10px;
+}
