@@ -1,5 +1,10 @@
 /* Sieepanel styles */
 
+.dashboard {
+    width: 100%;
+    overflow: hidden;
+}
+
 .active {
     background-color: #fff;
     border-radius: 5px;
@@ -119,6 +124,50 @@
 .dash-body {
     width: 100%;
     padding: 30px 10px 10px 50px;
+}
+
+.balance-wrapper {
+    background-color: #f6f6f6;
+    padding: 25px;
+}
+
+.acc-no {
+    color: #a2a2a2;
+    font-weight: 600;
+}
+
+.balance p {
+    margin: 0;
+    color: #e58c28;
+    font-weight: 600;
+}
+
+.balance span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.recent-transaction p {
+    color: #e58c28;
+    font-weight: 600;
+}
+
+.debit,
+.credit {
+    width: 49%;
+    display: inline-block;
+}
+
+.debit p,
+.credit p {
+    display: inline-block;
+    margin: 0;
+    color: #000;
+}
+
+.transation-date {
+    color: #848383 !important;
+    font-size: 12px;
 }
 
 /* ADMIN DASHBOARD TEABLE STYLES */
