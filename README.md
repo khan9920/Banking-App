@@ -1,5 +1,5 @@
-# Banking-App
-A project that's being done by 4 SE Students from SLIIT. This project is being built using Java as the backend and good ol' HTML/CSS/JS alongside with JSP and Serverlett
-#SQL data base is included# 
+# SQL file included
+Creating the back end of the Banking app with JSP and servelt.
 
-If contributors include any data to the database please update the given text file with the name updated date and the table updated 
+
+In this branch we included the database. Just import the database and if contributors include any data to the database please update the given text file with the name updated date and the table updated.
