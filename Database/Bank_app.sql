@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 28, 2019 at 01:21 PM
+-- Generation Time: Apr 30, 2019 at 09:10 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -43,6 +43,13 @@ CREATE TABLE `admin` (
   `password` varchar(30) NOT NULL,
   `createDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminID`, `fullName`, `initials`, `NIC`, `address`, `city`, `postalCode`, `Birthday`, `gender`, `tpNO`, `email`, `password`, `createDate`) VALUES
+('Adjonas21', 'Daniel Jonas', 'D.J', '963029347v', 'No.123, Colombo 03.', 'Colombo', 12340, '1990-10-10', 'male', '0723049132', 'dJ@gmail.com', 'jonas1122', '2019-03-14 12:40:00');
 
 -- --------------------------------------------------------
 
@@ -92,6 +99,13 @@ CREATE TABLE `customer` (
   `accountNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`custID`, `fullName`, `initials`, `NIC`, `address`, `city`, `postalCode`, `Birthday`, `gender`, `tpNO`, `email`, `password`, `createDate`, `accountNumber`) VALUES
+('CWB121', 'Charith Randika Hettiarachchi', 'C.R', '963002309v', 'no.176/1 Panadura ', 'Panadura', 1235, '1996-10-26', 'male', '9234234123', 'randikah17@gmail.com', 'sliit121', '2019-04-16 10:10:00', 11112222);
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +127,13 @@ CREATE TABLE `Employee` (
   `password` varchar(30) NOT NULL,
   `createDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Employee`
+--
+
+INSERT INTO `Employee` (`empID`, `fullName`, `initials`, `NIC`, `address`, `city`, `postalCode`, `Birthday`, `gender`, `tpNO`, `email`, `password`, `createDate`) VALUES
+('EMP1212', 'John Silva', 'JS', '023409234v', 'no.100 dehiwala', 'dehiwala', 1234, '1980-04-10', 'male', '21349532', 'js@gmail.com', 'js121', '2019-04-17 11:00:00');
 
 -- --------------------------------------------------------
 
