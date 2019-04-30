@@ -1,21 +1,15 @@
 package com.login;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.bank.dao.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LoginServelet
- */
 @WebServlet("/login")
 public class LoginServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,66 +27,62 @@ public class LoginServelet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	doGet(request, response);
+    	
+    			/* In the code entered below 
+    			 * 1. Get the from the user 
+    			 * 2. Get the first letter of the bankID to the fLetter variable 
+    			 * 3. Initialize session variable 
+    			 * 4. Create objects of 3 classes which includes the logic of the login 
+    			 */
+    	
+    			String bankID = request.getParameter("bId"); // get bankID
+    			String password = request.getParameter("pass"); // get password 
+    			char fLetter = bankID.charAt(0); // variable to get the first letter of bankID
+    			HttpSession session; 
+    			LoginAdmin login1 = new LoginAdmin();
+    			LoginEmployee login2 = new LoginEmployee();
+    			LoginCustomer login3 = new LoginCustomer();
     			
-    			String bankID = request.getParameter("bId");
-    			String password = request.getParameter("pass");
-    			char fLetter = bankID.charAt(0);
-    			String sql;
-    			boolean isTrue = false;
-    		
     		try {
     			Class.forName("com.mysql.jdbc.Driver");
+
+    			if(fLetter == 'E') { // check the first letter 
+    				if(login2.checkEmp(bankID, password)) {
+    					session = request.getSession(); 
+    					session.setAttribute("bankID", bankID); 
+    					response.sendRedirect("Admin/bankers.jsp");
+    				}
+    				else {
+        				response.sendRedirect("login.jsp");
+        			}
+    			}
     			
-    			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bank_app","root","");
-    			Statement st = conn.createStatement();
-    			
-    			if(fLetter == 'A') {
-    				sql = "SELECT * FROM admin";
-    				ResultSet rs = st.executeQuery(sql);
-    				while(rs.next()) {
-        				if(bankID.equals(rs.getString("adminID")) && password.equals(rs.getString("password"))) {
-        					isTrue = true;
-        					System.out.println("fucks bro");
-        				}else {
-        					response.sendRedirect("login.jsp");
-        					System.out.println("bitch");
-        				}
+    			else if(fLetter == 'A') { // check the first letter 
+    				if(login1.checkAdmin(bankID, password)) {
+    					session = request.getSession(); 
+    					session.setAttribute("bankID", bankID); 
+    					response.sendRedirect("Admin/admins.jsp");
+    				}
+    				else {
+        				response.sendRedirect("login.jsp");
         			}
     			}
     			else if(fLetter == 'C') {
-    				sql = "SELECT * FROM customer";
-    				ResultSet rs = st.executeQuery(sql);
-    				while(rs.next()) {
-        				if(bankID.equals(rs.getString("custID")) && password.equals(rs.getString("password"))) {
-        					isTrue = true;
-        					System.out.println("fucks bro");
-        				}else {
-        					response.sendRedirect("login.jsp");
-        					System.out.println("bitch");
-        				}
+    				if(login3.checkCust(bankID, password)) {
+    					session = request.getSession(); 
+    					session.setAttribute("bankID", bankID); 
+    					response.sendRedirect("Admin/bankers.jsp");
+    				}
+    				else {
+        				response.sendRedirect("login.jsp");
         			}
     			}
-    			if(fLetter == 'E') {
-    				sql = "SELECT * FROM Employee";
-    				ResultSet rs = st.executeQuery(sql);
-    				while(rs.next()) {
-        				if(bankID.equals(rs.getString("empID")) && password.equals(rs.getString("password"))) {
-        					isTrue = true;
-        					System.out.println("fucks bro");
-        				}else {
-        					response.sendRedirect("login.jsp");
-        					System.out.println("bitch");
-        				}
-        			}
+    			else {
+    				response.sendRedirect("login.jsp");
     			}
-    			
-    			
-    			
     		}
     		catch(Exception e) {
     			System.out.print(e.getMessage());{
-    			
-				
 			}
 		}
 	}

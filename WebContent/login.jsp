@@ -44,6 +44,9 @@
                                 <input type="text" id="bankId" placeholder="Banking ID" name = "bId">
                                 <input type="password" id="password" placeholder="Password" name = "pass">
                                 <input type = "submit" class="btn btn-orange" value = "login">
+                                <%-- <%if(session.getAttribute("bankID") == null){ %>
+                                <p>Wrong Credentials</p>
+                                <% }%> --%>
                                 <a href="forgot-password.html">Forgot password?</a>
                             </form>
                         </div>
