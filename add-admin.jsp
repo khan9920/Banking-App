@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.io.*,java.util.*" %>
-<%@ page import = "javax.servlet.*,java.text.*" %>
-    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +18,7 @@
     <!-- Styles -->
     <link  rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/admin/customers.css">
+    <link rel="stylesheet" href="../css/admin/bankers.css">
 
 </head>
 <body>
@@ -47,9 +44,7 @@
                             <div class="sidepanel-wrapper">
                                 <div class="userprofile-wrapper">
                                     <h6>Administrator <br>Jon Snow</h6>
-                                    Date dNow = new Date( );
-                                    SimpleDateFormat ft = new SimpleDateFormat ("E dd.MM.yyyy");
-                                    out.print( "<p>" + ft.format(dNow) + "</p>");
+                                    <p>Monday, 22 April 2019</p>
                                 </div>
                             
                                 <div class="sidepanel-nav">
@@ -63,7 +58,7 @@
                                             <img src="../assets/icons/icon_admin_transaction.png" alt="Transactions Admin Icon">
                                             Transactions
                                         </a></li>
-                                        <li class="active"><a href="customers.jsp">
+                                        <li><a href="customers.jsp">
                                             <img src="../assets/icons/icon_admin_customers.png" alt="Customers Admin Icon">
                                             Customers
                                         </a></li>
@@ -81,7 +76,7 @@
                                             <img src="../assets/icons/icon_admin_bankers.png" alt="Bankers Admin Icon">
                                             Bankers
                                         </a></li>
-                                        <li><a href="admins.jsp">
+                                        <li class="active"><a href="admins.jsp">
                                             <img src="../assets/icons/icon_admin_admins.png" alt="Admin Icon">
                                             Admins
                                         </a></li>
@@ -94,11 +89,11 @@
 
                         <div class="dash-header">
                             <img src="../assets/icons/icon_dashboard_admin_transaction.png" alt="Transactions Header Icon">
-                            <h6>ADD CUSTOMER</h6>
+                            <h6>ADD ADMIN</h6>
                         </div>
 
                         <div class="row dash-body">
-                            <form action="addCustomer" method="POST">
+                            <form action="">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h6 class="dash-title">PERSONAL INFO</h6>
