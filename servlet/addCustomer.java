@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.Random;
+import AccoutJ.*;
 
 
  // Servlet implementation class addtestservlet
@@ -42,7 +43,7 @@ public class addtestservlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 		
 		try {
-			
+
 			Random rand = new Random();
 			int random = rand.nextInt((999999 - 100000) + 1) + 100000;
             String CusID = "C"+random;
