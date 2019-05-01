@@ -1,4 +1,4 @@
-package com.login;
+package com.bank.controller;
 
 import java.io.IOException;
 import com.bank.dao.*;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
-public class LoginServelet extends HttpServlet {
+public class LoginServelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServelet() {
+    public LoginServelt() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,8 +44,7 @@ public class LoginServelet extends HttpServlet {
     			LoginCustomer login3 = new LoginCustomer();
     			
     		try {
-    			Class.forName("com.mysql.jdbc.Driver");
-
+//    			Class.forName("com.mysql.jdbc.Driver");
     			if(fLetter == 'E') { // check the first letter 
     				if(login2.checkEmp(bankID, password)) {
     					session = request.getSession(); 
@@ -71,7 +70,7 @@ public class LoginServelet extends HttpServlet {
     				if(login3.checkCust(bankID, password)) {
     					session = request.getSession(); 
     					session.setAttribute("bankID", bankID); 
-    					response.sendRedirect("Admin/bankers.jsp");
+    					response.sendRedirect("dashboard.jsp");
     				}
     				else {
         				response.sendRedirect("login.jsp");
