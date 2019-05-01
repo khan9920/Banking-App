@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
     <!-- Styles -->
     <link  rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/admin/bankers.css">
+    <link rel="stylesheet" href="../css/admin/customers.css">
 
 </head>
 <body>
@@ -25,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-icon-wrapper">
-                            <a href="settings.html"><img src="../assets/icons/icon_settings.png" alt="Settings Icon"></a>
+                            <a href="settings.jsp"><img src="../assets/icons/icon_settings.png" alt="Settings Icon"></a>
                             <a href="#"><img src="../assets/icons/icon_logout.png" alt="Logout Icon"></a>
                         </div>
                     </div>
@@ -41,25 +44,27 @@
                             <div class="sidepanel-wrapper">
                                 <div class="userprofile-wrapper">
                                     <h6>Administrator <br>Jon Snow</h6>
-                                    <p>Monday, 22 April 2019</p>
+                                    Date dNow = new Date( );
+                                    SimpleDateFormat ft = new SimpleDateFormat ("E dd.MM.yyyy");
+                                    out.print( "<p>" + ft.format(dNow) + "</p>");
                                 </div>
                             
                                 <div class="sidepanel-nav">
                                     <h6>BANKING OPTIONS</h6>
                                     <ul>
-                                        <li><a href="dashboard.html">
+                                        <li><a href="dashboard.jsp">
                                             <img src="../assets/icons/icon_dashboard.png" alt="Dashboard Icon">
                                             Dashboard
                                         </a></li>
-                                        <li><a href="transactions.html">
+                                        <li><a href="transactions.jsp">
                                             <img src="../assets/icons/icon_admin_transaction.png" alt="Transactions Admin Icon">
                                             Transactions
                                         </a></li>
-                                        <li><a href="customers.html">
+                                        <li class="active"><a href="customers.jsp">
                                             <img src="../assets/icons/icon_admin_customers.png" alt="Customers Admin Icon">
                                             Customers
                                         </a></li>
-                                        <li><a href="support.html">
+                                        <li><a href="support.jsp">
                                             <img src="../assets/icons/icon_admin_support.png" alt="Support Admin Icon">
                                             Support
                                         </a></li>
@@ -69,11 +74,11 @@
                                 <div class="sidepanel-nav">
                                     <h6>EMPLOYEE OPTIONS</h6>
                                     <ul>
-                                        <li class="active"><a href="bankers.html">
+                                        <li><a href="bankers.jsp">
                                             <img src="../assets/icons/icon_admin_bankers.png" alt="Bankers Admin Icon">
                                             Bankers
                                         </a></li>
-                                        <li><a href="admins.html">
+                                        <li><a href="admins.jsp">
                                             <img src="../assets/icons/icon_admin_admins.png" alt="Admin Icon">
                                             Admins
                                         </a></li>
@@ -90,7 +95,7 @@
                         </div>
 
                         <div class="row dash-body">
-                            <form action="">
+                            <form action="addCustomer" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h6 class="dash-title">PERSONAL INFO</h6>
