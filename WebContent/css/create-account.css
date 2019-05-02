@@ -1,0 +1,180 @@
+/* Sieepanel styles */
+
+.active {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.container-fluid {
+    padding-left: 0;
+}
+
+.col-sidepanel {
+    padding-right: 0;
+}
+
+.col-dash-body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.header {
+    background-color: #34495e;
+    padding: 15px 0px;
+    height:10vh;
+}
+
+.header-icon-wrapper {
+    float: right;
+}
+
+.header-icon-wrapper {
+   margin-right: 20px;
+}
+
+.header-icon-wrapper a img {
+    margin-right: 20px;
+}
+
+
+.dashboard {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+
+.sidepanel {
+    background-color: #f6f6f6;
+    height: 90vh;
+    overflow: scroll;
+}
+
+.userprofile-wrapper {
+    margin-bottom: 30px;
+    padding: 30px 30px 0px 30px;
+}
+
+.userprofile-wrapper h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.userprofile-wrapper p {
+    color: #848383;
+    margin: 0;
+}
+
+.sidepanel-nav {
+    margin-bottom: 30px;
+    padding: 0px 20px;
+}
+
+.sidepanel-nav h6 {
+    color: #e48515;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.sidepanel-nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sidepanel-nav ul li {
+    padding: 10px 0 10px 10px;
+    padding-left: 10px;
+}
+
+.sidepanel-nav ul li:hover {
+    padding: 10px 0 10px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidepanel-nav ul li a {
+    text-decoration: none;
+    color: #848383;
+}
+
+.sidepanel-nav ul li a img {
+    margin-right: 10px;
+}
+
+
+/* Dashboard body styles */
+
+.dash-header {
+    background-color: #a2a2a2;
+    padding: 10px 10px 10px 50px;
+}
+
+.dash-header h6 {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    top: 3px;
+    left: 10px;
+}
+
+.dash-body {
+    overflow-y: scroll;
+    padding: 10px 10px 10px 50px;
+}
+
+.section{
+    width:100%;
+    height:90vh;
+}
+
+
+.fullname,.name-initials,.nicNO, .mail, .pass, .cpass, .genderclass, .address, .typeclass, .city,.Country,.pcode,.birthday,.contact{
+    margin-left: 1px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: rgb(66, 66, 66);
+    margin-top: 10px;
+}
+
+.col-sm-8{
+     margin-top: 5px;
+}
+
+.col-sm-4.male{
+    color: rgb(66, 66, 66);;
+    font-size: 13px;
+    margin-top: 9px;
+    padding-bottom: 16px;
+}
+.col-sm-4.female{
+    color: rgb(66, 66, 66);;
+    font-size: 13px;
+    margin-top: 9px;
+    padding-bottom: 16px;
+    padding-right: 50px;
+}	
+#submit{
+    color: #e7e7e7;
+    font-size: 20px;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius:10px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    background-color: #696969;
+    width: 50%;
+    margin-left: 41%;
+    margin-top: 16px; 	   
+}
+.btn-orange1 {
+    margin-top: 8px;
+   margin-left: 50px;
+    padding: 5px 30px;
+    background-color: #e58c28;
+    color: white;
+    font-weight: 600;
+    border: 2px solid #e58c28;
+    border-radius: 5px;
+}
+

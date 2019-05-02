@@ -1,0 +1,58 @@
+/* Colors 
+     --- #455852
+     --- #9c9b7e
+     --- #f9d49b
+     --- #f29b5e
+     --- #e45b39
+*/
+
+.make-a-payment-form {
+    padding-top: 3%;
+}
+
+.make-a-payment-form p{
+    display: inline-block;
+    width: 200px;
+}
+
+input {
+    width: 300px;
+    height: 40px;
+    border:1px rgb(216, 216, 216) solid ;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-element-wrapper {
+    margin-bottom: 5px;
+}
+
+.form-element-wrapper p {
+    margin-bottom: 0px;
+}
+
+/* MAKE A PAYMENT SUMMARY STYLES */
+h3 {
+    margin-bottom: 35px;
+}
+
+.make-a-payment-summary-element p {
+    margin-bottom: 5px;
+    margin-right: 40px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.make-a-payment-summary-element span {
+    display: inline-block;
+    font-weight: 500;
+}
+
+.transaction-summary {
+    margin-bottom: 30px;
+}
