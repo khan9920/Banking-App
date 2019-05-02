@@ -61,25 +61,14 @@ public class addEmployee extends HttpServlet {
 			empACCOUNT.createUserID();
 			empACCOUNT.updateDB();
 
-			
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bank_app","root","");
-			Statement st = conn.createStatement();
-			
-            String sql = "INSERT INTO xxxxx VALUES ('"+CusID+"', '"+fullName+"', '"+Initials+"', '"+NIC+"', '"+Address+"','"+City+"', '"+Pcode+"','"+Bday+"', '"+Gender+"', '"+Contact+"', '"+Email+"', '"+Password+"', '"+CreateDate+"', '"+AccNo+"')";
-					
-			st.executeUpdate(sql);
-			out.println("Servlet file working and added some data to database");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
+			dispatcher.forward(request, response);
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());
 		
 		}
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-		dispatcher.forward(request, response);
-		
 	}
 
 }
