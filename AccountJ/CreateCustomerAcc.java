@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import DBconnection.*;
 
 
 public class CreateCustomerACC implements iCreateAccout{
@@ -89,6 +90,18 @@ public class CreateCustomerACC implements iCreateAccout{
     };
     
     public void updateDB(){
+
+        dbConnection con = new dbConnection();
+        Connection conn = con.toConnect();
+        
+
+        Statement st = conn.createStatement();
+			
+        String sql = "INSERT INTO customer VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"','"+bday+"', '"+gender+"', '"+contact+"', '"+email+"', '"+password+"', '"+createDateNtime+"', '"+acccNo+"')";
+					
+        st.executeUpdate(sql);
+    
+		out.println("Servlet file working and added some data to database");
 
     };
 
