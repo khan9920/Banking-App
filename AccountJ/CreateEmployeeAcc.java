@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class CreateCustomerACC implements iCreateAccout{
+public class CreateEmployeeACC implements iCreateAccout{
 
     private String userID;
     private String name;
