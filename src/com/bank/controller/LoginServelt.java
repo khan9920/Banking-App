@@ -70,7 +70,7 @@ public class LoginServelt extends HttpServlet {
     				if(login3.checkCust(bankID, password)) {
     					session = request.getSession(); 
     					session.setAttribute("bankID", bankID); 
-    					response.sendRedirect("dashboard.jsp");
+    					response.sendRedirect("cDashboard");
     				}
     				else {
         				response.sendRedirect("login.jsp");

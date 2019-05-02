@@ -19,9 +19,7 @@ public class LoginCustomer {
 			if(bankID.equals(rs.getString("custID")) && pass.equals(rs.getString("password"))) {
 				return true;
 				
-			}else {
-				return false;
-		}
+			}
 	}
 		return false;
 	}

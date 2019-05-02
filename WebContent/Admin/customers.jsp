@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="com.bank.dao.*, javax.servlet.ServletException, java.sql.ResultSet, java.io.*,java.util.*, javax.servlet.*,java.text.*" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,16 +16,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link  rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link  rel="stylesheet" href="../css/style.css" type = "text/css">
+    <link rel="stylesheet" href="../css/dashboard.css" type = "text/css">
+    <link rel="stylesheet" href="../css/admin/customers.css" type = "text/css">
 
 </head>
 <body>
-	<% if(session.getAttribute("bankID") == null){
+<% if(session.getAttribute("bankID") == null){
 	response.sendRedirect("../login.jsp");
 	}
-	%>
-	
+
+%>
     <div class="dashboard">
         <div class="header">
             <div class="container-fluid">
@@ -53,7 +55,7 @@
                                 <div class="sidepanel-nav">
                                     <h6>BANKING OPTIONS</h6>
                                     <ul>
-                                        <li><a href="admins.jsp">
+                                        <li><a href="dashboard.html">
                                             <img src="../assets/icons/icon_dashboard.png" alt="Dashboard Icon">
                                             Dashboard
                                         </a></li>
@@ -61,7 +63,7 @@
                                             <img src="../assets/icons/icon_admin_transaction.png" alt="Transactions Admin Icon">
                                             Transactions
                                         </a></li>
-                                        <li><a href="customers.jsp">
+                                        <li class="active"><a href="customers.jsp">
                                             <img src="../assets/icons/icon_admin_customers.png" alt="Customers Admin Icon">
                                             Customers
                                         </a></li>
@@ -79,7 +81,7 @@
                                             <img src="../assets/icons/icon_admin_bankers.png" alt="Bankers Admin Icon">
                                             Bankers
                                         </a></li>
-                                        <li class="active"><a href="admins.html">
+                                        <li><a href="admins.html">
                                             <img src="../assets/icons/icon_admin_admins.png" alt="Admin Icon">
                                             Admins
                                         </a></li>
@@ -92,68 +94,53 @@
 
                         <div class="dash-header">
                             <img src="../assets/icons/icon_dashboard_admin_transaction.png" alt="Transactions Header Icon">
-                            <h6>ADMINS</h6>
+                            <h6>CUSTOMERS</h6>
                         </div>
 
                         <div class="row dash-body">
                             <div class="col-md-12">
-                                <button class="btn-orange btn-add-user" onclick="location.href='add-admin.html' ">ADD ADMIN</button>
+                                <button class="btn-orange btn-add-user" onclick="location.href='add-customer.html' ">ADD CUSTOMER</button>
+                                <form action = "../searchCustomer" method = "post">
+                                        <input type = "text" id = "searchBox" name = "search" placeholder = "search">
+                                        <input type = "submit" value = "search">
+                                </form>
                             </div>
                             <div class="col-md-12">
                                 <div class="transactions">
+                                    
                                     <table>
                                         <tr>
-                                            <th>Employee ID</th>
+                                            <th>Customer ID</th>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Department</th>
+                                            <th>Account Number</th>
                                             <th>Last logged in</th>
                                             <th>Actions</th>
                                         </tr>
+                                        <%Date dNow = new Date( );
+                                        SimpleDateFormat ft = 
+                                        		new SimpleDateFormat ("yyyy-MM-dd");
+                                        		String today = ft.format(dNow);
+
+
+                                        		DisplayCustomers disp = new DisplayCustomers();
+                                        		ResultSet rs = disp.Display(today);
+                                        		while(rs.next()){
+                                        			String custID =(String)rs.getString("custID");
+                                        			String name =(String)rs.getString("fullName");
+                                        			String accNo = (String)rs.getString("accountNumber");
+                                        			String date = (String)rs.getString("createDate");
+                                        		%>
                                         <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
+                                            <td> <%= custID%> </td>
+                                            <td><%= name %></td>
+                                            <td><%= accNo %></td>
+                                            <td><%= date %></td>
                                             <td>
                                                 <a href="edit-customer.html"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
                                                 <a href="delete-customer.html"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
-                                            <td>
-                                                <a href="edit-customer.html"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.html"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
-                                            <td>
-                                                <a href="edit-customer.html"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.html"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
-                                            <td>
-                                                <a href="edit-customer.html"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.html"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
-                                            </td>
-                                        </tr>
+                                        <%} %>
                                     </table>                        
                                 </div>
                             </div>

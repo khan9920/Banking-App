@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="com.bank.dao.*, javax.servlet.ServletException, java.sql.ResultSet" %> 
+    <%@ page import="com.bank.model.*, javax.servlet.ServletException" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,34 +23,10 @@
 
 <% if(session.getAttribute("bankID") == null){
 	response.sendRedirect("login.jsp");
-}else{
-	String bankID = (String)session.getAttribute("bankID");
-	String name;
-	int accNo;
-	long bal;
-	CustomerDetail cust = new CustomerDetail();
-	ResultSet rs = cust.custDetails(bankID);
-	while(rs.next()){
-		name = rs.getString("fullName");
-		accNo = rs.getInt("accountNo");
-		bal = rs.getLong("cBalance");
-
+}
+	
 	%>
-	
-	<%-- <%
-		String bankID = (String)session.getAttribute("bankID");
-		String name;
-		int accNo;
-		long bal;
-		CustomerDetail cust = new CustomerDetail();
-		ResultSet rs = cust.custDetails(bankID);
-		while(rs.next()){
-			name = rs.getString("fullName");
-			accNo = rs.getInt("accountNo");
-			bal = rs.getLong("cBalance");
-	%>  --%>
-	
-    
+
 <div class="header">
     <div class="container-fluid">
         <div class="row">
@@ -71,7 +47,7 @@
                 <div class="sidepanel">
                     <div class="sidepanel-wrapper">
                         <div class="userprofile-wrapper">
-                            <h6><%= name %></h6>
+                            <h6><%= request.getAttribute("name") %> </h6>
                             <p>Friday, 12 April 2019</p>
                         </div>
                         <div class="sidepanel-nav">
@@ -125,11 +101,11 @@
                     <div class="col-md-6">
                         <div class="balance-wrapper">
                             <div class="bank-balanace-wrapper">
-                                <p class="acc-no"><%= accNo%></p>
+                                <p class="acc-no"><%= request.getAttribute("accNo")%></p>
                             </div>
                             <div class="balance">
                                 <p>Balance</p>
-                                <h3><%= bal %><span>LKR</span></h3>
+                                <h3> <%= request.getAttribute("bal") %><span>LKR</span></h3>
                             </div>
                             <div class="recent-transaction">
                                 <p>Recent Transactions</p>
@@ -140,7 +116,7 @@
                                 <div class="credit">
                                     <p>1350.00</p> <img src="assets/icons/icon_plus.png" alt="Plus Icon"> <br>
                                     <p class="transation-date">23.03.2019</p>
-                                   	<%}} %>
+                                   	<%-- <%}} %> --%>
                                 </div>
                             </div>
                         </div>
