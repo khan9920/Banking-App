@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.io.*,java.util.*" %>
+<%@ page import = "javax.servlet.*,java.text.*" %>
+    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +47,9 @@
                             <div class="sidepanel-wrapper">
                                 <div class="userprofile-wrapper">
                                     <h6>Administrator <br>Jon Snow</h6>
-                                    <p>Monday, 22 April 2019</p>
+                                    <%    Date dNow = new Date( );
+                                    SimpleDateFormat ft = new SimpleDateFormat ("E dd.MM.yyyy");
+                                    out.print( "<p>" + ft.format(dNow) + "</p>"); %>
                                 </div>
                             
                                 <div class="sidepanel-nav">

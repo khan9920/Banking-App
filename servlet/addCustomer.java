@@ -1,10 +1,10 @@
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,17 +12,16 @@ import java.sql.Statement;
 import java.util.Random;
 import AccoutJ.*;
 
-
  // Servlet implementation class addtestservlet
  
-@WebServlet("/addtestservlet")
-public class addtestservlet extends HttpServlet {
+@WebServlet("/addCustomer")
+public class addCustomer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
     // @see HttpServlet#HttpServlet()
     
-    public addtestservlet() {
+    public addCustomer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,33 +39,29 @@ public class addtestservlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		
+		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 		
 		try {
 
-			Random rand = new Random();
-			int random = rand.nextInt((999999 - 100000) + 1) + 100000;
-            String CusID = "C"+random;
+			CreateCustomerACC cusACCOUNT = new CreateCustomerACC();
 
-			String fullName = request.getParameter("fullname");
-			String Initials = request.getParameter("nameWithInitials");
-			String NIC = request.getParameter("NICno");
-            String Address = request.getParameter("address");
-            String City = request.getParameter("city");
-            String Bday = request.getParameter("birthday");
-            String Gender = request.getParameter("gender");
-            String Contact = request.getParameter("contact");
-            int Pcode = Integer.parseInt(requst.getParameter("pcode"));
-            String Email = request.getParameter("email");
-            String Password = request.getParameter("password");
-			
-			Date dateNow = new Date( );
-         	SimpleDateFormat frmt = new SimpleDateFormat ("dd.MM.yyyy");
-         	String CreateDate = frmt.format(dateNow);
+			cusACCOUNT.setName(request.getParameter("fullname"));
+			cusACCOUNT.setInitials(request.getParameter("nameWithInitials"));
+			cusACCOUNT.setNIC(request.getParameter("NICno"));
+            cusACCOUNT.setAddress(request.getParameter("address"));
+            cusACCOUNT.setCity(request.getParameter("city"));
+            cusACCOUNT.setBday(request.getParameter("birthday"));
+            cusACCOUNT.setGender(request.getParameter("gender"));
+            cusACCOUNT.setContact(Integer.parseInt(request.getParameter("contact")));
+            cusACCOUNT.setPcode(Integer.parseInt(requst.getParameter("pcode")));
+            cusACCOUNT.setEmail(request.getParameter("email"));
+            cusACCOUNT.setPassword(request.getParameter("password"));
+			cusACCOUNT.setCreateDate();
+			cusACCOUNT.createUserID();
+			cusACCOUNT.createAccNo();
+			cusACCOUNT.updateDB();
 
-			int randomACC = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
-            int AccNo = randomACC;
-		
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -78,11 +73,18 @@ public class addtestservlet extends HttpServlet {
 			st.executeUpdate(sql);
 			out.println("Servlet file working and added some data to database");
 			
-			}catch(Exception e) {
+		}catch(Exception e) {
 			out.print(e.getMessage());
 		
 		}
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
+		dispatcher.forward(request, response);
 		
 	}
 
 }
+
+
+
+		
