@@ -14,14 +14,14 @@ import AccoutJ.*;
 
  // Servlet implementation class addtestservlet
  
-@WebServlet("/addEmployee")
-public class addEmployee extends HttpServlet {
+@WebServlet("/addAdmin")
+public class addAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
     // @see HttpServlet#HttpServlet()
     
-    public addEmployee() {
+    public addAdmin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,22 +44,22 @@ public class addEmployee extends HttpServlet {
 		
 		try {
 
-			CreateEmployeeACC empACCOUNT = new CreateEmployeeACC();
+			CreateAdminACC adminACCOUNT = new CreateAdminACC();
 
-			empACCOUNT.setName(request.getParameter("fullname"));
-			empACCOUNT.setInitials(request.getParameter("nameWithInitials"));
-			empACCOUNT.setNIC(request.getParameter("NICno"));
-            empACCOUNT.setAddress(request.getParameter("address"));
-            empACCOUNT.setCity(request.getParameter("city"));
-            empACCOUNT.setBday(request.getParameter("birthday"));
-            empACCOUNT.setGender(request.getParameter("gender"));
-            empACCOUNT.setContact(Integer.parseInt(request.getParameter("contact")));
-            empACCOUNT.setPcode(Integer.parseInt(requst.getParameter("pcode")));
-            empACCOUNT.setEmail(request.getParameter("email"));
-            empACCOUNT.setPassword(request.getParameter("password"));
-			empACCOUNT.setCreateDate();
-			empACCOUNT.createUserID();
-			empACCOUNT.updateDB();
+			adminACCOUNT.setName(request.getParameter("fullname"));
+			adminACCOUNT.setInitials(request.getParameter("nameWithInitials"));
+			adminACCOUNT.setNIC(request.getParameter("NICno"));
+            adminACCOUNT.setAddress(request.getParameter("address"));
+            adminACCOUNT.setCity(request.getParameter("city"));
+            adminACCOUNT.setBday(request.getParameter("birthday"));
+            adminACCOUNT.setGender(request.getParameter("gender"));
+            adminACCOUNT.setContact(Integer.parseInt(request.getParameter("contact")));
+            adminACCOUNT.setPcode(Integer.parseInt(requst.getParameter("pcode")));
+            adminACCOUNT.setEmail(request.getParameter("email"));
+            adminACCOUNT.setPassword(request.getParameter("password"));
+			adminACCOUNT.setCreateDate();
+			adminACCOUNT.createUserID();
+			adminACCOUNT.updateDB();
 
 			
 			Class.forName("com.mysql.jdbc.Driver");
