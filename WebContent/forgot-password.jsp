@@ -20,15 +20,12 @@
         <!-- Styles -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/forgotPass.css">
-        <link rel="stylesheet" href="css/login.css">
 
         <!-- Title -->
-        <title>World Bank | Login</title>
+        <title>World Bank | Forgot Password</title>
     </head>
 
     <body>
-        
-
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -39,13 +36,12 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="login-wrapper">
-                            <p>LOGIN</p>
-                            <form action="Customer/dashboard.html" class="login">
-                                <input type="text" id="bankId" placeholder="Banking ID">
-                                <input type="password" id="password" placeholder="Password">
-                                <button class="btn btn-orange">LOGIN</button>
-                                <a href="forgot-password.jsp">Forgot password?</a>
+                        <div class="forgot-password-wrapper">
+                            <p>RESET PASSWORD</p>
+                            <form action="forgotPWservlet" method="POST" class="login">
+                                <input type="text" name="USERid" id="bankId" placeholder="USER ID">
+                                <button class="btn btn-orange">SEND SECURITY PIN</button>
+                                <a href="index.jsp">Remember password?</a>
                             </form>
                         </div>
                     </div>
@@ -57,9 +53,9 @@
                         <div class="col-md-12">
                             <div class="footer-content">
                                 <hr>
-                                <p class="footer-para"> Bank name - Retail Version Â© year</p>
+                                <p class="footer-para"> Bank name - Retail Version © year</p>
                                 <a href="#" class="link about-us">About Us</a> <span class = "devide-span">|</span>
-                                <a href="Customer/contact-us.jsp" class="link contact-us">Contact Us</a>
+                                <a href="contact-us.jsp" class="link contact-us">Contact Us</a>
                             </div>
                         </div>
                     </div>

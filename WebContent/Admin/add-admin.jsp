@@ -126,8 +126,8 @@
                                         <input type="text" name="birthday" id="birthdayid" placeholder="dd/mm/yy">
                                             
                                         <label>Gender :</label>
-                                        <input type="radio" name="gender" id="genderMale" value="male" checked>Male</input>
-                                        <input type="radio"  name="gender" id="genderFemale" value="female">Female</input>
+                                        <input type="radio" name="gender" id="genderMale" value="male" checked>Male
+                                        <input type="radio"  name="gender" id="genderFemale" value="female">Female
 										<br>
                                         <label class="contact">Contact :</label>
                                         <input type="text" name="contact" id="contactid" placeholder="Telephone Number">
