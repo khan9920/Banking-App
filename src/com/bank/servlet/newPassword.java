@@ -13,16 +13,16 @@ import com.bank.service.*;
 
 
 /**
- * Servlet implementation class forgotPWservlet
+ * Servlet implementation class newPassword
  */
-@WebServlet("/forgotPWservlet")
-public class forgotPWservlet extends HttpServlet {
+@WebServlet("/newPassword")
+public class newPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public forgotPWservlet() {
+    public newPassword() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,8 +48,8 @@ public class forgotPWservlet extends HttpServlet {
 		try {
 			Authentication Fpassword = new Authentication();
 			
-			Fpassword.setUserId(request.getParameter("USERid"));
-			Fpassword.sendEmail();
+			Fpassword.setuDigits(Integer.parseInt(request.getParameter("digits")));
+			Fpassword.setNewPw(Integer.parseInt(request.getParameter("newPass")));
 			//session will be created at the authentication to store the digits that send via email
 			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
