@@ -39,10 +39,7 @@ public class addCustomer extends HttpServlet {
 		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        
-        //out.print("WORKING");
-        
-        
+
 		
 		try {
 		
@@ -59,16 +56,13 @@ public class addCustomer extends HttpServlet {
             cusACCOUNT.setPcode(Integer.parseInt(request.getParameter("pcode")));
             cusACCOUNT.setEmail(request.getParameter("email"));
             cusACCOUNT.setPassword(request.getParameter("password"));
-	//		cusACCOUNT.setCreateDate();
-	//		cusACCOUNT.createUserID();
+			cusACCOUNT.setCreateDate();
+			cusACCOUNT.createUserID();
 			cusACCOUNT.createAccNo();
-		//	cusACCOUNT.updateDB();
-			
-			out.print(cusACCOUNT.updateCheck());
+			cusACCOUNT.updateDB();
+
 			
 			out.print(cusACCOUNT.print());
-			
-		//	out.print("WORKING");
 
 		//	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("test.jsp");
 		//	dispatcher.forward(request, response);

@@ -12,7 +12,7 @@ import com.bank.model.*;
 
 public class CreateCustomerAcc implements iCreateAccount{
 
-    private String userID="ccc3456";
+    private String userID;
     private String name;
     private String initials;
     private String nic;
@@ -24,7 +24,7 @@ public class CreateCustomerAcc implements iCreateAccount{
     private int contact;
     private String Cemail;
     private String password;
-    private String createDateNtime = "2019-05-09 00.00.00";
+    private String createDateNtime;
     private int accNo;
 
     public void setName(String Name){
@@ -74,71 +74,50 @@ public class CreateCustomerAcc implements iCreateAccount{
     public void setCreateDate(){
         Date dNow = new Date();
         SimpleDateFormat ft =  new SimpleDateFormat ("yyyy.MM.dd hh:mm:ss");
-        String createDateNtime = ft.format(dNow);
+        createDateNtime = ft.format(dNow);
     };
     
     public void createUserID(){
         Random rand = new Random();
 		int random = rand.nextInt((999999 - 100000) + 1) + 100000;
-        String userID = "C"+random;
+		String randomID = Integer.toString(random);
+        userID = "C"+randomID;
     };
 
     public void createAccNo(){
     	Random rand = new Random();
         int randomACC = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
-        int accNo = randomACC;
+        accNo = randomACC;
     };
     
     public void updateDB(){
 
     	try {
-    	
-        dbConnection con = new dbConnection();
-        Connection conn = con.toConnect();
-        
+        	
+            dbConnection con = new dbConnection();
+            Connection conn = con.toConnect();
+            
 
-        Statement st = conn.createStatement();
-			
-        String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,Birthday,gender,tpNO,email,password,createDate,accountNumber) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"','"+bday+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+createDateNtime+"', '"+accNo+"')";
-					
-        st.executeUpdate(sql);
+            Statement st = conn.createStatement();
+    			
+            String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
+    					
+            st.executeUpdate(sql);
+            System.out.println("Update s ");
 
-    	}catch(Exception e) {
-    		
-    	}
-
+        }catch(Exception e) {
+       		System.out.println(e);
+        }
+        	
         
     };
     
-    public String updateCheck(){
-
-    	try {
-    	
-        dbConnection con = new dbConnection();
-        Connection conn = con.toConnect();
-        
-
-        Statement st = conn.createStatement();
-			
-        String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
-					
-        st.executeUpdate(sql);
-        System.out.println("Update s ");
-
-    	}catch(Exception e) {
-    		System.out.println(e);
-    	}
-    	
-		return "update s ";
-
-        
-    };
     
     public String print() {
 //    	System.out.println(userID);
 //    	System.out.println(name);
 //    	System.out.println(initials);
-    	String test = userID+" "+name+" " + initials+" "+nic+" ";
+    	String test = userID+ " "+name+" "+initials+" "+nic+" "+address+" "+city+" "+pcode+" "+gender+" "+contact+" "+Cemail+" "+password+" "+accNo+" "+bday+" "+createDateNtime;
     	return (test);
     }
 
