@@ -1,0 +1,93 @@
+@charset "ISO-8859-1";
+
+/* Colors 
+     --- #455852
+     --- #9c9b7e
+     --- #f9d49b
+     --- #f29b5e
+     --- #e45b39
+*/
+
+.section {
+    height: 100vh;
+    padding-top: 50px;
+}
+
+
+/* Heading styles */
+.heading-wrapper i,
+.heading-wrapper h1 {
+    color: #e58c28;
+}
+
+.heading-wrapper i {
+    font-size: 45px;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.heading-wrapper h1 {
+    display: inline-block;
+}
+
+.heading-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Login form styles */
+
+.login-content{
+    margin-top: 50px;
+
+}
+
+.login-wrapper{
+    background-color:#9c9b7e1c;
+    padding: 50px 25px 120px 25px;
+    border-radius: 4px;
+    width: 80%;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.login-wrapper p {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #f29b5e;
+    font-weight: 600;
+    text-align: center;
+}
+
+.login-wrapper *{
+    display: block;
+}
+
+input{
+    width : 100%;
+    padding: 10px;
+    border: 1px #f29c5e57 solid;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+input::placeholder{
+    color: #dfdfdff5;
+}
+
+button {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+a {
+    color: #848383;
+}
+
+a:hover {
+    color: #848383;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 30px;
+}
