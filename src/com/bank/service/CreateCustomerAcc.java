@@ -1,9 +1,7 @@
 package com.bank.service;
 
-import java.io.*;
 import java.util.*;
 import java.util.Date;
-import javax.servlet.*;
 import java.text.*;
 import java.sql.*;
 import com.bank.dao.*;
