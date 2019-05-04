@@ -3,23 +3,16 @@ package com.bank.service;
 import java.io.*;
 import java.util.*;
 import java.util.Date;
-
 import javax.servlet.*;
 import java.text.*;
 import java.sql.*;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import com.bank.dao.*;
 import com.bank.model.*;
 
 
 public class CreateCustomerAcc implements iCreateAccount{
 
-    private String userID;
+    private String userID="ccc3456";
     private String name;
     private String initials;
     private String nic;
@@ -31,7 +24,7 @@ public class CreateCustomerAcc implements iCreateAccount{
     private int contact;
     private String Cemail;
     private String password;
-    private String createDateNtime;
+    private String createDateNtime = "2019-05-09 00.00.00";
     private int accNo;
 
     public void setName(String Name){
@@ -106,7 +99,7 @@ public class CreateCustomerAcc implements iCreateAccount{
 
         Statement st = conn.createStatement();
 			
-        String sql = "INSERT INTO customer VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"','"+bday+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+createDateNtime+"', '"+accNo+"')";
+        String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,Birthday,gender,tpNO,email,password,createDate,accountNumber) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"','"+bday+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+createDateNtime+"', '"+accNo+"')";
 					
         st.executeUpdate(sql);
 
@@ -116,5 +109,37 @@ public class CreateCustomerAcc implements iCreateAccount{
 
         
     };
+    
+    public String updateCheck(){
+
+    	try {
+    	
+        dbConnection con = new dbConnection();
+        Connection conn = con.toConnect();
+        
+
+        Statement st = conn.createStatement();
+			
+        String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
+					
+        st.executeUpdate(sql);
+        System.out.println("Update s ");
+
+    	}catch(Exception e) {
+    		System.out.println(e);
+    	}
+    	
+		return "update s ";
+
+        
+    };
+    
+    public String print() {
+//    	System.out.println(userID);
+//    	System.out.println(name);
+//    	System.out.println(initials);
+    	String test = userID+" "+name+" " + initials+" "+nic+" ";
+    	return (test);
+    }
 
 }
