@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.io.IOException;
 import java.util.Properties;
-import javax.mail.Message;
+/*import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
@@ -14,7 +14,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-
+*/
 import com.bank.dao.*;
 
 public class Authentication {

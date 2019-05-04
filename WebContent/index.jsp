@@ -41,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="login-wrapper">
                             <p>LOGIN</p>
-                            <form action="Customer/dashboard.html" class="login">
+                            <form action="" class="login">
                                 <input type="text" id="bankId" placeholder="Banking ID">
                                 <input type="password" id="password" placeholder="Password">
                                 <button class="btn btn-orange">LOGIN</button>

@@ -8,10 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.util.Random;
 import com.bank.service.*;
 
  // Servlet implementation class addCustomer
@@ -43,9 +39,13 @@ public class addCustomer extends HttpServlet {
 		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        
+        //out.print("WORKING");
+        
+        
 		
 		try {
-
+		
 			CreateCustomerAcc cusACCOUNT = new CreateCustomerAcc();
 
 			cusACCOUNT.setName(request.getParameter("fullname"));
@@ -59,18 +59,27 @@ public class addCustomer extends HttpServlet {
             cusACCOUNT.setPcode(Integer.parseInt(request.getParameter("pcode")));
             cusACCOUNT.setEmail(request.getParameter("email"));
             cusACCOUNT.setPassword(request.getParameter("password"));
-			cusACCOUNT.setCreateDate();
-			cusACCOUNT.createUserID();
+	//		cusACCOUNT.setCreateDate();
+	//		cusACCOUNT.createUserID();
 			cusACCOUNT.createAccNo();
-			cusACCOUNT.updateDB();
+		//	cusACCOUNT.updateDB();
+			
+			out.print(cusACCOUNT.updateCheck());
+			
+			out.print(cusACCOUNT.print());
+			
+		//	out.print("WORKING");
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.jsp");
-			dispatcher.forward(request, response);
+		//	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("test.jsp");
+		//	dispatcher.forward(request, response);
+			out.print("WORKING");
 			
 		}catch(Exception e) {
-			out.print(e.getMessage());
+			System.out.print(e.getMessage());
 		
 		}
+	
+
 
 	}
 
