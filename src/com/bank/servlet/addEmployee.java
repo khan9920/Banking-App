@@ -6,12 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.util.Random;
 import com.bank.service.*;
 
  // Servlet implementation class addEmpolyee
@@ -62,10 +57,8 @@ public class addEmployee extends HttpServlet {
 			empACCOUNT.setCreateDate();
 			empACCOUNT.createUserID();
 			empACCOUNT.updateDB();
-			
-	
-			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			//dispatcher.forward(request, response);
+
+			response.sendRedirect("test.jsp");
 
 			
 		}catch(Exception e) {

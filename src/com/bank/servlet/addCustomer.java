@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
 import java.io.PrintWriter;
 import com.bank.service.*;
 
@@ -61,13 +60,11 @@ public class addCustomer extends HttpServlet {
 			cusACCOUNT.createAccNo();
 			cusACCOUNT.updateDB();
 
-
-		//	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("test.jsp");
-		//	dispatcher.forward(request, response);
+			response.sendRedirect("test.jsp");
 
 			
 		}catch(Exception e) {
-			System.out.print(e.getMessage());
+			out.print(e.getMessage());
 		
 		}
 	
