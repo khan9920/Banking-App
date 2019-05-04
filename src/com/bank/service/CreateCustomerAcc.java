@@ -103,7 +103,6 @@ public class CreateCustomerAcc implements iCreateAccount{
             String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
     					
             st.executeUpdate(sql);
-            System.out.println("Update s ");
 
         }catch(Exception e) {
        		System.out.println(e);
@@ -112,13 +111,5 @@ public class CreateCustomerAcc implements iCreateAccount{
         
     };
     
-    
-    public String print() {
-//    	System.out.println(userID);
-//    	System.out.println(name);
-//    	System.out.println(initials);
-    	String test = userID+ " "+name+" "+initials+" "+nic+" "+address+" "+city+" "+pcode+" "+gender+" "+contact+" "+Cemail+" "+password+" "+accNo+" "+bday+" "+createDateNtime;
-    	return (test);
-    }
 
 }

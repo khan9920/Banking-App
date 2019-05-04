@@ -103,22 +103,12 @@ public class CreateEmployeeAcc implements iCreateAccount{
         String sql = "INSERT INTO Employee(empID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Eemail+"', '"+password+"', '"+bday+"', '"+createDateNtime+"')";
 		
         st.executeUpdate(sql);
-        System.out.println("Update s ");
 
-    }catch(Exception e) {
-   		System.out.println(e);
-    }
+    	}catch(Exception e) {
+    		System.out.println(e);
+    	}
     	
+    };
     
-};
-    
-    public String print() {
-//    	System.out.println(userID);
-//    	System.out.println(name);
-//    	System.out.println(initials);
-    	String test = userID+ " "+name+" "+initials+" "+nic+" "+address+" "+city+" "+pcode+" "+gender+" "+contact+" "+Eemail+" "+password+" "+bday+" "+createDateNtime;
-    	return (test);
-    }
-  
 
 }
