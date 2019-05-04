@@ -62,9 +62,13 @@ public class addEmployee extends HttpServlet {
 			empACCOUNT.setCreateDate();
 			empACCOUNT.createUserID();
 			empACCOUNT.updateDB();
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			dispatcher.forward(request, response);
+			
+			
+			out.print(empACCOUNT.print());
+			
+			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
+			//dispatcher.forward(request, response);
+			out.print("WORKING");
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());

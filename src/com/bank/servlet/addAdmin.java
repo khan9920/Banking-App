@@ -64,9 +64,12 @@ public class addAdmin extends HttpServlet {
 			adminACCOUNT.createUserID();
 			adminACCOUNT.updateDB();
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			dispatcher.forward(request, response);
-		
+			
+			out.print(adminACCOUNT.print());
+			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
+			//dispatcher.forward(request, response);
+			out.print("WORKING");
+			
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());

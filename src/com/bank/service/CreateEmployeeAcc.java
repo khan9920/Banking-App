@@ -79,13 +79,14 @@ public class CreateEmployeeAcc implements iCreateAccount{
     public void setCreateDate(){
         Date dNow = new Date( );
         SimpleDateFormat ft =  new SimpleDateFormat ("yyyy.MM.dd hh:mm:ss");
-        String createDateNtime = ft.format(dNow);
+        createDateNtime = ft.format(dNow);
     };
     
     public void createUserID(){
         Random rand = new Random();
 		int random = rand.nextInt((999999 - 100000) + 1) + 100000;
-        String userID = "E"+random;
+		String randomID = Integer.toString(random);
+        userID = "E"+randomID;
     };
 
     
@@ -99,14 +100,25 @@ public class CreateEmployeeAcc implements iCreateAccount{
 
         Statement st = conn.createStatement();
 			
-        String sql = "INSERT INTO Employee VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"','"+bday+"', '"+gender+"', '"+contact+"', '"+Eemail+"', '"+password+"', '"+createDateNtime+"')";
-					
+        String sql = "INSERT INTO Employee(empID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Eemail+"', '"+password+"', '"+bday+"', '"+createDateNtime+"')";
+		
         st.executeUpdate(sql);
-    
-    	}catch(Exception e) {
-    		
-    	}
+        System.out.println("Update s ");
 
-    };
+    }catch(Exception e) {
+   		System.out.println(e);
+    }
+    	
+    
+};
+    
+    public String print() {
+//    	System.out.println(userID);
+//    	System.out.println(name);
+//    	System.out.println(initials);
+    	String test = userID+ " "+name+" "+initials+" "+nic+" "+address+" "+city+" "+pcode+" "+gender+" "+contact+" "+Eemail+" "+password+" "+bday+" "+createDateNtime;
+    	return (test);
+    }
+  
 
 }
