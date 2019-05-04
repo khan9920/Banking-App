@@ -64,11 +64,10 @@ public class addAdmin extends HttpServlet {
 			adminACCOUNT.createUserID();
 			adminACCOUNT.updateDB();
 
-			
-			out.print(adminACCOUNT.print());
+
 			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
 			//dispatcher.forward(request, response);
-			out.print("WORKING");
+
 			
 			
 		}catch(Exception e) {

@@ -61,12 +61,10 @@ public class addCustomer extends HttpServlet {
 			cusACCOUNT.createAccNo();
 			cusACCOUNT.updateDB();
 
-			
-			out.print(cusACCOUNT.print());
 
 		//	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("test.jsp");
 		//	dispatcher.forward(request, response);
-			out.print("WORKING");
+
 			
 		}catch(Exception e) {
 			System.out.print(e.getMessage());
