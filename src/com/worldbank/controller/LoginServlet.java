@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("bankID", bankID); //assigning session variable
 			session.setAttribute("userFirstName", "Shafkhan"); //assigning session variable
 			session.setAttribute("userLastName", "Mohamed"); //assigning session variable
-			response.sendRedirect("dashboard.jsp"); //redirecting to dashboard
+			response.sendRedirect("admin/dashboard.jsp"); //redirecting to dashboard
 			
 		} else {
 			response.sendRedirect("index.jsp"); //redirecting to dashboard when credentials false
