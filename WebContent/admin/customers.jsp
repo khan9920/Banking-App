@@ -138,9 +138,9 @@
                                             <td><%= lastLoggnedIn %></td>
                                             <td>
                                                 <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <form action="DeleteCustomerServlet" method="POST">
+                                                <form action="../DeleteCustomerServlet" method="POST">
+                                                	<input type="hidden" value="<%= customerID %>" name="deleteCusID">
                                                 	<button type="submit" class="btn-delete"></button>
-                                                	<!-- <a href="delete-customer.jsp"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a> -->
                                                 </form>
                                             </td>
                                         </tr>

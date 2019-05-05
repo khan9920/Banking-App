@@ -103,7 +103,7 @@
                         </div>
 
                         <div class="row dash-body">
-                            <form action="../AddCustomer" method="POST">
+                            <form action="../AddCustomerServlet" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h6 class="dash-title">PERSONAL INFO</h6>
