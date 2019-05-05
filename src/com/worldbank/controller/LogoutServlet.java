@@ -41,8 +41,6 @@ public class LogoutServlet extends HttpServlet {
 		session.removeAttribute("bankID"); //removing session variable
 		session.invalidate(); //removing all session data 
 		
-		response.sendRedirect("index.jsp");
-		
+		response.sendRedirect("index.jsp");	
 	}
-
 }

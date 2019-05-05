@@ -36,20 +36,20 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String bankID = request.getParameter("bankID");
-		String password = request.getParameter("password");
+		String bankID = request.getParameter("bankID"); //assigning form data to variable
+		String password = request.getParameter("password"); //assigning form data to variable
 		
 		if ( bankID.equals("WB001") && password.equals("Loft1024")) {
 			
 			HttpSession session = request.getSession();
 			
-			session.setAttribute("bankID", bankID);
-			session.setAttribute("userFirstName", "Shafkhan");
-			session.setAttribute("userLastName", "Mohamed");
-			response.sendRedirect("dashboard.jsp");
+			session.setAttribute("bankID", bankID); //assigning session variable
+			session.setAttribute("userFirstName", "Shafkhan"); //assigning session variable
+			session.setAttribute("userLastName", "Mohamed"); //assigning session variable
+			response.sendRedirect("dashboard.jsp"); //redirecting to dashboard
 			
 		} else {
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index.jsp"); //redirecting to dashboard when credentials false
 		}
 		
 	}

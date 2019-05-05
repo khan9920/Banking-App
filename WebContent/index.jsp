@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <!-- Check whether session is set -->
+	<!-- If session is set, redirect to dashbaord -->
+    <%
+    	if(session.getAttribute("bankID") != null ) {
+    		response.sendRedirect("dashboard.jsp");
+    	}
+    %>
+    
+    <!-- session check ends -->
 
 <!DOCTYPE html>
 <html>
