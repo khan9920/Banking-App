@@ -140,7 +140,7 @@
                                                 <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
                                                 <form action="../DeleteCustomerServlet" method="POST">
                                                 	<input type="hidden" value="<%= customerID %>" name="deleteCusID">
-                                                	<button type="submit" class="btn-delete"></button>
+                                                	<button type="submit" class="btn-delete" onClick="return confirm('Are you sure you want to delete this user?');"></button>
                                                 </form>
                                             </td>
                                         </tr>
