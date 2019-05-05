@@ -136,8 +136,8 @@
                                             <td>
                                                 <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
                                                 <form action="../DeleteAdminServlet" method="POST">
-                                                	<input type="hidden" value="<%= adminID %>" name="deleteCusID">
-                                                	<button type="submit" class="btn-delete" onClick="return confirm('Are you sure you want to delete this customer account?');"></button>
+                                                	<input type="hidden" value="<%= adminID %>" name="deleteAdminID">
+                                                	<button type="submit" class="btn-delete" onClick="return confirm('Are you sure you want to delete this admin account?');"></button>
                                                 </form>
                                             </td>
                                         </tr>
