@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="row dash-body">
-                            <form action="">
+                            <form action="../CreateAdminServlet" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h6 class="dash-title">PERSONAL INFO</h6>
@@ -129,7 +129,7 @@
                                         <input type="text" name="birthday" id="birthdayid" placeholder="dd/mm/yy">
                                             
                                         <label>Gender :</label>
-                                        <input type="radio" name="gender" id="genderMale" value="male" checked>Male</input>
+                                        <input type="radio" name="gender" id="genderMale" value="male" checked>Male</input> <br>
                                         <input type="radio"  name="gender" id="genderFemale" value="female">Female</input>
 
                                         <label class="contact">Contact :</label>
