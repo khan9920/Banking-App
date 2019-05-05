@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <!-- Check whether session is set -->
+
+    <%
+    	if(session.getAttribute("bankID") == null ) {
+    		response.sendRedirect("index.jsp");
+    	}
+    %>
+    
+    <!-- session check ends -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>World Bank | Admin</title>
+    <title>World Bank | Banker</title>
     
     <!-- Google fonts Montserrat 200, 400, 600, 700 -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,700" rel="stylesheet">
@@ -67,20 +77,6 @@
                                     <li><a href="support.jsp">
                                         <img src="../assets/icons/icon_admin_support.png" alt="Support Admin Icon">
                                         Support
-                                    </a></li>
-                                </ul>
-                            </div>
-
-                            <div class="sidepanel-nav">
-                                <h6>EMPLOYEE OPTIONS</h6>
-                                <ul>
-                                    <li><a href="bankers.jsp">
-                                        <img src="../assets/icons/icon_admin_bankers.png" alt="Bankers Admin Icon">
-                                        Bankers
-                                    </a></li>
-                                    <li><a href="admins.jsp">
-                                        <img src="../assets/icons/icon_admin_admins.png" alt="Admin Icon">
-                                        Admins
                                     </a></li>
                                 </ul>
                             </div>

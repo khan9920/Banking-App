@@ -7,6 +7,8 @@
     <%
     	if(session.getAttribute("bankID") == null ) {
     		response.sendRedirect("index.jsp");
+    	} else if (session.getAttribute("role") == "e") {
+    		response.sendRedirect("../banker/customers.jsp");
     	}
     %>
     <!-- session check ends -->

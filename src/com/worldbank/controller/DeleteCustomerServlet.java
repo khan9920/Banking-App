@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.worldbank.dao.DeleteCustomer;
 
@@ -38,7 +39,10 @@ public class DeleteCustomerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
 		String custID = request.getParameter("deleteCusID");
+		
 		
 		try {
 			DeleteCustomer deleteCust = new DeleteCustomer();

@@ -56,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 				if(login2.checkEmp(bankID, password)) {
 					session = request.getSession(); 
 					session.setAttribute("bankID", bankID); 
+					session.setAttribute("role", "e");
 					response.sendRedirect("banker/dashboard.jsp");
 				} else {
 					response.sendRedirect("index.jsp");
@@ -63,7 +64,8 @@ public class LoginServlet extends HttpServlet {
 			} else if ( fLetter == 'A') {
 				if(login1.checkAdmin(bankID, password)) {
 					session = request.getSession(); 
-					session.setAttribute("bankID", bankID); 
+					session.setAttribute("bankID", bankID);
+					session.setAttribute("role", "a");
 					response.sendRedirect("admin/dashboard.jsp");
 				} else {
 					response.sendRedirect("index.jsp");
@@ -71,7 +73,8 @@ public class LoginServlet extends HttpServlet {
 			} else if ( fLetter == 'C' ) {
 				if(login3.checkCust(bankID, password)) {
 					session = request.getSession(); 
-					session.setAttribute("bankID", bankID); 
+					session.setAttribute("bankID", bankID);
+					session.setAttribute("role", "c");
 					response.sendRedirect("dashboard.jsp");	
 				} else {
 					response.sendRedirect("index.jsp");
