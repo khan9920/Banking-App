@@ -3,12 +3,15 @@
     
     <%@ page import="com.worldbank.dao.*, javax.servlet.ServletException, java.sql.ResultSet, java.io.*,java.util.*, javax.servlet.*,java.text.*" %> 
     
+    
     <!-- Check whether session is set -->
+
     <%
     	if(session.getAttribute("bankID") == null ) {
     		response.sendRedirect("index.jsp");
     	}
     %>
+    
     <!-- session check ends -->
 
 <!DOCTYPE html>

@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import="com.worldbank.dao.*, javax.servlet.ServletException, java.sql.ResultSet, java.io.*,java.util.*, javax.servlet.*,java.text.*" %> 
+
+    <!-- Check whether session is set -->
+    <%
+    	if(session.getAttribute("bankID") == null ) {
+    		response.sendRedirect("index.jsp");
+    	}
+    %>
+    <!-- session check ends -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -102,54 +112,31 @@
                                             <th>Employee ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Department</th>
                                             <th>Last logged in</th>
                                             <th>Actions</th>
                                         </tr>
+                                        <!-- Pull customer details  -->
+                                        <%
+                                        	DisplayBanker displayBanker = new DisplayBanker();
+                                        	ResultSet rslt = displayBanker.Display();
+                                        	
+                                        	while(rslt.next()) {
+                                        		String bankerID = rslt.getString("EmpID");
+                                        		String fullName = rslt.getString("FullName");
+                                        		String email = rslt.getString("email");
+                                        		String dateCreated = rslt.getString("createDate");
+                                        %>
                                         <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
+                                            <td><%= bankerID %></td>
+                                            <td><%= fullName %></td>
+                                            <td><%= email %></td>
+                                            <td><%= dateCreated %></td>
                                             <td>
                                                 <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
                                                 <a href="delete-customer.jsp"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
-                                            <td>
-                                                <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.jsp"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
-                                            <td>
-                                                <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.jsp"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>WBCID-002341</td>
-                                            <td>Shafkhan Mohamed</td>
-                                            <td>shafkhan.m@worldbank.com</td>
-                                            <td>Support Center</td>
-                                            <td>24.04.2019 17:35:23</td>
-                                            <td>
-                                                <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.jsp"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
-                                            </td>
-                                        </tr>
+                                         <%} %>
                                     </table>                        
                                 </div>
                             </div>

@@ -1,15 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <%@ page import="com.worldbank.dao.*, javax.servlet.ServletException, java.sql.ResultSet, java.io.*,java.util.*, javax.servlet.*,java.text.*" %> 
-    
-    <!-- Check whether session is set -->
-    <%
-    	if(session.getAttribute("bankID") == null ) {
-    		response.sendRedirect("index.jsp");
-    	}
-    %>
-    <!-- session check ends -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +18,7 @@
     <!-- Styles -->
     <link  rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/admin/customers.css">
+    <link rel="stylesheet" href="../css/admin/bankers.css">
 
 </head>
 <body>
@@ -53,7 +43,7 @@
                         <div class="sidepanel">
                             <div class="sidepanel-wrapper">
                                 <div class="userprofile-wrapper">
-                                    <h6>Administrator <br>${userFirstName} ${userLastName}</h6>
+                                    <h6>Administrator <br>Jon Snow</h6>
                                     <p>Monday, 22 April 2019</p>
                                 </div>
                             
@@ -68,7 +58,7 @@
                                             <img src="../assets/icons/icon_admin_transaction.png" alt="Transactions Admin Icon">
                                             Transactions
                                         </a></li>
-                                        <li class="active"><a href="customers.jsp">
+                                        <li><a href="customers.jsp">
                                             <img src="../assets/icons/icon_admin_customers.png" alt="Customers Admin Icon">
                                             Customers
                                         </a></li>
@@ -86,7 +76,7 @@
                                             <img src="../assets/icons/icon_admin_bankers.png" alt="Bankers Admin Icon">
                                             Bankers
                                         </a></li>
-                                        <li><a href="admins.jsp">
+                                        <li class="active"><a href="admins.jsp">
                                             <img src="../assets/icons/icon_admin_admins.png" alt="Admin Icon">
                                             Admins
                                         </a></li>
@@ -99,53 +89,67 @@
 
                         <div class="dash-header">
                             <img src="../assets/icons/icon_dashboard_admin_transaction.png" alt="Transactions Header Icon">
-                            <h6>CUSTOMERS</h6>
+                            <h6>ADD ADMIN</h6>
                         </div>
 
                         <div class="row dash-body">
-                            <div class="col-md-12">
-                                <button class="btn-orange btn-add-user" onclick="location.href='add-customer.jsp' ">ADD CUSTOMER</button>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="transactions">
-                                    <table>
-                                        <tr>
-                                            <th>Customer ID</th>
-                                            <th>Name</th>
-                                            <th>Account Number</th>
-                                            <th>Last logged in</th>
-                                            <th>Actions</th>
-                                        </tr>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h6 class="dash-title">PERSONAL INFO</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Full Name :</label>
+                                        <input type="text" name="fullname" id="fullnameid" placeholder="Full Name">
                                         
-                                        <!-- Pull customer details  -->
-                                        <%
-                                        	DisplayCustomer displayCustomer = new DisplayCustomer();
-                                        	ResultSet rslt = displayCustomer.Display();
-                                        	while(rslt.next()) {
-                                        		String customerID = rslt.getString("custID");
-                                        		String fullName = rslt.getString("fullName");
-                                        		String accNo = (String)rslt.getString("accountNumber");
-                                        		String lastLoggnedIn = (String)rslt.getString("createDate");
-                                        %>
+                                        <label>Initials:</label>
+                                        <input type="text" name="nameWithInitials" id="Initialsid" placeholder="Name with Initials">
                                         
-                                        <tr>
-                                            <td><%= customerID %></td>
-                                            <td><%= fullName %></td>
-                                            <td><%= accNo %></td>
-                                            <td><%= lastLoggnedIn %></td>
-                                            <td>
-                                                <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <form action="../DeleteCustomerServlet" method="POST">
-                                                	<input type="hidden" value="<%= customerID %>" name="deleteCusID">
-                                                	<button type="submit" class="btn-delete" onClick="return confirm('Are you sure you want to delete this user?');"></button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                                        <label>NIC No :</label>
+                                        <input type="text" name="NICno" id="nicNOid" placeholder="NIC No">
+
+                                        <label>Address :</label>
+                                        <input type="address" name="address" id="addressid" placeholder="Address">
+                                                                                
+                                        <label>City :</label>
+                                        <input type="city" name="city" id="cityid" placeholder="City">
                                         
-                                        <%} %>
-                                    </table>                        
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="birthday">Birthday :</label>
+                                        <input type="text" name="birthday" id="birthdayid" placeholder="dd/mm/yy">
+                                            
+                                        <label>Gender :</label>
+                                        <input type="radio" name="gender" id="genderMale" value="male" checked>Male</input>
+                                        <input type="radio"  name="gender" id="genderFemale" value="female">Female</input>
+
+                                        <label class="contact">Contact :</label>
+                                        <input type="text" name="contact" id="contactid" placeholder="Telephone Number">
+
+                                        <label>Postal Code :</label>
+                                        <input type="pcode" name="pcode" id="pcodeid" placeholder="Postal Code">
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h6 class="dash-title">ACCOUNT INFORMATION</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Email :</label>
+                                        <input type="email" name="email" id="emailid" placeholder="Email">
+                                        
+                                        <label>Password :</label>
+                                        <input type="password" name="password" id="passwordid" placeholder="Password">
+                                        
+                                        <label>Confirm Password :</label>
+                                        <input type="password" name="cpassword" id="cpasswordid" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn-orange"  type="submit" name="btnSubmit">Create Account</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
