@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
     <!-- Check whether session is set -->
-	<!-- If session is set, redirect to dashbaord -->
+	<!-- If session is set, redirect to dashboard -->
     <%
     	if(session.getAttribute("bankID") != null ) {
     		response.sendRedirect("dashboard.jsp");

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.worldbank.dao.DeleteAdmin;
-import com.worldbank.dao.DeleteBanker;
 
 /**
  * Servlet implementation class DeleteAdminServlet
