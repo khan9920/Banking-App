@@ -1,0 +1,201 @@
+/* Sieepanel styles */
+
+.dashboard {
+    width: 100%;
+    overflow: hidden;
+}
+
+.active {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.container-fluid {
+    padding-left: 0;
+}
+
+.col-sidepanel {
+    padding-right: 0;
+}
+
+.col-dash-body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.header {
+    background-color: #34495e;
+    padding: 10px 0px;
+}
+
+.header-icon-wrapper {
+    float: right;
+}
+
+.header-icon-wrapper {
+   margin-right: 30px;
+}
+
+.header-icon-wrapper a img {
+    margin-right: 25px;
+}
+
+.header-icon-wrapper form {
+	display: inline-block;
+}
+
+.header-icon-wrapper form a {
+	position: relative;
+    top: -7px;
+}
+
+.dashboard {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sidepanel {
+    background-color: #f6f6f6;
+    height: 95vh;
+    overflow: scroll;
+}
+
+.userprofile-wrapper {
+    margin-bottom: 30px;
+    padding: 30px 30px 0px 30px;
+}
+
+.userprofile-wrapper h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.userprofile-wrapper p {
+    color: #848383;
+    margin: 0;
+}
+
+.sidepanel-nav {
+    margin-bottom: 30px;
+    padding: 0px 20px;
+}
+
+.sidepanel-nav h6 {
+    color: #e48515;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.sidepanel-nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sidepanel-nav ul li {
+    padding: 10px 0 10px 10px;
+    padding-left: 10px;
+}
+
+.sidepanel-nav ul li:hover {
+    padding: 10px 0 10px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidepanel-nav ul li a {
+    text-decoration: none;
+    color: #848383;
+}
+
+.sidepanel-nav ul li a img {
+    margin-right: 10px;
+}
+
+
+/* Dashboard body styles */
+
+.dash-header {
+    background-color: #a2a2a2;
+    padding: 10px 10px 10px 50px;
+}
+
+.dash-header h6 {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    top: 3px;
+    left: 10px;
+}
+
+.dash-body {
+    width: 100%;
+    padding: 30px 10px 10px 50px;
+}
+
+.balance-wrapper {
+    background-color: #f6f6f6;
+    padding: 25px;
+}
+
+.acc-no {
+    color: #a2a2a2;
+    font-weight: 600;
+}
+
+.balance p {
+    margin: 0;
+    color: #e58c28;
+    font-weight: 600;
+}
+
+.balance span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.recent-transaction p {
+    color: #e58c28;
+    font-weight: 600;
+}
+
+.debit,
+.credit {
+    width: 49%;
+    display: inline-block;
+}
+
+.debit p,
+.credit p {
+    display: inline-block;
+    margin: 0;
+    color: #000;
+}
+
+.transation-date {
+    color: #848383 !important;
+    font-size: 12px;
+}
+
+/* ADMIN DASHBOARD TEABLE STYLES */
+
+table {
+    width: 100%;
+}
+
+td, th {
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table td a {
+    margin-right: 15px;
+}
+
+.btn-add-user {
+    float: right;
+    margin-bottom: 10px;
+}
