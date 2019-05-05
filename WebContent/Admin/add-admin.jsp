@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/admin/bankers.css">
 
+    <script src = "../js/validation.js"></script>		
+
 </head>
 <body>
     <div class="dashboard">
@@ -98,7 +100,7 @@
                         </div>
 
                         <div class="row dash-body">
-                            <form action="../addAdmin" method="POST">
+                            <form action="../addAdmin" onsubmit="return formValidation()" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h6 class="dash-title">PERSONAL INFO</h6>
