@@ -49,16 +49,6 @@
     top: -7px;
 }
 
-.btn-logout {
-	background-image: url(../assets/icons/icon_logout.png);
-    background-size: cover;
-    background-position: center;
-    background-color: #34495e;
-    border: none;
-    width: 28px;
-    height: 28px;
-}
-
 .dashboard {
     width: 100%;
     overflow: hidden;
@@ -191,7 +181,7 @@
 
 /* ADMIN DASHBOARD TEABLE STYLES */
 
-table{
+table {
     width: 100%;
 }
 
