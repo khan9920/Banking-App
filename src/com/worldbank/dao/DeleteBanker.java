@@ -3,12 +3,12 @@ package com.worldbank.dao;
 import java.sql.Connection;
 import java.sql.Statement;
 
-public class DeleteCustomer {
-
-	private String customerID;
+public class DeleteBanker {
 	
-	public void setCustomerID(String custID) {
-		this.customerID = custID;
+	private String bankerID;
+	
+	public void setBankerID(String bankID) {
+		this.bankerID = bankID;
 	}
 	
 	public void updateDB() {
@@ -19,11 +19,11 @@ public class DeleteCustomer {
 			
 			Statement st = conn.createStatement();
 			
-			String sql = "DELETE FROM customer WHERE custID = '" + this.customerID + "'";
+			String sql = "DELETE FROM Employee WHERE EmpID = '" + this.bankerID + "'";
 			
 			st.executeUpdate(sql);
-		
-		} catch(Exception e) {
+				
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}

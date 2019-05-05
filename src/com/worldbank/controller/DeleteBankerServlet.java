@@ -1,26 +1,25 @@
 package com.worldbank.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.worldbank.dao.DeleteCustomer;
+import com.worldbank.dao.DeleteBanker;
 
 /**
- * Servlet implementation class DeleteCustomerServlet
+ * Servlet implementation class DeleteBankerServlet
  */
-@WebServlet("/DeleteCustomerServlet")
-public class DeleteCustomerServlet extends HttpServlet {
+@WebServlet("/DeleteBankerServlet")
+public class DeleteBankerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCustomerServlet() {
+    public DeleteBankerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,20 +36,20 @@ public class DeleteCustomerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String custID = request.getParameter("deleteCusID");
+
+		String bankerID = request.getParameter("deleteBankID");
 		
 		try {
-			DeleteCustomer deleteCust = new DeleteCustomer();
+			DeleteBanker deleteBanker = new DeleteBanker();
 			
-			deleteCust.setCustomerID(custID);
-			deleteCust.updateDB();
+			deleteBanker.setBankerID(bankerID);
+			deleteBanker.updateDB();
 			
-			response.sendRedirect("admin/customers.jsp");
+			response.sendRedirect("admin/bankers.jsp");
 			
 		} catch(Exception e) {
-			System.out.println(e);
-			
+			System.out.print(e);
 		}
 	}
+
 }

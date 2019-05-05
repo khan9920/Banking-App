@@ -133,7 +133,10 @@
                                             <td><%= dateCreated %></td>
                                             <td>
                                                 <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
-                                                <a href="delete-customer.jsp"><img src="../assets/icons/icon_admin_delete.png" alt="Delete Icon"></a>
+                                                <form action="../DeleteBankerServlet" method="POST">
+                                                	<input type="hidden" value="<%= bankerID %>" name="deleteBankID">
+                                                	<button type="submit" class="btn-delete" onClick="return confirm('Are you sure you want to delete this banker?');"></button>
+                                                </form>
                                             </td>
                                         </tr>
                                          <%} %>
