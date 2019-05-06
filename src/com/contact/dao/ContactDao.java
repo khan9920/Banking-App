@@ -10,6 +10,7 @@ import java.sql.Statement;
  import java.sql.Connection;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.contact.model.*;
 import com.contact.util.*;
@@ -80,9 +81,21 @@ public class ContactDao {
 			 
 			 return "Oops.. Something went wrong there..!";  // On failure, send a message from here.
 			 }
-	}	
-
 		
+
+
+
+
+	public ResultSet DisplayContact()throws Exception {
+		Connection con = DBconnection.createConnection();
+		
+		String qry = "select * from contactus";  
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(qry);
+		return rs;
+	}
+
+}
 		
 	/*	String CustomerId = contactus.getCustomerId();
 		String firstname = contactus.getfirstname();

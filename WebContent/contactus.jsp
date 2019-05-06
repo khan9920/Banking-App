@@ -109,7 +109,7 @@ var CustomerId = document.form.CustomerId.value;
                                     <img src="assets/icons/icon_transfer_money.png" alt="Transfer Monoey Icon">
                                     Transfer Money
                                 </a></li>
-                                <li><a href="make-a-payment.html">
+                                <li><a href="make-a-payment.jsp">
                                     <img src="assets/icons/icon_make_a_payment.png" alt="Make a Payment Icon">
                                     Make a Payment
                                 </a></li>

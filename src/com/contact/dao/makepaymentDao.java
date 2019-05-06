@@ -11,7 +11,7 @@ public class makepaymentDao {
 
 	
 	public String insert(makepaymentModel mp) {
-		int amount = mp.getAmount();
+		double amount = mp.getAmount();
 		String accountNo = mp.getAccountNo();
 		
 		
@@ -24,7 +24,7 @@ public class makepaymentDao {
 	
 		 String query = "insert into vendorform(amount,accountNo) values (?,?)"; //Insert user details into the table 'contactus'
 		 preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
-		 preparedStatement.setInt(1, amount);
+		 preparedStatement.setDouble(1, amount);
 		 preparedStatement.setString(2, accountNo);
 		
 		 

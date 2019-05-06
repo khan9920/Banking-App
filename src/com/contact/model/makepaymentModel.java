@@ -5,7 +5,7 @@ public class makepaymentModel {
 	private String category;
 	private String option;
 	private String accountNo;
-	private int amount;
+	private double amount;
 	
 	public String getcategory() {
 		return category;
@@ -25,10 +25,10 @@ public class makepaymentModel {
 	public void setAccountNo(String accountNo) {
 		this.accountNo=accountNo;
 	}
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount=amount;
 	}
 	

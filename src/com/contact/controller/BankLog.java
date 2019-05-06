@@ -49,7 +49,7 @@ public class BankLog extends HttpServlet {
 	
 		String category =  mp.getcategory();
 		String option = mp.getOption();
-		int amount = mp.getAmount();
+		double amount = mp.getAmount();
 		String accountNo = mp.getAccountNo();
 		
 	try {	

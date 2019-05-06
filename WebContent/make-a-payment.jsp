@@ -80,7 +80,7 @@
                         <div class="sidepanel-nav">
                             <h6>SUPPORT</h6>
                             <ul>
-                                <li><a href="contact-us.html">
+                                <li><a href="contactus.jsp">
                                     <img src="assets/icons/icon_contact_us.png" alt="Contact Us Icon">
                                     Contact Us
                                 </a></li>

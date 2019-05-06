@@ -38,7 +38,7 @@ public class makePaymentForm extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int amount = Integer.parseInt(request.getParameter("amount"));
+		double amount = Double.parseDouble(request.getParameter("amount"));
 		String accountNo = request.getParameter("account");
 		
 		makepaymentDao md = new makepaymentDao();
