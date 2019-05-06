@@ -24,6 +24,7 @@ public class CreateCustomerAcc implements iCreateAccount{
     private String password;
     private String createDateNtime;
     private int accNo;
+    boolean Loop;
 
     public void setName(String Name){
         name = Name;
@@ -76,16 +77,64 @@ public class CreateCustomerAcc implements iCreateAccount{
     };
     
     public void createUserID(){
-        Random rand = new Random();
-		int random = rand.nextInt((999999 - 100000) + 1) + 100000;
-		String randomID = Integer.toString(random);
-        userID = "C"+randomID;
+
+        try {
+
+            dbConnection con = new dbConnection();
+            Connection conn = con.toConnect();
+
+            Statement st = conn.createStatement();
+
+            do{
+            Random rand = new Random();
+	    	int random = rand.nextInt((999999 - 100000) + 1) + 100000;
+	    	String randomID = Integer.toString(random);
+            userID = "C"+randomID;
+
+            
+	    	String sql = "SELECT custID FROM customer";
+	    	ResultSet rs = st.executeQuery(sql);
+	    	    while(rs.next()) { // loop through the results of the query
+	    		    if(userID.equals(rs.getString("custID")))
+                        Loop = true;
+                    else
+                        Loop = false;
+                }
+            }while(Loop);
+        }catch(Exception e) {
+            System.out.println(e);
+        }
     };
 
     public void createAccNo(){
-    	Random rand = new Random();
-        int randomACC = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
-        accNo = randomACC;
+    	
+
+        try {
+
+            dbConnection con = new dbConnection();
+            Connection conn = con.toConnect();
+
+            Statement st = conn.createStatement();
+
+            do{
+            Random rand = new Random();
+            int randomACC = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
+            accNo = randomACC;
+            String acc = String.valueOf(accNo);
+            
+	    	String sql = "SELECT custID FROM customer";
+	    	ResultSet rs = st.executeQuery(sql);
+	    	    while(rs.next()) { // loop through the results of the query
+	    		    if(acc.equals(rs.getString("accountNumber")))
+                        Loop = true;
+                    else
+                        Loop = false;
+                }
+            }while(Loop);
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+
     };
     
     public void updateDB(){

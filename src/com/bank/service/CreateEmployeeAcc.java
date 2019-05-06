@@ -22,6 +22,7 @@ public class CreateEmployeeAcc implements iCreateAccount{
     private String Eemail;
     private String password;
     private String createDateNtime;
+    boolean Loop;
 
     public void setName(String Name){
         name = Name;
@@ -74,10 +75,32 @@ public class CreateEmployeeAcc implements iCreateAccount{
     };
     
     public void createUserID(){
-        Random rand = new Random();
-		int random = rand.nextInt((999999 - 100000) + 1) + 100000;
-		String randomID = Integer.toString(random);
-        userID = "E"+randomID;
+        try {
+
+            dbConnection con = new dbConnection();
+            Connection conn = con.toConnect();
+
+            Statement st = conn.createStatement();
+
+            do{
+            Random rand = new Random();
+	    	int random = rand.nextInt((999999 - 100000) + 1) + 100000;
+	    	String randomID = Integer.toString(random);
+            userID = "E"+randomID;
+
+            
+	    	String sql = "SELECT custID FROM Employee";
+	    	ResultSet rs = st.executeQuery(sql);
+	    	    while(rs.next()) { // loop through the results of the query
+	    		    if(userID.equals(rs.getString("empID")))
+                        Loop = true;
+                    else
+                        Loop = false;
+                }
+            }while(Loop);
+        }catch(Exception e) {
+            System.out.println(e);
+        }
     };
 
     

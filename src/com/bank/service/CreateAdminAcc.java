@@ -24,6 +24,7 @@ public class CreateAdminAcc implements iCreateAccount{
     private String Aemail;
     private String password;
     private String createDateNtime;
+    boolean Loop;
 
     public void setName(String Name){
         name = Name;
@@ -76,10 +77,32 @@ public class CreateAdminAcc implements iCreateAccount{
     };
     
     public void createUserID(){
-        Random rand = new Random();
-		int random = rand.nextInt((999999 - 100000) + 1) + 100000;
-		String randomID = Integer.toString(random);
-        userID = "A"+randomID;
+        try {
+
+            dbConnection con = new dbConnection();
+            Connection conn = con.toConnect();
+
+            Statement st = conn.createStatement();
+
+            do{
+            Random rand = new Random();
+	    	int random = rand.nextInt((999999 - 100000) + 1) + 100000;
+	    	String randomID = Integer.toString(random);
+            userID = "A"+randomID;
+
+            
+	    	String sql = "SELECT custID FROM admin";
+	    	ResultSet rs = st.executeQuery(sql);
+	    	    while(rs.next()) { // loop through the results of the query
+	    		    if(userID.equals(rs.getString("adminID")))
+                        Loop = true;
+                    else
+                        Loop = false;
+                }
+            }while(Loop);
+        }catch(Exception e) {
+            System.out.println(e);
+        }
     };
 
     
