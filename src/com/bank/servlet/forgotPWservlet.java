@@ -19,9 +19,7 @@ import com.bank.service.*;
 public class forgotPWservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public forgotPWservlet() {
         super();
     }
@@ -31,22 +29,27 @@ public class forgotPWservlet extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		doGet(request, response);
 		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 		
+        
 		try {
-			//Authentication Fpassword = new Authentication();
+			Authentication Fpassword = new Authentication();
+			
+			System.out.println("test 1 working");
 			
 			//Fpassword.setUserId(request.getParameter("USERid"));
-			//Fpassword.sendEmail();
+			Fpassword.sendEmail();
 			//session will be created at the authentication to store the digits that send via email
 			
-			response.sendRedirect("new-password.jsp");
+			System.out.println("test 2 working");
 			
+			response.sendRedirect("new-password.jsp");
+		
 		}catch(Exception e) {
 			out.print(e.getMessage());
 		
