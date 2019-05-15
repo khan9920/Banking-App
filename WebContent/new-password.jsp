@@ -38,11 +38,11 @@
                     <div class="col-md-6">
                         <div class="forgot-password-wrapper">
                             <p>RESET PASSWORD</p>
-                            <form action="newPassword" method="POST" class="login">
+                            <form action="../newPassword" method="POST" class="login">
                                 <input type="text" name="digits" id="bankId" placeholder="Enter the Digits">
                                 <input type="password" name="newPass" id="bankId" placeholder="Enter your new Password">
                                 <input type="password" name="cNewPass" id="bankId" placeholder="Re-enter your Password">
-                                <button class="btn btn-orange">SEND SECURITY PIN</button>
+                                <button class="btn btn-orange">Change Password</button>
                                 <a href="index.jsp">Remember password?</a>
                             </form>
                         </div>

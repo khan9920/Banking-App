@@ -24,37 +24,28 @@ public class forgotPWservlet extends HttpServlet {
      */
     public forgotPWservlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 		
 		try {
-			Authentication Fpassword = new Authentication();
+			//Authentication Fpassword = new Authentication();
 			
-			Fpassword.setUserId(request.getParameter("USERid"));
-			Fpassword.sendEmail();
+			//Fpassword.setUserId(request.getParameter("USERid"));
+			//Fpassword.sendEmail();
 			//session will be created at the authentication to store the digits that send via email
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			dispatcher.forward(request, response);
-		
+			response.sendRedirect("new-password.jsp");
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());
