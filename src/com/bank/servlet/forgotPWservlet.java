@@ -19,43 +19,37 @@ import com.bank.service.*;
 public class forgotPWservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public forgotPWservlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
 		doGet(request, response);
 		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 		
+        
 		try {
 			Authentication Fpassword = new Authentication();
 			
-			Fpassword.setUserId(request.getParameter("USERid"));
+			System.out.println("test 1 working");
+			
+			//Fpassword.setUserId(request.getParameter("USERid"));
 			Fpassword.sendEmail();
 			//session will be created at the authentication to store the digits that send via email
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			dispatcher.forward(request, response);
-		
+			System.out.println("test 2 working");
 			
+			response.sendRedirect("new-password.jsp");
+		
 		}catch(Exception e) {
 			out.print(e.getMessage());
 		
