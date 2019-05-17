@@ -35,3 +35,9 @@ This project is using MVC architecture and the view is just laying outside the f
 * You must use camelcase with initial capitalisation when naming.
 * NO numbers " . ", " _ ", "-" or any other special charactors can be used in any circumstances.
 * The name of the DAO class and the name of the control class should be same; after dropping the "Servlet" part. (Ex: AddCustomer.java)
+
+**NOTE**
+Breach of any of these rules/instructions will result in rejecting the commits/contributions.
+
+Thanks you,
+Team Chaos!
