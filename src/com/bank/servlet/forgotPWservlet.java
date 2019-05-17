@@ -2,7 +2,15 @@ package com.bank.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.bank.service.*;
 
 
-/**
- * Servlet implementation class forgotPWservlet
- */
 @WebServlet("/forgotPWservlet")
 public class forgotPWservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,14 +45,9 @@ public class forgotPWservlet extends HttpServlet {
 		try {
 			Authentication Fpassword = new Authentication();
 			
-			System.out.println("test 1 working");
-			
-			//Fpassword.setUserId(request.getParameter("USERid"));
+			Fpassword.setUserId(request.getParameter("USERid"));
 			Fpassword.sendEmail();
-			//session will be created at the authentication to store the digits that send via email
-			
-			System.out.println("test 2 working");
-			
+
 			response.sendRedirect("new-password.jsp");
 		
 		}catch(Exception e) {
