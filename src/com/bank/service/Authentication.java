@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Random;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -27,8 +29,14 @@ public class Authentication {
 		userId = user;
 	}
 
-	public void setuDigits(int digit){
-		uDigits = digit;
+	public void setDigits(){
+		Random rand = new Random();
+    	this.Digits = rand.nextInt((999999 - 100000) + 1) + 100000;
+    	System.out.println(this.Digits);
+	}
+	
+	public void setUdigits(int digits) {
+		uDigits = digits;
 	}
 
 	public void setNewPw(String nPW){
@@ -41,7 +49,7 @@ public class Authentication {
 		final String password = "";
 		
 		String fromEmail = "@gmail.com";
-		String toEmail = "dhanushkanuwan24@gmail.com";
+		String toEmail = "@gmail.com";
 		
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
@@ -65,8 +73,8 @@ public class Authentication {
 			InternetAddress[] address = {new InternetAddress(toEmail)};
 	        msg.setRecipients(Message.RecipientType.TO, address);
 	        
-			msg.setSubject("Send email using java");
-			msg.setText("Msg sent sucessfully");
+			msg.setSubject("Update Account Password");
+			msg.setText("To change the password use this digits :" + this.Digits);
 			
 			Transport.send(msg);
 			System.out.println("Sent message");

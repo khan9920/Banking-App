@@ -48,7 +48,7 @@ public class newPassword extends HttpServlet {
 		try {
 			Authentication Fpassword = new Authentication();
 			
-			Fpassword.setuDigits(Integer.parseInt(request.getParameter("digits")));
+			Fpassword.setUdigits(Integer.parseInt(request.getParameter("digits")));
 			Fpassword.setNewPw(request.getParameter("newPass"));
 			//session will be created at the authentication to store the digits that send via email
 			
