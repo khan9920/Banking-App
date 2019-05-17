@@ -46,6 +46,7 @@ public class forgotPWservlet extends HttpServlet {
 			Authentication Fpassword = new Authentication();
 			
 			Fpassword.setUserId(request.getParameter("USERid"));
+			Fpassword.setDigits();
 			Fpassword.sendEmail();
 
 			response.sendRedirect("new-password.jsp");
