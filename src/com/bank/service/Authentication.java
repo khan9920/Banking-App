@@ -37,10 +37,10 @@ public class Authentication {
 	
 	public void sendEmail(){
 	
-		final String username = "xxxxxxxx@gmail.com";
-		final String password = "xxxx ";
+		final String username = "@gmail.com";
+		final String password = "";
 		
-		String fromEmail = "xxxxxxxxx@gmail.com";
+		String fromEmail = "@gmail.com";
 		String toEmail = "dhanushkanuwan24@gmail.com";
 		
 		Properties properties = new Properties();
@@ -56,31 +56,25 @@ public class Authentication {
 			}
 		});
 		
-		
-		System.out.println("test 1.1 working");
-		
 		//Start mail message
 		MimeMessage msg = new MimeMessage(session);
 		
-		System.out.println("test 1.2 working");
-		
 		try {
 			msg.setFrom(new InternetAddress(fromEmail));
-			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-			msg.setSubject("My first email using java");
-			msg.setText("Msg sent sucessfully");
 			
-			System.out.println("test 1.3 working");
+			InternetAddress[] address = {new InternetAddress(toEmail)};
+	        msg.setRecipients(Message.RecipientType.TO, address);
+	        
+			msg.setSubject("Send email using java");
+			msg.setText("Msg sent sucessfully");
 			
 			Transport.send(msg);
 			System.out.println("Sent message");
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 	}
 	
