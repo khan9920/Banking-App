@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-        <%@page import="java.sql.DriverManager" %>
+    <%@page import="java.sql.DriverManager" %>
   
     <%@page import="java.sql.Statement" %>
     <%@page import="java.sql.Connection" %>
@@ -25,7 +25,7 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlin
 Statement st = conn.createStatement();
 
 st.executeUpdate("DELETE FROM contactus WHERE CustomerId = '"+id+"'");
-response.sendRedirect("support.jsp");
+response.sendRedirect("admin/support.jsp");
 
 System.out.println("Data Deleted Successfully!");
 

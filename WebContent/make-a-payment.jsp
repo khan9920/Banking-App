@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-        
+      <%@page import="com.worldbank.dao.*" %>   
     <%@page import="java.sql.DriverManager" %>
     <%@page import="java.sql.ResultSet" %>
     <%@page import="java.sql.Statement" %>
@@ -135,16 +135,11 @@
                                 <th>Amount</th>
                                 <th>Date</th>
                             </tr>
-                                  <%
-                                    try{
-                                    	
-                                    	Class.forName("com.mysql.jdbc.Driver");
+                          
+                                		<%
+                                		makepaymentDao mk = new makepaymentDao();
                                 		
-                                		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebank","root","");
-                                		Statement st = conn.createStatement();
-                                		
-                                		String qry = "select v.options,v.name,vf.amount,vf.accountNo,vf.Date from vendor v,vendorform vf where v.id= vf.vid";                          
-                                		ResultSet rs= st.executeQuery(qry);                              
+                                 		ResultSet rs= mk.DisplayPayments(); 
                                     	while(rs.next())
                                     	{
                                     	%>	
@@ -159,13 +154,8 @@
                             			</tr>
                             			<% 
                                     	}
-                                    	
-                                    	
-                                    }catch(Exception e){
-                                    	out.print(e.getMessage());
-                                    }
-                                    
-                                    %>
+                                    	%>
+                               
                         </table>                        
                     </div>
                 </div>

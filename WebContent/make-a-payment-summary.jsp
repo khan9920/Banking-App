@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+          <%@page import="com.worldbank.dao.*" %>   
+    <%@page import="java.sql.DriverManager" %>
+    <%@page import="java.sql.ResultSet" %>
+    <%@page import="java.sql.Statement" %>
+    <%@page import="java.sql.Connection" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -98,7 +103,22 @@
                 </div>
                 <div class="dash-body">
                     <h6 class="dash-title">Effective Available Balance</h6>
-                    <h3>321,432.<span>90 LKR</span></h3>
+                    
+                    <%
+                                		makepaymentDao mk = new makepaymentDao();
+                                		
+                                 		ResultSet rs= mk.DisplaycurrentBalance(); 
+                                    	while(rs.next())
+                                    	{
+                                    	%>	
+                                   <h3><%=rs.getString("cBalance") %><span> LKR</span></h3>
+                             
+                            			<% 
+                                    	}
+                                    	%>
+                    
+                    
+                    
 
                     <h6 class="dash-title">TRANSACTION SUMMARY</h6>
                     <div class="transaction-summary">
@@ -108,13 +128,13 @@
                         </div>
                             
                         <div class="make-a-payment-summary-element">
-                            <p class="title">Sender Remraks : </p>
-                            <span>Some remarks</span>
+                            <p class="title">Sender Remarks : </p>
+                            <span>.....</span>
                         </div>
 
                         <div class="make-a-payment-summary-element">
-                            <p class="title">Beneficiary Remraks : </p>
-                            <span>Some remarks</span>
+                            <p class="title">Beneficiary Remarks : </p>
+                            <span></span>
                         </div>
 
                         <div class="make-a-payment-summary-element">
