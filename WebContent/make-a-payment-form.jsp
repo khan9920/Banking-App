@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+      <%@page import="com.worldbank.dao.*" %>   
      <%@page import="java.sql.DriverManager" %>
     <%@page import="java.sql.ResultSet" %>
     <%@page import="java.sql.Statement" %>
@@ -25,6 +26,37 @@
     <link rel="stylesheet" href="css/dashboard.css"> 
     <!-- <link rel="stylesheet" href="css/dashboard/make-a-payment.css"> -->
     <link rel="stylesheet" href="css/dashboard/make-a-payment-form.css">
+    
+    <script type="text/javascript"> 
+    function validation()
+{ 
+var amount = document.form.amount.value;	
+ var account = document.form.account.value;
+ var reaccount = document.form.reaccount.value;
+ 
+ if (amount==null || amount=="")
+ { 
+ alert("please enter amount for transfer"); 
+ return false; 
+ }
+ else if (account==null || account=="")
+ { 
+ alert("Please enter account number"); 
+ return false; 
+ }
+ else if (reaccount==null || reaccount=="")
+ { 
+ alert("Please Re-enter account number"); 
+ return false; 
+ }
+ else if (account != reaccount )
+ { 
+ alert("account number is not matching "); 
+ return false; 
+ }
+ } 
+</script> 
+    
 </head>
 
 <title>Make a payment form</title>
@@ -108,9 +140,24 @@
                 </div>
                 <div class="dash-body">
                     <h6 class="dash-title">Effective Available Balance</h6>
-                    <h3>321,432.<span>90 LKR</span></h3>
+                    
+                       <%
+                                		makepaymentDao mk = new makepaymentDao();
+                                		
+                                 		ResultSet rs= mk.DisplaycurrentBalance(); 
+                                    	while(rs.next())
+                                    	{
+                                    	%>	
+                                   <h3><%=rs.getString("cBalance") %><span> LKR</span></h3>
+                             
+                            			<% 
+                                    	}
+                                    	%>
+                    
+                    
+                  
 
-                    <form action="makePaymentForm" method="POST" class="make-a-payment-form">
+                    <form name="form" action="makePaymentForm" method="POST" class="make-a-payment-form">
                         <div class="form-element-wrapper">
                             <p>Pay to</p> <span><% out.println(request.getParameter("category")); %></span> 
                         </div>
@@ -121,21 +168,16 @@
                         </div>
                         
                         <div class="form-element-wrapper">
-                            <p>Dialog Axiata Account Number</p>
+                            <p>Enter Account Number</p>
                             <input type="number" name="account">
                         </div>
                         
                         <div class="form-element-wrapper">
-                            <p>Re-enter Dialog Axiata Account Number </p>
-                            <input type="number">
-                        </div>
-                        
-                        <div class="form-element-wrapper">
                             <p>Re-enter Account Number </p>
-                            <input type="number" name="re-acc-number" id="re-acc-no">
+                            <input type="number" name="reaccount" id="re-acc-no">
                         </div>
 
-                        <button type="submit" class="btn-orange btn-proceed" >Proceed</a>
+                        <button type="submit" onclick="return validation();"  class="btn-orange btn-proceed" >Proceed</button>
                         
                      
                         
