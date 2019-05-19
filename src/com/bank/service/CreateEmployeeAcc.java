@@ -98,6 +98,8 @@ public class CreateEmployeeAcc implements iCreateAccount{
                         Loop = false;
                 }
             }while(Loop);
+
+            conn.close();
         }catch(Exception e) {
             System.out.println(e);
         }
@@ -117,6 +119,8 @@ public class CreateEmployeeAcc implements iCreateAccount{
         String sql = "INSERT INTO Employee(empID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Eemail+"', '"+password+"', '"+bday+"', '"+createDateNtime+"')";
 		
         st.executeUpdate(sql);
+
+        conn.close();
 
     	}catch(Exception e) {
     		System.out.println(e);
