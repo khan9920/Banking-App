@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/forgotPass.css">
 
+        <script src = "js/forgetPwValidation.js"></script>
+
         <!-- Title -->
         <title>World Bank | Update Password</title>
     </head>
@@ -38,10 +40,10 @@
                     <div class="col-md-6">
                         <div class="forgot-password-wrapper">
                             <p>RESET PASSWORD</p>
-                            <form action="newPassword" method="POST" class="login">
-                                <input type="text" name="digits" id="bankId" placeholder="Enter the Digits">
-                                <input type="password" name="newPass" id="bankId" placeholder="Enter your new Password">
-                                <input type="password" name="cNewPass" id="bankId" placeholder="Re-enter your Password">
+                            <form action="newPassword" onsubmit="return formValidation()" method="POST" class="login">
+                                <input type="text" name="digits" id="digitId" placeholder="Enter the Digits">
+                                <input type="password" name="newPass" id="newPId" placeholder="Enter your new Password">
+                                <input type="password" name="cNewPass" id="cnewPId" placeholder="Re-enter your Password">
                                 <button class="btn btn-orange">Change Password</button>
                                 <a href="index.jsp">Remember password?</a>
                             </form>
