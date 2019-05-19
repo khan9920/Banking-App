@@ -93,28 +93,3 @@ select:focus {
     border-radius: 5px;
 }
 
-.btn-logout {
-	background-image: url('../assets/icons/icon_logout.png');
-    background-size: cover;
-    background-position: center;
-    background-color: #34495e;
-    border: none;
-    width: 28px;
-    height: 28px;
-}
-
-.transactions form {
-	display: inline;
-}
-
-.btn-delete {
-	background-image: url('../assets/icons/icon_admin_delete.png');
-    background-size: cover;
-    background-position: center;
-    border: none;
-    position: relative;
-    top: 5px;
-        width: 20px;
-    height: 20px;
-}
-}

@@ -38,8 +38,8 @@
                     <div class="col-md-6">
                         <div class="forgot-password-wrapper">
                             <p>RESET PASSWORD</p>
-                            <form action="" class="login">
-                                <input type="text" id="bankId" placeholder="Bank ID">
+                            <form action="forgotPWservlet" method="POST" class="login">
+                                <input type="text" name="USERid" id="bankId" placeholder="USER ID">
                                 <button class="btn btn-orange">SEND SECURITY PIN</button>
                                 <a href="index.jsp">Remember password?</a>
                             </form>

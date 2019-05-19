@@ -25,7 +25,7 @@
 
 .header {
     background-color: #34495e;
-    padding: 10px 0px;
+    padding: 15px 0px;
 }
 
 .header-icon-wrapper {
@@ -38,15 +38,6 @@
 
 .header-icon-wrapper a img {
     margin-right: 25px;
-}
-
-.header-icon-wrapper form {
-	display: inline-block;
-}
-
-.header-icon-wrapper form a {
-	position: relative;
-    top: -7px;
 }
 
 .dashboard {
@@ -181,7 +172,7 @@
 
 /* ADMIN DASHBOARD TEABLE STYLES */
 
-table {
+table{
     width: 100%;
 }
 
@@ -199,3 +190,4 @@ table td a {
     float: right;
     margin-bottom: 10px;
 }
+
