@@ -100,6 +100,8 @@ public class CreateAdminAcc implements iCreateAccount{
                         Loop = false;
                 }
             }while(Loop);
+
+            conn.close();
         }catch(Exception e) {
             System.out.println(e);
         }
@@ -119,6 +121,8 @@ public class CreateAdminAcc implements iCreateAccount{
         String sql = "INSERT INTO admin(adminID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Aemail+"', '"+password+"', '"+bday+"', '"+createDateNtime+"')";
 		
         st.executeUpdate(sql);
+
+        conn.close();
 
     	}catch(Exception e) {
     		System.out.println(e);

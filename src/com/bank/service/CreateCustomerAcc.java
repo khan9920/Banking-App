@@ -101,6 +101,8 @@ public class CreateCustomerAcc implements iCreateAccount{
                         Loop = false;
                 }
             }while(Loop);
+
+            conn.close();
         }catch(Exception e) {
             System.out.println(e);
         }
@@ -131,6 +133,8 @@ public class CreateCustomerAcc implements iCreateAccount{
                         Loop = false;
                 }
             }while(Loop);
+
+            conn.close();
         }catch(Exception e) {
             System.out.println(e);
         }
@@ -150,6 +154,8 @@ public class CreateCustomerAcc implements iCreateAccount{
             String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
     					
             st.executeUpdate(sql);
+
+            conn.close();
 
         }catch(Exception e) {
        		System.out.println(e);

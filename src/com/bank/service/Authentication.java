@@ -107,6 +107,7 @@ public class Authentication {
 	  					
 	        st.executeUpdate(sql);
 	  
+			conn.close();
 	    	}catch(Exception e) {
 	    		System.out.println(e);
 	    		
