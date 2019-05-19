@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.bank.service.*;
 
 
@@ -50,11 +52,23 @@ public class newPassword extends HttpServlet {
 			
 			Fpassword.setUdigits(Integer.parseInt(request.getParameter("digits")));
 			Fpassword.setNewPw(request.getParameter("newPass"));
-			//session will be created at the authentication to store the digits that send via email
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			dispatcher.forward(request, response);
-		
+			HttpSession session = request.getSession();
+			String digits = (String) session.getAttribute("DIGITS");
+			String userID = (String) session.getAttribute("customerID");
+			
+			Fpassword.setUserId(userID);
+			
+			System.out.println(digits);
+			
+			if(digits.equals(request.getParameter("digits"))) {
+				Fpassword.updateDB();
+				response.sendRedirect("index.jsp");
+			}else {
+				response.sendRedirect("new-password.jsp");
+				System.out.println("Invalid Digits.Try again");
+			}
+			
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());

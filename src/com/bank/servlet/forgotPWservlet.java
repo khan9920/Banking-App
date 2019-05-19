@@ -17,6 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.bank.service.*;
 
 
@@ -48,6 +50,13 @@ public class forgotPWservlet extends HttpServlet {
 			Fpassword.setUserId(request.getParameter("USERid"));
 			Fpassword.setDigits();
 			Fpassword.sendEmail();
+			
+			String digits = Integer.toString(Fpassword.getDigits());
+			String id = request.getParameter("USERid");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("DIGITS", digits);
+			session.setAttribute("customerID", id);
 
 			response.sendRedirect("new-password.jsp");
 		
