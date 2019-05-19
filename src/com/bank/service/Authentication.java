@@ -1,6 +1,7 @@
 package com.bank.service;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.io.IOException;
 import java.util.Properties;
@@ -45,6 +46,22 @@ public class Authentication {
 	
 	public void setUserEmail() {
 		
+		try {
+		dbConnection con = new dbConnection();
+        Connection conn = con.toConnect();
+
+        Statement st = conn.createStatement();
+        
+		String sql = "SELECT email FROM customer WHERE custID = '"+userId+"'";
+    	ResultSet rs = st.executeQuery(sql);
+    	    while(rs.next()) { // loop through the results of the query
+                    this.userEmail = rs.getString("email");
+            }
+    	    conn.close();
+    	    
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public int getDigits() {
@@ -57,7 +74,7 @@ public class Authentication {
 		final String password = "";
 		
 		String fromEmail = "@gmail.com";
-		String toEmail = "dhanushkanuwan24@gmail.com";
+		String toEmail = this.userEmail;
 		
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
