@@ -24,6 +24,7 @@ public class Authentication {
 	private String newPW;
 	private int Digits;
 	private int uDigits;
+	private String userEmail;
 
 	public void setUserId(String user) {
 		userId = user;
@@ -32,7 +33,6 @@ public class Authentication {
 	public void setDigits(){
 		Random rand = new Random();
     	this.Digits = rand.nextInt((999999 - 100000) + 1) + 100000;
-    	System.out.println(this.Digits);
 	}
 	
 	public void setUdigits(int digits) {
@@ -43,13 +43,21 @@ public class Authentication {
 		newPW = nPW;
 	}
 	
+	public void setUserEmail() {
+		
+	}
+	
+	public int getDigits() {
+		return Digits;
+	}
+	
 	public void sendEmail(){
 	
 		final String username = "@gmail.com";
 		final String password = "";
 		
 		String fromEmail = "@gmail.com";
-		String toEmail = "@gmail.com";
+		String toEmail = "dhanushkanuwan24@gmail.com";
 		
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
@@ -93,14 +101,14 @@ public class Authentication {
 	        dbConnection con = new dbConnection();
 	        Connection conn = con.toConnect();
 	        
-
 	        Statement st = conn.createStatement();
-				
-	        String sql = "INSERT INTO xxxx(  ) VALUES ('"+newPW+"')";
-						
+			
+	        String sql = "UPDATE customer SET password = '"+newPW+"' WHERE custID = '"+userId+"'";
+	  					
 	        st.executeUpdate(sql);
-	    	
+	  
 	    	}catch(Exception e) {
+	    		System.out.println(e);
 	    		
 	    	}
 		
