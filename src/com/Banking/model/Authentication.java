@@ -85,7 +85,7 @@ public class Authentication {
 		final String username = "@gmail.com"; //bank email
 		final String password = ""; //email password
 		
-		String fromEmail = "mail.com"; //senders email(bank email)
+		String fromEmail = "@gmail.com"; //senders email(bank email)
 		String toEmail = this.userEmail; //Reciient's email address
 		
 		Properties properties = new Properties();
