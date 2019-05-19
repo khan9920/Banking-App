@@ -47,7 +47,7 @@
                                 <%-- <%if(session.getAttribute("bankID") == null){ %>
                                 <p>Wrong Credentials</p>
                                 <% }%> --%>
-                                <a href="forgot-password.html">Forgot password?</a>
+                                <a href="forgot-password.jsp">Forgot password?</a>
                             </form>
                         </div>
                     </div>

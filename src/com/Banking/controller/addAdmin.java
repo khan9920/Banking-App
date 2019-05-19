@@ -1,5 +1,6 @@
 package com.Banking.controller;
 
+//import all the necessery packages
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,6 @@ public class addAdmin extends HttpServlet {
     
     public addAdmin() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	
@@ -41,8 +41,10 @@ public class addAdmin extends HttpServlet {
 		
 		try {
 
+			//creating a object from CreateAdminAcc
 			CreateAdminAcc adminACCOUNT = new CreateAdminAcc();
 
+			//set value to the object using methoes & the details
 			adminACCOUNT.setName(request.getParameter("fullname"));
 			adminACCOUNT.setInitials(request.getParameter("nameWithInitials"));
 			adminACCOUNT.setNIC(request.getParameter("NICno"));
@@ -54,11 +56,12 @@ public class addAdmin extends HttpServlet {
             adminACCOUNT.setPcode(Integer.parseInt(request.getParameter("pcode")));
             adminACCOUNT.setEmail(request.getParameter("email"));
             adminACCOUNT.setPassword(request.getParameter("password"));
-			adminACCOUNT.setCreateDate();
-			adminACCOUNT.createUserID();
-			adminACCOUNT.updateDB();
+			adminACCOUNT.setCreateDate(); //call the method for generate "create date & time"
+			adminACCOUNT.createUserID(); //call the method for generate unique user id
+			adminACCOUNT.updateDB(); //insert a new user to the database
 
-			response.sendRedirect("test.jsp");
+			//redirect page to the dashboard after creating new user
+			response.sendRedirect("Admin/adminDashboard.jsp");
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());

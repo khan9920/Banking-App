@@ -39,8 +39,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="header-icon-wrapper">
-                    <a href="settings.html"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
-                    <a href="index.html"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a>
+                    <a href="settings.jsp"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
+                    <a href="login.jsp"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                         <div class="sidepanel-nav">
                             <h6>ACTIONS</h6>
                             <ul>
-                                <li><a href="transfer-money.html">
+                                <li><a href="transfer-money.jsp">
                                     <img src="assets/icons/icon_transfer_money.png" alt="Transfer Monoey Icon">
                                     Transfer Money
                                 </a></li>
@@ -90,7 +90,7 @@
                                     <img src="assets/icons/icon_contact_us.png" alt="Contact Us Icon">
                                     Contact Us
                                 </a></li>
-                                <li><a href="help.html">
+                                <li><a href="help.jsp">
                                     <img src="assets/icons/icon_help.png" alt="Help Icon">
                                     Help
                                 </a></li>

@@ -1,5 +1,7 @@
 package com.Banking.controller;
 
+
+//import all the necessery packages
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,8 +43,10 @@ public class addEmployee extends HttpServlet {
 		
 		try {
 
+			//creating a object from CreateEmployeeAcc
 			CreateEmployeeAcc empACCOUNT = new CreateEmployeeAcc();
 
+			//set value to the object using methoes & the details
 			empACCOUNT.setName(request.getParameter("fullname"));
 			empACCOUNT.setInitials(request.getParameter("nameWithInitials"));
 			empACCOUNT.setNIC(request.getParameter("NICno"));
@@ -54,11 +58,12 @@ public class addEmployee extends HttpServlet {
             empACCOUNT.setPcode(Integer.parseInt(request.getParameter("pcode")));
             empACCOUNT.setEmail(request.getParameter("email"));
             empACCOUNT.setPassword(request.getParameter("password"));
-			empACCOUNT.setCreateDate();
-			empACCOUNT.createUserID();
-			empACCOUNT.updateDB();
+			empACCOUNT.setCreateDate(); //call the method for generate "create date & time"
+			empACCOUNT.createUserID(); //call the method for generate unique user id
+			empACCOUNT.updateDB(); //insert a new user to the database
 
-			response.sendRedirect("test.jsp");
+			//redirect page to the dashboard after creating new user
+			response.sendRedirect("Admin/adminDashboard.jsp");
 
 			
 		}catch(Exception e) {
