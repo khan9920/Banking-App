@@ -39,6 +39,7 @@ public class forgotPWservlet extends HttpServlet {
 			
 			Fpassword.setUserId(request.getParameter("USERid"));
 			Fpassword.setDigits();
+			Fpassword.setUserEmail();
 			Fpassword.sendEmail();
 			
 			String digits = Integer.toString(Fpassword.getDigits());
