@@ -109,7 +109,7 @@ public class CreateAdminAcc implements iCreateAccount{
             userID = "A"+randomID;
 
             
-	    	String sql = "SELECT custID FROM admin";
+	    	String sql = "SELECT adminID FROM admin";
 	    	ResultSet rs = st.executeQuery(sql);
 	    	    while(rs.next()) { // loop through the results of the query
 	    		    if(userID.equals(rs.getString("adminID")))

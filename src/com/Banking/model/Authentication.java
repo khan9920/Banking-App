@@ -82,10 +82,10 @@ public class Authentication {
 	//sending the email using bank email
 	public void sendEmail(){
 	
-		final String username = "@gmail.com"; //bank email
-		final String password = ""; //email password
+		final String username = "dodgersduck2@gmail.com"; //bank email
+		final String password = "duckdodgers11"; //email password
 		
-		String fromEmail = "@gmail.com"; //senders email(bank email)
+		String fromEmail = "dodgersduck2@gmail.com"; //senders email(bank email)
 		String toEmail = this.userEmail; //Reciient's email address
 		
 		Properties properties = new Properties();

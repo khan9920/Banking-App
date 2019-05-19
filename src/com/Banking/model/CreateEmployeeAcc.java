@@ -106,7 +106,7 @@ public class CreateEmployeeAcc implements iCreateAccount{
             userID = "E"+randomID;
 
             
-	    	String sql = "SELECT custID FROM Employee";
+	    	String sql = "SELECT empID FROM Employee";
 	    	ResultSet rs = st.executeQuery(sql);
 	    	    while(rs.next()) { // loop through the results of the query
 	    		    if(userID.equals(rs.getString("empID")))

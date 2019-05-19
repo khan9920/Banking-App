@@ -146,7 +146,7 @@ public class CreateCustomerAcc implements iCreateAccount{
             accNo = randomACC;
             String acc = String.valueOf(accNo);
             
-	    	String sql = "SELECT custID FROM customer";
+	    	String sql = "SELECT accountNumber FROM customer";
 	    	ResultSet rs = st.executeQuery(sql);
 	    	    while(rs.next()) { // loop through the results of the query
 	    		    if(acc.equals(rs.getString("accountNumber")))
