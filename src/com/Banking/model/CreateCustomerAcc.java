@@ -177,6 +177,11 @@ public class CreateCustomerAcc implements iCreateAccount{
             String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
     					
             st.executeUpdate(sql);
+            
+            double balance = 0;
+            String sql2 = "INSERT INTO bankAccount(accountNo,cBalance,customerID) VALUES ('"+accNo+"', '"+balance+"','"+userID+"')";
+			
+            st.executeUpdate(sql2);
 
             conn.close();//close the database connetion
 
