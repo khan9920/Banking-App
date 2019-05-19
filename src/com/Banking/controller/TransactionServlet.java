@@ -65,11 +65,10 @@ public class TransactionServlet extends HttpServlet {
 			TransactionModel transaction = new TransactionModel();
 			
 			transaction.setCustomerID(custID);
-//			transaction.setBankBalance(senderBankBalance);
 			transaction.setTransferAmount(amount);
 			transaction.setSenderRemark(senderRemark);
 			transaction.setBeneficiaryRemark(beneficiaryRemark);
-//			transaction.setTransferringCustID(accountNumber);
+			transaction.setTransferringCustID(accountNumber);
 						
 			TransactionService traDao = new TransactionService();
 			traDao.setCustID(custID);
@@ -80,6 +79,9 @@ public class TransactionServlet extends HttpServlet {
 			}
 			
 			transaction.setBankBalance(senderBankBalance);
+			traDao.setCalculatedBalance(transaction.getCalculatedBalance());
+			traDao.updateSenderDB();
+			traDao.updateTransactionDB();
 			
 			transaction.printTransactionDetails();
 			

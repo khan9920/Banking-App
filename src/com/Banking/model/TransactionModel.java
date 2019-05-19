@@ -40,7 +40,7 @@ public class TransactionModel {
 		this.beneficiaryRemark = BenRemark;
 	}
 	
-	public double calculateBalance() {
+	public double getCalculatedBalance() {
 		return this.total = this.bankBalance - this.transferAmount;
 	}
 	
@@ -50,11 +50,11 @@ public class TransactionModel {
 	
 	public void printTransactionDetails() {
 		System.out.println("From custID : " + this.getCustomerID());
-//		System.out.println("To custID : " + this.transferingCustID);
+		System.out.println("To custID : " + this.transferingCustID);
 		
 		System.out.println("From bank balance : " + this.bankBalance);
 		System.out.println("Transfer amount : " + this.transferAmount);
-		System.out.println("Total : " + this.calculateBalance());
+		System.out.println("Total : " + this.getCalculatedBalance());
 	}
 	
 }
