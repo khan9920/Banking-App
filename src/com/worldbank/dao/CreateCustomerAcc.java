@@ -23,6 +23,7 @@ public class CreateCustomerAcc implements iCreateAccount {
     private String password;
     private String createDateNtime;
     private int accNo;
+    private double currentBankBalance = 0.0; //current bank balance holder
 
     public void setName(String Name){
         name = Name;
@@ -97,7 +98,7 @@ public class CreateCustomerAcc implements iCreateAccount {
 
             Statement st = conn.createStatement();
     			
-            String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"')";
+            String sql = "INSERT INTO customer(custID,fullName,initials,NIC,address,city,postalCode,gender,tpNO,email,password,accountNumber,Birthday,createDate, currentBankBalance) VALUES ('"+userID+"', '"+name+"', '"+initials+"', '"+nic+"', '"+address+"','"+city+"', '"+pcode+"', '"+gender+"', '"+contact+"', '"+Cemail+"', '"+password+"', '"+accNo+"', '"+bday+"', '"+createDateNtime+"', '"+currentBankBalance+"')";
     					
             st.executeUpdate(sql);
 

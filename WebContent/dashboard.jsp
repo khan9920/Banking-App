@@ -10,6 +10,8 @@
     %>
     
     <!-- session check ends -->
+    
+    <%@ page import="com.worldbank.dao.*, javax.servlet.ServletException, java.sql.ResultSet, java.io.*,java.util.*, javax.servlet.*,java.text.*" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,13 +109,21 @@
 
                 <div class="row dash-body">
                     <div class="col-md-6">
+                    	<%
+							DisplayBankBalance displayBalance = new DisplayBankBalance();
+							ResultSet rslt = displayBalance.Display();
+							String balance;
+							
+							while(rslt.next()) {
+								 int bankBalance = rslt.getInt("bankBalance");
+						%>
                         <div class="balance-wrapper">
                             <div class="bank-balanace-wrapper">
                                 <p class="acc-no">4321432143214321</p>
                             </div>
                             <div class="balance">
                                 <p>Balance</p>
-                                <h3>321,432.<span>90 LKR</span></h3>
+                                <h3><%= bankBalance %><span>.90 LKR</span></h3>
                             </div>
                             <div class="recent-transaction">
                                 <p>Recent Transactions</p>
@@ -127,6 +137,7 @@
                                 </div>
                             </div>
                         </div>
+                        <%} %>
                     </div>
                 </div>
             </div>

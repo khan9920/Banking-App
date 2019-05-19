@@ -1,6 +1,7 @@
 package com.worldbank.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DeleteCustomer {
@@ -21,7 +22,7 @@ public class DeleteCustomer {
 			
 			String sql = "DELETE FROM customer WHERE custID = '" + this.customerID + "'";
 			
-			st.executeUpdate(sql);
+			ResultSet rslt = st.executeQuery(sql); 
 		
 		} catch(Exception e) {
 			System.out.println(e);

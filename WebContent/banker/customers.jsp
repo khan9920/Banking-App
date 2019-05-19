@@ -108,6 +108,7 @@
                                             <th>Account Number</th>
                                             <th>Last logged in</th>
                                             <th>Actions</th>
+                                            <th>Balance</th>
                                         </tr>
                                         
                                         <!-- Pull customer details  -->
@@ -119,6 +120,7 @@
                                         		String fullName = rslt.getString("fullName");
                                         		String accNo = (String)rslt.getString("accountNumber");
                                         		String lastLoggnedIn = (String)rslt.getString("createDate");
+                                        		int balance = rslt.getInt("bankBalance");
                                         %>
                                         
                                         <tr>
@@ -126,6 +128,7 @@
                                             <td><%= fullName %></td>
                                             <td><%= accNo %></td>
                                             <td><%= lastLoggnedIn %></td>
+                                            <td><%= balance %></td>
                                             <td>
                                                 <a href="edit-customer.jsp"><img src="../assets/icons/icon_admin_edit.png" alt="Edit Icon"></a>
                                                 <form action="../DeleteCustomerServlet" method="POST">
