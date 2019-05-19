@@ -1,5 +1,7 @@
 package com.bank.servlet;
 
+
+//import all the necessery packages
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +12,7 @@ import java.io.PrintWriter;
 import com.bank.service.*;
 
  // Servlet implementation class addCustomer
- 
+
 @WebServlet("/addCustomer")
 public class addCustomer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +22,6 @@ public class addCustomer extends HttpServlet {
     
     public addCustomer() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	
@@ -42,8 +43,10 @@ public class addCustomer extends HttpServlet {
 		
 		try {
 		
+			//creating a object from CreateCustomerACC
 			CreateCustomerAcc cusACCOUNT = new CreateCustomerAcc();
 
+			//set value to the object using methoes & the details
 			cusACCOUNT.setName(request.getParameter("fullname"));
 			cusACCOUNT.setInitials(request.getParameter("nameWithInitials"));
 			cusACCOUNT.setNIC(request.getParameter("NICno"));
@@ -55,11 +58,12 @@ public class addCustomer extends HttpServlet {
             cusACCOUNT.setPcode(Integer.parseInt(request.getParameter("pcode")));
             cusACCOUNT.setEmail(request.getParameter("email"));
             cusACCOUNT.setPassword(request.getParameter("password"));
-			cusACCOUNT.setCreateDate();
-			cusACCOUNT.createUserID();
-			cusACCOUNT.createAccNo();
-			cusACCOUNT.updateDB();
+			cusACCOUNT.setCreateDate(); //call the method for generate "create date & time"
+			cusACCOUNT.createUserID(); //call the method for generate unique user id
+			cusACCOUNT.createAccNo(); //call the method for generate unique account number
+			cusACCOUNT.updateDB(); //insert a new user to the database
 
+			//redirect page to the dashboard after creating new user
 			response.sendRedirect("test.jsp");
 
 			

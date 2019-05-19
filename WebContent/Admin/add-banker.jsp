@@ -49,6 +49,7 @@
                             <div class="sidepanel-wrapper">
                                 <div class="userprofile-wrapper">
                                     <h6>Administrator <br>Jon Snow</h6>
+                                    <!--Displaying Date using java-->
                                     <%    Date dNow = new Date( );
                                     SimpleDateFormat ft = new SimpleDateFormat ("E dd.MM.yyyy");
                                     out.print( "<p>" + ft.format(dNow) + "</p>"); %>

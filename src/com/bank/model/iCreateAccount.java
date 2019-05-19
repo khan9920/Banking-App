@@ -1,5 +1,6 @@
 package com.bank.model;
 
+//creating a interface to create admin accout/employee account/customer account
 public interface iCreateAccount{
 
     public void setName(String Name);

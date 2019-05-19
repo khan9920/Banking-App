@@ -1,5 +1,6 @@
 package com.bank.service;
 
+//import all the necessery packages
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -19,62 +20,73 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import com.bank.dao.*;
 
+//implementing Authentication class
 public class Authentication {
 	
+	//create variables
 	private String userId;
 	private String newPW;
 	private int Digits;
 	private int uDigits;
 	private String userEmail;
 
+	//set value to userID
 	public void setUserId(String user) {
 		userId = user;
 	}
 
+	//Generate a random number for send via email
 	public void setDigits(){
 		Random rand = new Random();
     	this.Digits = rand.nextInt((999999 - 100000) + 1) + 100000;
 	}
 	
+	//set value to uDigits 
 	public void setUdigits(int digits) {
 		uDigits = digits;
 	}
 
+	//set value to newPW
 	public void setNewPw(String nPW){
 		newPW = nPW;
 	}
 	
+	//get email from the database according to the userID
 	public void setUserEmail() {
 		
 		try {
+		//set the connection
 		dbConnection con = new dbConnection();
         Connection conn = con.toConnect();
 
         Statement st = conn.createStatement();
-        
+		
+		//get the users's email from the database
 		String sql = "SELECT email FROM customer WHERE custID = '"+userId+"'";
     	ResultSet rs = st.executeQuery(sql);
     	    while(rs.next()) { // loop through the results of the query
                     this.userEmail = rs.getString("email");
             }
-    	    conn.close();
+    	    conn.close(); //close the connetion
     	    
 		}catch(Exception e) {
 			System.out.println(e);
 		}
 	}
 	
+	//send Digits
 	public int getDigits() {
 		return Digits;
 	}
 	
+	//sending the email using bank email
 	public void sendEmail(){
 	
-		final String username = "@gmail.com";
-		final String password = "";
+		final String username = "@gmail.com"; //bank email
+		final String password = ""; //email password
 		
-		String fromEmail = "@gmail.com";
-		String toEmail = this.userEmail;
+		String fromEmail = "@gmail.com"; //senders email(bank email)
+		String toEmail = this.userEmail; //Reciient's email address
 		
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
@@ -98,10 +110,11 @@ public class Authentication {
 			InternetAddress[] address = {new InternetAddress(toEmail)};
 	        msg.setRecipients(Message.RecipientType.TO, address);
 	        
-			msg.setSubject("Update Account Password");
-			msg.setText("To change the password use this digits :" + this.Digits);
+			msg.setSubject("Update Account Password"); //email Subject
+			//email body with the randomly generated digits
+			msg.setText("To change the password use this digits :" + this.Digits); 
 			
-			Transport.send(msg);
+			Transport.send(msg); //send the email
 			System.out.println("Sent message");
 		} catch (MessagingException e) {
 			e.printStackTrace();
@@ -111,10 +124,11 @@ public class Authentication {
 		
 	}
 	
+	//update the new password
 	public void updateDB() {
 		
 		try {
-	    	
+	    	//set the database connetion
 	        dbConnection con = new dbConnection();
 	        Connection conn = con.toConnect();
 	        
@@ -124,7 +138,7 @@ public class Authentication {
 	  					
 	        st.executeUpdate(sql);
 	  
-			conn.close();
+			conn.close(); //close the connetion
 	    	}catch(Exception e) {
 	    		System.out.println(e);
 	    		

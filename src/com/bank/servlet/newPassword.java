@@ -46,24 +46,29 @@ public class newPassword extends HttpServlet {
         PrintWriter out = response.getWriter();
 		
 		try {
+			//create object from the Authentication class
 			Authentication Fpassword = new Authentication();
 			
+			//call the method for set values
 			Fpassword.setUdigits(Integer.parseInt(request.getParameter("digits")));
 			Fpassword.setNewPw(request.getParameter("newPass"));
 			
+			//get the Digits & customer id using session
 			HttpSession session = request.getSession();
 			String digits = (String) session.getAttribute("DIGITS");
 			String userID = (String) session.getAttribute("customerID");
 			
+			//call the methoeds for the values of the Fpassword object
 			Fpassword.setUserId(userID);
 			
 			System.out.println(digits);
 			
-			if(digits.equals(request.getParameter("digits"))) {
-				Fpassword.updateDB();
-				response.sendRedirect("index.jsp");
-			}else {
-				response.sendRedirect("new-password.jsp");
+			//comparing user enterd digits and digits that send using email
+			if(digits.equals(request.getParameter("digits"))) { //if both digits are the same
+				Fpassword.updateDB(); //update the password
+				response.sendRedirect("index.jsp"); //redirect to the login page
+			}else {//if digits are different
+				response.sendRedirect("new-password.jsp"); //redirect to the new-password page for re-enter digits
 				System.out.println("Invalid Digits.Try again");
 			}
 			
