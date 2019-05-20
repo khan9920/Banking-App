@@ -1,3 +1,5 @@
+<!-- Included all the reusable heading and navigation section of the customer -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="com.Banking.model.*, javax.servlet.ServletException" %> 
@@ -30,7 +32,7 @@
 <body>
 
 <% if(session.getAttribute("bankID") == null){
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("index.jsp");
 }
 %>
 
@@ -40,7 +42,8 @@
             <div class="col-md-12">
                 <div class="header-icon-wrapper">
                     <a href="settings.jsp"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
-                    <a href="login.jsp"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a>
+                    <!-- Call the servlet for logout -->
+                    <a href="logout"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a> 
                 </div>
             </div>
         </div>
@@ -60,11 +63,10 @@
                         <div class="sidepanel-nav">
                             <h6>BANKING OPTIONS</h6>
                             <ul><li>
-                                <form id="custDash" action="login" method="post">
-                                    <img src="assets/icons/icon_dashboard.png" alt="Dashboard Icon" style = "padding-right: 10px">
-   									<input type="hidden" name="custDash" value="cust" />
-    								<a href="#" onclick="document.getElementById('custDash').submit();">Dashboard</a>
-								</form>
+								<a href="dashboard.jsp">
+                                    <img src="assets/icons/icon_dashboard.png" alt="Dashboard Icon">
+                                    Dashboard
+                                </a>
 								</li>
                             </ul>
                         </div>

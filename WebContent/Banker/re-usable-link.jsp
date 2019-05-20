@@ -28,7 +28,7 @@
 </head>
 <body>
 <% if(session.getAttribute("bankID") == null){
-	response.sendRedirect("../login.jsp");
+	response.sendRedirect("../index.jsp");
 	}
 %>
     <div class="dashboard">
@@ -38,10 +38,7 @@
                     <div class="col-md-12">
                         <div class="header-icon-wrapper">
                             <a href="settings.jsp"><img src="../assets/icons/icon_settings.png" alt="Settings Icon"></a>
-                            <form id="logout" action="../logout" method="post" style = "display:inline">
-   								<input type="hidden" name="re-logout" value="logout" />
-    							<a href="#" onclick="document.getElementById('logout').submit();"><img src="../assets/icons/icon_logout.png" alt="Logout Icon"></a>
-							</form>
+                            <a href="../logout"><img src="../assets/icons/icon_logout.png" alt="Logout Icon"></a>
                         </div>
                     </div>
                 </div>

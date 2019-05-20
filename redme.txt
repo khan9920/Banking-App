@@ -1,0 +1,7 @@
+Updated - Changed login.jsp to index.jsp
+	  Fixed logout on several pages 
+	  Changed the session validation redirect to index.jsp
+	  Addedd comments to some pages 
+	  Fixed some issues in costomer, admin, banker search pages 
+	  
+

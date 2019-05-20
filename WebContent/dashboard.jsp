@@ -1,4 +1,4 @@
-
+<!-- Customer's dashboard, gets redirected from loginServlet -->
             <%@ include file="re-usable.jsp"%>
             <div class="col-md-9 col-dash-body">
 

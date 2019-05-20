@@ -16,67 +16,75 @@ import com.Banking.model.*;
 @WebServlet("/login")
 
 public class LoginServlet extends HttpServlet {
+	
+	/*
+	 * In the program below it 
+	 * First take the bank id and password from the login page 
+	 * Create an object of Userlogin in model
+	 * And check bank id's first letter to check if it is an admin, customer or a banker 
+	 * Call the required methods of UserLogin for each user 
+	 * Set session variables 
+	 * Redirects to the dashboard pages of each user 
+	 * */
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");  
 
-		String bid = request.getParameter("bId");
-		String pass = request.getParameter("pass");
-		char fLetter = bid.charAt(0);
-		UserLogin login = new UserLogin(bid, pass);
-		boolean status;
-		HttpSession session;
+		String bid = request.getParameter("bId"); // get BankID 
+		String pass = request.getParameter("pass"); // get Password 
+		char fLetter = bid.charAt(0); 				// get the first letter of bankID 
+		UserLogin login = new UserLogin(bid, pass); // create object of login class 
+		boolean status; 							
+		HttpSession session;						// initialize session
 		
 		try {
-			if(fLetter == 'C') {
-				status = login.custLogin();
-				if(status) {
-//					 rd=request.getRequestDispatcher("dashboard.jsp");  
-//			         rd.forward(request, response);  
-			         session = request.getSession(); 
- 					 session.setAttribute("bankID", bid);
+			if(fLetter == 'C') { 			// check the first letter ( Customer )
+				status = login.custLogin(); // call method of UserLogin
+				if(status) { 				
+			         session = request.getSession();  
+			         /* Set Session variables */
+ 					 session.setAttribute("bankID", bid); 
  					 session.setAttribute("type", 'c');
  					 session.setAttribute("name", login.getName());
  					 session.setAttribute("acc", login.getAccNo());
  					 session.setAttribute("bal", login.getBal());
- 					response.sendRedirect("dashboard.jsp");
+ 					 
+ 					response.sendRedirect("dashboard.jsp"); // send redirect to dashboard 
 				}else {
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("index.jsp"); 
 				}
 			}
-			else if(fLetter == 'E') {
-				status = login.empLogin();
+			else if(fLetter == 'E') {		// check the first letter ( Employee / Banker )
+				status = login.empLogin();  // call method of UserLogin
 				if(status) {
-//					 rd=request.getRequestDispatcher("/Banker/bankerDashboard.jsp");  
-//					 rd.forward(request, response);  
 			         session = request.getSession(); 
+			         /* Set Session variables */
  					 session.setAttribute("bankID", bid);
  					 session.setAttribute("type", 'e');
  					 session.setAttribute("name", login.getName());
- 					 response.sendRedirect("Banker/bankerDashboard.jsp");
+ 					 response.sendRedirect("Banker/bankerDashboard.jsp"); // send redirect to dashboard 
 				}else {
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("index.jsp");
 				}
 			}
-			else if(fLetter == 'A') {
-				status = login.adminLogin();
+			else if(fLetter == 'A') {		 // check the first letter ( Administrator )
+				status = login.adminLogin(); // call method of UserLogin
 				if(status) {
-//					rd=request.getRequestDispatcher("Admin/adminDashboard.jsp");  
-//					 rd.forward(request, response);  
 			         session = request.getSession(); 
+			         /* Set Session variables */
 					 session.setAttribute("bankID", bid);
 					 session.setAttribute("type", 'a');
 					 session.setAttribute("name", login.getName());
-					response.sendRedirect("Admin/adminDashboard.jsp");
+					response.sendRedirect("Admin/adminDashboard.jsp"); // send redirect to dashboard 
 				}else {
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("index.jsp");
 				}
 			}	else {
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("index.jsp");
 			}
-		}catch(Exception e) {
+		}catch(Exception e) { // exception 
 			System.out.println("Exception");
 		}
 		

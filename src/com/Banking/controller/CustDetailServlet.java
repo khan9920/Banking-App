@@ -19,38 +19,38 @@ public class CustDetailServlet extends HttpServlet {
        
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		/*
+		 * CustDetailServlet gets called from the customer.jsp in Admin and Bankers folder
+		 * In the servlet it create an object of UserDetails
+		 * Calls customerDetails method to get the required details of customers details from the database
+		 * And sends the data to the correct page using request dispatcher 
+		 * */
 
 		response.setContentType("text/html"); 
-		UserDetails details = new UserDetails();
+		UserDetails details = new UserDetails(); // method creation 
 		ResultSet rs; // variable to catch the return resultSet
-		System.out.println("called servlet");
-		if(request.getParameter("custDash") != null) {
-			RequestDispatcher rd=request.getRequestDispatcher("dashboard.jsp");  
-	        rd.forward(request, response);  
-		}else {
-			
-			try {
-				rs = details.customerDetails(); // get customer details
-				request.setAttribute("result", rs);  // set request attribute 
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			if(request.getParameter("adminCust") != null) {
-					RequestDispatcher rd=request.getRequestDispatcher("Admin/customers.jsp");  
-			        rd.forward(request, response);  
-			
-			}
-			else if(request.getParameter("bankerCust") != null){
-					RequestDispatcher rd=request.getRequestDispatcher("Banker/customers.jsp");  
-			        rd.forward(request, response);  
-			}
-		}
 		
+		try {
+			rs = details.customerDetails(); // get customer details
+			request.setAttribute("result", rs);  // set request attribute 
+				
+		} catch (SQLException e) { 
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		if(request.getParameter("adminCust") != null) { // check if the request is from the admin page 
+			RequestDispatcher rd=request.getRequestDispatcher("Admin/customers.jsp");  // send response
+			rd.forward(request, response);  
+			
+		}
+		else if(request.getParameter("bankerCust") != null){ // check if the request is from banker page
+			RequestDispatcher rd=request.getRequestDispatcher("Banker/customers.jsp");   // send response
+			rd.forward(request, response);  
+		}
 	}
-	
+		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}

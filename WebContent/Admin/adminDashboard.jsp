@@ -1,5 +1,5 @@
 
-                <!-- cut from here -->
+                <!-- Administrator Dashboard -->
                 <%@ include file="re-usable-link.jsp"%>
                 <div class="col-md-9 col-dash-body">
 

@@ -5,7 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import com.Banking.Dao.*;
-
+/*
+ * The following Class has 3 methods that gets called by UserLogin class 
+ * This class ( Login ) extends Connections class in Dao package which has the database connection 
+ * Each method has queries written to work with the required table 
+ * Each method return a result set variable with all the results from the table
+ * */
 public class Login extends Connections{
 	
 	Connection con = super.toConnect();
