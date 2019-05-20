@@ -178,7 +178,7 @@ public class CreateCustomerAcc implements iCreateAccount{
     					
             st.executeUpdate(sql);
             
-            double balance = 0;
+            double balance = 500.00;
             String sql2 = "INSERT INTO bankAccount(accountNo,cBalance,customerID) VALUES ('"+accNo+"', '"+balance+"','"+userID+"')";
 			
             st.executeUpdate(sql2);
