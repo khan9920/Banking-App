@@ -13,6 +13,10 @@ public class LogoutServlet extends HttpServlet {
 
 
 
+	/*
+	 * This is the logout servlet 
+	 * When logout redirect to the login page 
+	 * */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
@@ -20,14 +24,9 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");  
 		
-		if(request.getParameter("re-logout") != null) {
-			request.getRequestDispatcher("login.jsp").include(request, response);  
-		}else {
-			request.getRequestDispatcher("login.jsp").include(request, response); 
-		}
-          
-        HttpSession session=request.getSession();  
-        session.invalidate();  
+		response.sendRedirect("index.jsp"); // redirects to the index.jsp page 
+        HttpSession session=request.getSession();   
+        session.invalidate();  				// invalidate the session variable 
 	}
 
 }

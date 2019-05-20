@@ -1,22 +1,15 @@
 package com.Banking.controller;
 
+//import all the necessery packages
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.Banking.model.*;
 
 
@@ -43,12 +36,25 @@ public class forgotPWservlet extends HttpServlet {
 		
         
 		try {
+			//create a object from the Authentication class
 			Authentication Fpassword = new Authentication();
+		
+			Fpassword.setUserId(request.getParameter("USERid")); //call the methoed for set userID 
+			Fpassword.setDigits(); //call the methoed for generate digits
+			Fpassword.setUserEmail(); //call the methoed for get user's email from database
+			Fpassword.sendEmail(); //call the methoed for send the email with the digits
 			
-			Fpassword.setUserId(request.getParameter("USERid"));
-			Fpassword.setDigits();
-			Fpassword.sendEmail();
+			//convert the generated digits to string & store it in the variable
+			String digits = Integer.toString(Fpassword.getDigits());
+			//store th user id in the "id" variable
+			String id = request.getParameter("USERid");
+			
+			//create a session & store the Digit & userId
+			HttpSession session = request.getSession();
+			session.setAttribute("DIGITS", digits);
+			session.setAttribute("customerID", id);
 
+			//redirect the file to new-password page
 			response.sendRedirect("new-password.jsp");
 		
 		}catch(Exception e) {

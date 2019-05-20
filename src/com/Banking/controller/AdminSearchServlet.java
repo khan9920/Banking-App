@@ -17,6 +17,14 @@ import com.Banking.service.*;
 public class AdminSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	/*
+	 * AdminSearchServlet gets called from the admin.jsp page 
+	 * This servlet is used for customer search
+	 * Gets the search value as the request 
+	 * Create an object of UserDetails
+	 * Call the AdminSearchServlet method passing the search value 
+	 * Call admins.jsp in the Admin folder
+	 * */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	

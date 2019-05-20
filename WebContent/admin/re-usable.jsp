@@ -1,3 +1,7 @@
+<!-- This jsp is used as a reusable file in the admin folder 
+	 It includes all Head section and side navigation panel
+ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "java.sql.ResultSet" %> 
@@ -25,7 +29,7 @@
 </head>
 <body>
 <% if(session.getAttribute("bankID") == null){
-	response.sendRedirect("../login.jsp");
+	response.sendRedirect("index.jsp");
 	}
 	
 	%>

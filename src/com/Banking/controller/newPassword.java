@@ -2,13 +2,13 @@ package com.Banking.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.Banking.model.*;
 
 
@@ -46,15 +46,32 @@ public class newPassword extends HttpServlet {
         PrintWriter out = response.getWriter();
 		
 		try {
+			//create object from the Authentication class
 			Authentication Fpassword = new Authentication();
 			
+			//call the method for set values
 			Fpassword.setUdigits(Integer.parseInt(request.getParameter("digits")));
 			Fpassword.setNewPw(request.getParameter("newPass"));
-			//session will be created at the authentication to store the digits that send via email
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("");
-			dispatcher.forward(request, response);
-		
+			//get the Digits & customer id using session
+			HttpSession session = request.getSession();
+			String digits = (String) session.getAttribute("DIGITS");
+			String userID = (String) session.getAttribute("customerID");
+			
+			//call the methoeds for the values of the Fpassword object
+			Fpassword.setUserId(userID);
+			
+			System.out.println(digits);
+			
+			//comparing user enterd digits and digits that send using email
+			if(digits.equals(request.getParameter("digits"))) { //if both digits are the same
+				Fpassword.updateDB(); //update the password
+				response.sendRedirect("index.jsp"); //redirect to the login page
+			}else {//if digits are different
+				response.sendRedirect("new-password.jsp"); //redirect to the new-password page for re-enter digits
+				System.out.println("Invalid Digits.Try again");
+			}
+			
 			
 		}catch(Exception e) {
 			out.print(e.getMessage());

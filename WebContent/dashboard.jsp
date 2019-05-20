@@ -1,4 +1,4 @@
-
+<!-- Customer's dashboard, gets redirected from loginServlet -->
             <%@ include file="re-usable.jsp"%>
             <div class="col-md-9 col-dash-body">
 
@@ -14,8 +14,16 @@
                                 <p class="acc-no"><%= session.getAttribute("acc") %></p>
                             </div>
                             <div class="balance">
+                            <%
+	                        DisplayBankBalanceService display = new DisplayBankBalanceService();
+                            ResultSet rslt = display.Display();
+                            
+                            while(rslt.next()){
+                            	String balance = rslt.getString("cBalance"); 
+                            %>
                                 <p>Balance</p>
-                                <h3> <%= session.getAttribute("bal") %><span>LKR</span></h3>
+                                <h3><%= balance %><span>LKR</span></h3>
+                                <% } %>
                             </div>
                             <div class="recent-transaction">
                                 <p>Recent Transactions</p>

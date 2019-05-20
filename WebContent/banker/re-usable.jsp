@@ -25,7 +25,7 @@
 </head>
 <body>
 	<% if(session.getAttribute("bankID") == null){
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("index.jsp");
 	}
 	UserLogin l = (UserLogin)request.getAttribute("login");
 	%>

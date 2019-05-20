@@ -1,16 +1,22 @@
 package com.Banking.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TransactionModel {
-	//sender details
+	//sender
 	private String custID;
 	private double bankBalance;
 	private double transferAmount;
 	private double total;
 	private String senderRemark;
+	private String transactionDate;
 	
-	//beneficiary details
-	private String transferingCustID;
+	//beneficiary
+	private int recAccNo;
+	private double recBankBalance;
 	private String beneficiaryRemark;
+	private double totalTransfer;	
 	
 	public void setCustomerID(String CustID) {
 		this.custID = CustID;
@@ -24,8 +30,20 @@ public class TransactionModel {
 		this.bankBalance = BankBalance;
 	}
 	
-	public void setTransferringCustID(String TransferringCustID) {
-		this.transferingCustID = TransferringCustID;
+	public double getBankBalance() {
+		return this.bankBalance;
+	}
+	
+	public void setRecAccNo(int RecAccNo) {
+		this.recAccNo = RecAccNo;
+	}
+	
+	public int getRecAccNo() {
+		return this.recAccNo;
+	}
+	
+	public void setRecBankBalance(double RecBankBalance) {
+		this.recBankBalance = RecBankBalance;
 	}
 	
 	public void setTransferAmount(double TransferAmount) {
@@ -45,16 +63,16 @@ public class TransactionModel {
 	}
 	
 	public double calculateReceiveBalance() {
-		return this.bankBalance = bankBalance + transferAmount;
+		return this.totalTransfer = this.recBankBalance + this.transferAmount;
 	}
 	
-	public void printTransactionDetails() {
-		System.out.println("From custID : " + this.getCustomerID());
-		System.out.println("To custID : " + this.transferingCustID);
-		
-		System.out.println("From bank balance : " + this.bankBalance);
-		System.out.println("Transfer amount : " + this.transferAmount);
-		System.out.println("Total : " + this.getCalculatedBalance());
+	public void setTransactionDate() {
+		Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat ("yyyy.mm.dd hh:mm:ss");
+        this.transactionDate = format.format(date);
 	}
 	
+	public String getTransactionDate() {
+		return this.transactionDate;
+	}
 }

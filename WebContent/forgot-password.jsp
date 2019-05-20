@@ -19,7 +19,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/forgotPass.css">
+        <link rel="stylesheet" href="css/forgotPass.css">	
 
         <!-- Title -->
         <title>World Bank | Forgot Password</title>

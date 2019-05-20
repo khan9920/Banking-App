@@ -17,11 +17,21 @@ import com.Banking.service.*;
 public class EmployeeSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	/*
+	 * EmplyeeerSearchServlet gets called from the Bankers.jsp page 
+	 * This servlet is used for customer search
+	 * Gets the search value as the request 
+	 * Create an object of UserDetails
+	 * Call the customerSearch method passing the search value 
+	 * And call the corresponding page according to the request 
+	 * */
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");  
-		String search = request.getParameter("search");
-		UserDetails details = new UserDetails();
+		
+		String search = request.getParameter("search"); // get the search value 
+		UserDetails details = new UserDetails(); // creates an object 
 		ResultSet rs; // variable to catch the return resultSet
 		try {
 			rs = details.empSearch(search); // get customer details
