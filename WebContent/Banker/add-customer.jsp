@@ -1,38 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import = "java.io.*,java.util.*" %>
-<%@ page import = "javax.servlet.*,java.text.*" %>
-    
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <jsp:include page="../views/tags.jsp"></jsp:include>	
-
-</head>
-<body>
-    <div class="dashboard">
-        
-        <jsp:include page="../views/header.jsp"></jsp:include>
-        
-        <div class="section">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3 col-sidepanel">
-                        
-                        <jsp:include page="../views/sidePanal.jsp"></jsp:include>
-                        
-                    </div>
+					<%@ include file="re-usable-link.jsp"%>
                     <div class="col-md-9 col-dash-body">
 
                         <div class="dash-header">
                             <img src="../assets/icons/icon_dashboard_admin_transaction.png" alt="Transactions Header Icon">
-                            <h6>ADD ADMIN</h6>
+                            <h6>ADD CUSTOMER</h6>
                         </div>
 
                         <div class="row dash-body">
-                            <form action="../addAdmin" onsubmit="return formValidation()" method="POST">
+                            <form action="../addCustomer" onsubmit="return formValidation()" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h6 class="dash-title">PERSONAL INFO</h6>

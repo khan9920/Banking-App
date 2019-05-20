@@ -1,6 +1,9 @@
+<!-- Main pages and acts as the login
+	 Call loginServlet on form submit
+ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,10 +44,18 @@
                     <div class="col-md-6">
                         <div class="login-wrapper">
                             <p>LOGIN</p>
-                            <form action="" class="login">
-                                <input type="text" id="bankId" placeholder="Banking ID">
-                                <input type="password" id="password" placeholder="Password">
-                                <button class="btn btn-orange">LOGIN</button>
+                            <form action="login" class="login" method = "post" name = "login"> 
+                                <input type="text" id="bankId" placeholder="Banking ID" name = "bId" class = "bid">
+                                <p style = "color: red; text-align: left; font-size: 14px;" class = "idError"></p>
+                               
+                                <input type="password" id="password" placeholder="Password" name = "pass" class = "pass">
+                                <p style = "color: red; text-align: left; font-size: 14px;" class = "passError"></p>
+                                
+                                <!-- <input type = "submit" class="btn btn-orange" value = "login" > -->
+                                <button type="submit" class = "btn btn-orange" onclick="return myFunction()">Submit</button>
+                                <%-- <%if(session.getAttribute("bankID") == null){ %>
+                                <p>Wrong Credentials</p>
+                                <% }%> --%>
                                 <a href="forgot-password.jsp">Forgot password?</a>
                             </form>
                         </div>
@@ -57,15 +68,35 @@
                         <div class="col-md-12">
                             <div class="footer-content">
                                 <hr>
-                                <p class="footer-para"> Bank name - Retail Version Â© year</p>
+                                <p class="footer-para"> Bank name - Retail Version © year</p>
                                 <a href="#" class="link about-us">About Us</a> <span class = "devide-span">|</span>
-                                <a href="Customer/contact-us.jsp" class="link contact-us">Contact Us</a>
+                                <a href="contact-us.html" class="link contact-us">Contact Us</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
+  <script type="text/javascript">  
+ /* function myFunction(){
+	  var id = document.querySelector('.bid').value;
+	  var pass = document.querySelector('.pass').value;
+	  
+	  if(id == ""){
+		  var id = document.querySelector('.idError').innerHTML = "Please enter the bank ID";
+		  return false;
+	  }
+	  if(pass == ""){
+		  var id = document.querySelector('.passError').innerHTML = "Please enter the password";
+		  return false;
+	  }
+	  if(pass.length < 8){
+		  var id = document.querySelector('.passError').innerHTML = "Please check the length of the password";
+		  return false;
+	  }
+  }
+  */
+</script>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src = "js/script.js"></script>
