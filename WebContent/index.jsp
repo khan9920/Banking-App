@@ -78,7 +78,7 @@
             </footer>
         </div>
   <script type="text/javascript">  
- /* function myFunction(){
+  function myFunction(){
 	  var id = document.querySelector('.bid').value;
 	  var pass = document.querySelector('.pass').value;
 	  
@@ -90,12 +90,12 @@
 		  var id = document.querySelector('.passError').innerHTML = "Please enter the password";
 		  return false;
 	  }
-	  if(pass.length < 8){
+	  if(pass.length < 4){
 		  var id = document.querySelector('.passError').innerHTML = "Please check the length of the password";
 		  return false;
 	  }
   }
-  */
+  
 </script>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
