@@ -109,7 +109,7 @@
                 <div class="row dash-body">
                     <div class="col-md-12">
                         <div class="balance-wrapper">
-                            <h4 style="color: red; text-align: left; font-size: 14px; font-weight: 600">Insufficient balance, please try again</h4>
+                            <h4 style="color: red; text-align: left; font-size: 14px; font-weight: 600">Minmum amount that can be transferred is 10 LKR , please try again</h4>
                             <button type="button" class="btn-orange"  onclick="location.href = '../transfer-money.jsp';" >Try again</a>
                         </div>
                     </div>

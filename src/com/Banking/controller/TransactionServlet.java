@@ -82,9 +82,15 @@ public class TransactionServlet extends HttpServlet {
 				senderBankBalance = rt1.getDouble("cBalance"); 
 			}
 			
-			if ( amount >= senderBankBalance) {
+			//check whether the sender has minimum bank balance
+			if(senderBankBalance <= 200.00 ) {
+				response.sendRedirect("error/low-balance-error.jsp");
+			} else if ( amount >= senderBankBalance ) {							//check whether the transferring amount exceeds the current bank balance
 				response.sendRedirect("error/transaction-amount-error.jsp");
+			} else if ( amount < 10.00) {										//check whether the transfer amount is falling behind the minimum transfer amount
+				response.sendRedirect("error/transaction-low-amount-error.jsp");
 			} else {
+				
 				//get sender bank account number
 				ResultSet rt2 = traDao.getBankAccountNumber();
 				while(rt2.next()) {
@@ -97,11 +103,13 @@ public class TransactionServlet extends HttpServlet {
 					recBankBalance = rt3.getDouble("cBalance");
 				}
 				
+				//get receiver's bank account number
 				ResultSet rt4 = traDao.getRecBankAccountNumber();
 				while(rt4.next()) {
 					recAccNoDB = rt4.getInt("accountNo");
 				}
 				
+				//check whether the receiver's bank account number exists
 				if ( recAccNumber != recAccNoDB ) {
 					response.sendRedirect("error/transaction-account-error.jsp");
 				} else {
@@ -130,12 +138,9 @@ public class TransactionServlet extends HttpServlet {
 				}
 			}
 			
-			
-			
 		} catch(Exception e) {
 			System.out.println(e);
 		}
-		
 	}
 
 }

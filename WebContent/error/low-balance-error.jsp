@@ -109,8 +109,8 @@
                 <div class="row dash-body">
                     <div class="col-md-12">
                         <div class="balance-wrapper">
-                            <h4 style="color: red; text-align: left; font-size: 14px; font-weight: 600">Insufficient balance, please try again</h4>
-                            <button type="button" class="btn-orange"  onclick="location.href = '../transfer-money.jsp';" >Try again</a>
+                            <h4 style="color: red; text-align: left; font-size: 14px; font-weight: 600">Your account balance is low. Please top up and try again.</h4>
+                            <button type="button" class="btn-orange"  onclick="location.href = '../dashboard.jsp';" >Home</a>
                         </div>
                     </div>
                 </div>
