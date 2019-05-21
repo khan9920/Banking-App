@@ -56,6 +56,7 @@ public class TransactionServlet extends HttpServlet {
 		String beneficiaryRemark;	//declare variable to store beneficiary remark
 		int recAccNumber;	//declare variable to store reveiver's bank account number
 		int sendAccNo = 0;	// declare variable to store current user's account number
+		int recAccNoDB = 0;	// declare variable to store receivers bank account number retrieved from DB
 		double recBankBalance = 0.0; //declare variable to store receiver's bank balance
 		
 		
@@ -81,40 +82,55 @@ public class TransactionServlet extends HttpServlet {
 				senderBankBalance = rt1.getDouble("cBalance"); 
 			}
 			
-			//get sender bank account number
-			ResultSet rt2 = traDao.getBankAccountNumber();
-			while(rt2.next()) {
-				sendAccNo = rt2.getInt("accountNo");
+			if ( amount >= senderBankBalance) {
+				response.sendRedirect("error/transaction-amount-error.jsp");
+			} else {
+				//get sender bank account number
+				ResultSet rt2 = traDao.getBankAccountNumber();
+				while(rt2.next()) {
+					sendAccNo = rt2.getInt("accountNo");
+				}
+				
+				//get receiver's bank balance
+				ResultSet rt3 = traDao.getRecBankBalance();
+				while(rt3.next()) {
+					recBankBalance = rt3.getDouble("cBalance");
+				}
+				
+				ResultSet rt4 = traDao.getRecBankAccountNumber();
+				while(rt4.next()) {
+					recAccNoDB = rt4.getInt("accountNo");
+				}
+				
+				if ( recAccNumber != recAccNoDB ) {
+					response.sendRedirect("error/transaction-account-error.jsp");
+				} else {
+					//Updating senders table
+					transaction.setBankBalance(senderBankBalance);
+					
+					//Calculate and update senders credit status on bankAccount table
+					traDao.setCalculatedBalance(transaction.getCalculatedBalance());
+					traDao.updateSenderDB();
+					
+					//Calculate and update receivers status on bankAccount table
+					transaction.setRecBankBalance(recBankBalance);
+					traDao.setCalculatedRecAmount(transaction.calculateReceiveBalance());
+					traDao.updateReceiverDB();
+					
+					//update transaction table
+					traDao.setRecAccount(recAccNumber);
+					traDao.setSenderAccount(sendAccNo);
+					traDao.setTranDate(transaction.getTransactionDate());
+					traDao.setTransferAmount(amount);
+					traDao.setSenderRemark(senderRemark);
+					traDao.setBenRemark(beneficiaryRemark);
+					traDao.updateTransactionDB();
+					
+					response.sendRedirect("dashboard.jsp");
+				}
 			}
 			
-			//get receiver's bank balance
-			ResultSet rt3 = traDao.getRecBankBalance();
-			while(rt3.next()) {
-				recBankBalance = rt3.getDouble("cBalance");
-			}
 			
-			//Updating senders table
-			transaction.setBankBalance(senderBankBalance);
-			
-			//Calculate and update senders credit status on bankAccount table
-			traDao.setCalculatedBalance(transaction.getCalculatedBalance());
-			traDao.updateSenderDB();
-			
-			//Calculate and update receivers status on bankAccount table
-			transaction.setRecBankBalance(recBankBalance);
-			traDao.setCalculatedRecAmount(transaction.calculateReceiveBalance());
-			traDao.updateReceiverDB();
-			
-			//update transaction table
-			traDao.setRecAccount(recAccNumber);
-			traDao.setSenderAccount(sendAccNo);
-			traDao.setTranDate(transaction.getTransactionDate());
-			traDao.setTransferAmount(amount);
-			traDao.setSenderRemark(senderRemark);
-			traDao.setBenRemark(beneficiaryRemark);
-			traDao.updateTransactionDB();
-			
-			response.sendRedirect("dashboard.jsp");
 			
 		} catch(Exception e) {
 			System.out.println(e);

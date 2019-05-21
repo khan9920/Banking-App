@@ -44,7 +44,7 @@
                             <input type="number" name="re-acc-number" id="reAccNo">
                         </div>
 
-                        <button type="submit" class="btn-orange btn-proceed"  onclick="return validateForm()">Proceed</a>
+                        <button type="submit" class="btn-orange btn-proceed" onclick="return validateForm()">Proceed</a>
                     </form>
                 </div>
             </div>

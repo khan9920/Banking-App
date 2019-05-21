@@ -71,6 +71,13 @@ public class TransactionService {
 		return rslt;
 	}
 	
+	public ResultSet getRecBankAccountNumber() throws SQLException {
+		Statement st = conn.createStatement();
+		String sql = " SELECT accountNo FROM bankAccount WHERE accountNo = '"+this.recAccountNumber+"'";
+		ResultSet rslt = st.executeQuery(sql);
+		return rslt;
+	}
+	
 	public ResultSet getRecBankBalance() throws SQLException {
 		Statement st = conn.createStatement();
 		String sql = " SELECT cBalance FROM bankAccount WHERE accountNo = '"+this.recAccountNumber+"'";
