@@ -127,6 +127,7 @@
 }
 
 .balance-wrapper {
+	width: 40%;
     background-color: #f6f6f6;
     padding: 25px;
 }
@@ -134,6 +135,10 @@
 .acc-no {
     color: #a2a2a2;
     font-weight: 600;
+}
+
+.acc-no-text {
+	font-weight: 600;
 }
 
 .balance p {
@@ -168,6 +173,10 @@
 .transation-date {
     color: #848383 !important;
     font-size: 12px;
+}
+
+.transactions-table {
+	margin: 20px 35px;
 }
 
 /* ADMIN DASHBOARD TEABLE STYLES */
