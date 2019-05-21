@@ -16,7 +16,16 @@ public class TransactionModel {
 	private int recAccNo;
 	private double recBankBalance;
 	private String beneficiaryRemark;
-	private double totalTransfer;	
+	private double totalTransfer;
+	
+	public TransactionModel(String CustID, double TransferAmount, String SenderRemark, String BeneficiaryRemark, int RecAccNo) {
+		this.custID = CustID;
+		this.transferAmount = TransferAmount;
+		this.senderRemark = SenderRemark;
+		this.beneficiaryRemark = BeneficiaryRemark;
+		this.recAccNo = RecAccNo;
+	}
+	
 	
 	public void setCustomerID(String CustID) {
 		this.custID = CustID;

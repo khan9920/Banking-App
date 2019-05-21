@@ -27,7 +27,6 @@ public class UserLogin {
 		this.password = password;
 	}
 	
-	
 	public String getBid() { // getter for bankID 
 		return bid;
 	}

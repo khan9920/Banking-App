@@ -7,19 +7,20 @@
                 <div class="dash-body">
                     <h6 class="dash-title">Effective Available Balance</h6>
                     <%
-                    	DisplayBankBalanceService display = new DisplayBankBalanceService();
-                    	ResultSet rslt = display.Display();
-                    	while(rslt.next()){
-                    	String balance = rslt.getString("cBalance");
-                    	
+                    	DisplayTransactionService display = new DisplayTransactionService();
+                    		ResultSet rslt = display.Display(session.getAttribute("bankID").toString());
+                    		while(rslt.next()){
+                    			Double balance = rslt.getDouble("cBalance");
                     %>
-                    <h3><%= balance %>LKR</span></h3>
+                    <h3><%= balance %></span> LKR</h3>
                     <% } %>
 
                     <form action="TransactionServlet" method="POST" class="transfer-form">
                         <div class="form-element-wrapper">
+                        	<p style = "color: red; text-align: left; font-size: 14px; font-weight: 600" id="errorCommon"></p><br>
                             <p>Transfer Amount</p>
-                            <input type="number" name="amount" id="amount">
+                            <input type="number" step="0.01"name="amount" id="amount">
+                             
                         </div>
                             
                         <div class="form-element-wrapper">
@@ -33,22 +34,24 @@
                         </div>
                         
                         <div class="form-element-wrapper">
+                        	<p style = "color: red; text-align: left; font-size: 14px; font-weight: 600" id="errorAccNo"></p><br>
                             <p>Account Number </p>
-                            <input type="number" name="accountNumber" id="acc-no">
+                            <input type="number" name="accountNumber" id="accNo">
                         </div>
                         
                         <div class="form-element-wrapper">
                             <p>Re-enter Account Number </p>
-                            <input type="number" name="re-acc-number" id="re-acc-no">
+                            <input type="number" name="re-acc-number" id="reAccNo">
                         </div>
 
-                        <button type="submit" class="btn-orange btn-proceed" name="btnSubmit">Proceed</a>
+                        <button type="submit" class="btn-orange btn-proceed"  onclick="return validateForm()">Proceed</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
+<script src="js/transferFormValidation.js"></script>
 </body>
 </html>

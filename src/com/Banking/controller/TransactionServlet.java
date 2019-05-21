@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.Banking.model.TransactionModel;
-import com.Banking.service.DisplayBankBalanceService;
+import com.Banking.service.DisplayTransactionService;
 import com.Banking.service.TransactionService;
 import com.Banking.service.UserDetails;
 
@@ -66,14 +66,8 @@ public class TransactionServlet extends HttpServlet {
 			beneficiaryRemark = request.getParameter("beneficiaryRemark");
 			recAccNumber = Integer.parseInt(request.getParameter("accountNumber"));
 			
-			//Assign data to the model
-			TransactionModel transaction = new TransactionModel();
-			
-			transaction.setCustomerID(custID);
-			transaction.setTransferAmount(amount);
-			transaction.setSenderRemark(senderRemark);
-			transaction.setBeneficiaryRemark(beneficiaryRemark);
-			transaction.setRecAccNo(recAccNumber);
+			//Assign data to the model using constructor
+			TransactionModel transaction = new TransactionModel(custID, amount, senderRemark, beneficiaryRemark, recAccNumber);
 			transaction.setTransactionDate();
 			
 			//Getting bank balance using using transaction service

@@ -57,6 +57,7 @@ public class TransactionService {
 	Connection conn = con.toConnect();
 	
 	public ResultSet getBankBalance() throws SQLException {
+		System.out.println("Pringing from transaction service : " + this.custDAOID);
 		Statement st = conn.createStatement();
 		String sql = " SELECT cBalance FROM bankAccount WHERE customerID = '"+this.custDAOID+"'";
 		ResultSet rslt = st.executeQuery(sql);
