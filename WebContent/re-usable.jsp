@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/dashboard/make-a-payment.css">
     <link rel="stylesheet" href="css/dashboard/make-a-payment-form.css">
      <link rel="stylesheet" href="css/contact-us.css">
+     <link rel="stylesheet" href="css/admin/customers.css">
 </head>
 <body>
 
@@ -41,7 +42,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="header-icon-wrapper">
-                    <a href="settings.jsp"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
+                    <a href="updateCustomer.jsp"><img src="assets/icons/icon_settings.png" alt="Settings Icon"></a>
                     <!-- Call the servlet for logout -->
                     <a href="logout"><img src="assets/icons/icon_logout.png" alt="Logout Icon"></a> 
                 </div>
