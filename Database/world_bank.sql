@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 19, 2019 at 07:41 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Generation Time: May 21, 2019 at 05:32 PM
+-- Server version: 10.1.39-MariaDB
+-- PHP Version: 7.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Bank_app`
+-- Database: `world_bank`
 --
 
 -- --------------------------------------------------------
@@ -49,8 +49,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminID`, `fullName`, `initials`, `NIC`, `address`, `city`, `postalCode`, `gender`, `tpNO`, `email`, `password`, `Birthday`, `createDate`) VALUES
-('A447736', 'Dan', 'P.L.D.N', '1234567v', 'PANADURA', 'PANADURA', 11111, 'male', '1111111111', 'danualwis24@gmail.com', 'ASDF', '1996-11-20', '2019.05.19 10:54:17'),
-('A801684', 'JON SNOW', 'J.S.', '96123456V', 'usa', 'b99', 1234, 'male', '123456789', 'sdf@gamail.com', 'john', NULL, NULL),
+('A447736', 'Albert Einstein', 'P.L.D.N', '1234567v', 'PANADURA', 'PANADURA', 11111, 'male', '1111111111', 'danualwis24@gmail.com', 'asdfasdf', '1996-11-20', '2019.05.19 10:54:17'),
+('A801684', 'JON SNOW', 'J.S.', '96123456V', 'usa', 'b99', 1234, 'male', '123456789', 'sdf@gamail.com', 'john123', NULL, NULL),
 ('Adjonas21', 'Daniel Jonas', 'D.J', '963029347v', 'No.123, Colombo 03.', 'Colombo', 12340, 'male', '0723049132', 'dJ@gmail.com', 'jonas1122', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -61,7 +61,7 @@ INSERT INTO `admin` (`adminID`, `fullName`, `initials`, `NIC`, `address`, `city`
 
 CREATE TABLE `bankAccount` (
   `accountNo` int(11) NOT NULL,
-  `cBalance` double NOT NULL,
+  `cBalance` double(10,2) NOT NULL,
   `customerID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,13 +70,10 @@ CREATE TABLE `bankAccount` (
 --
 
 INSERT INTO `bankAccount` (`accountNo`, `cBalance`, `customerID`) VALUES
-(1232, 1223, 'Ccc3456'),
-(4525, 3423, 'C123456'),
-(21323, 3423, 'Cc12345s'),
-(324123, 21213.23, 'CWB10'),
-(123456789, 100000, 'CWB121'),
-(556177132, 10000, 'C218657'),
-(764335834, 0, 'C920834');
+(178675381, 7200.00, 'C458983'),
+(556177132, 3908.00, 'C218657'),
+(677696128, 500.00, 'C226865'),
+(792466560, 500.00, 'C107919');
 
 -- --------------------------------------------------------
 
@@ -130,11 +127,14 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`custID`, `fullName`, `initials`, `NIC`, `address`, `city`, `postalCode`, `gender`, `tpNO`, `email`, `password`, `accountNumber`, `Birthday`, `createDate`) VALUES
-('C000001', 'Danushka Nuwan Alwis', 'P.L.', '963251327V', 'usa', 'b99', 999999, 'male', '0123456789', 'dhanushkanuwan24@gmail.com', 'newpw', 123456789, '1996-11-20', '2019-05-20'),
-('C123456', ' Danushka Nuwan', 'P.L.D.N', 'osad', 'asdf', 'asdf', 1234567, 'male', '1234567', 'crhforjobs12@gmail.com', 'as', 324, 'null', '2019-05-09 00.00.00'),
-('C218657', 'sapkan mohomed', 'm.t', '19999999999', 'asdf', 'asdf', 123456, 'male', '123456', 'sliit@my.com', 'sapkan', 556177132, 'asdf', '2019.05.19 08:09:30'),
+('C107919', 'Robert Crider', 'RSC', '0987654V', '1922 Thorn Street, Mountain View', 'New York', 600, 'male', '775867889', 'robert@gmail.com', 'robert123', 792466560, '19780-05-31', '2019.05.21 08:52:38'),
+('C218657', 'sapkan mohomed', 'm.t', '19999999999', 'asdf', 'asdf', 123456, 'male', '123456', 'sliit@my.com', 'Loft1024', 556177132, 'asdf', '2019.05.19 08:09:30'),
+('C226865', 'John Watson', 'JBW', '456789V', '1st Cross Street', 'Dehiwela', 900, 'male', '1234567890', 'john@gmaill.com', 'john456', 677696128, '1994-05-31', '2019.05.21 08:53:32'),
 ('C404199', 'qwer', 'asdf', 'asdf', 'asdf', 'asdf', 1234, 'male', '1234', 'asdf@gmail.com', 'asdf', 456453815, 'asdf', '2019.05.19 09:52:44'),
+('C458983', 'Shafkhan', 'MTM', '941522114V', 'Melford Cr', 'Colombo', 600, 'male', '775867889', 'shafkhan@designboo.com.au', 'Loft1024', 178675381, '1994--5-31', '2019.05.20 02:01:48'),
 ('C575034', 'dsfadfsasdf', 'P.L.D.N', '23455v', 'asdf', 'jidv', 2424, 'male', '12341', 'sd@gmai.com', '1234', 239235251, '2019-05-08', '2019.05.18 02:59:49'),
+('C693308', 'asdfasd', 'fasdf', 'asdfasdf', 'asdfasdf', 'asdfasdf', 12341234, 'male', '1234123', 'asdfasdf@gmail.com', 'asdfasdf', 910616238, '1994-07-09`', '2019.05.21 01:18:31'),
+('C723400', 'tesing', 'teasdn', '12341234', 'asdasdf', 'asdfas', 1234123, 'male', '1234123', 'asdfasdf@gmail.com', 'asdfasdf', 853057204, '1994-31-09', '2019.05.21 01:14:11'),
 ('C741788', 'test', 'asdf', 'adf', 'asdf', 'asdf', 16, 'male', '123456789', 'sdf@gamail.com', 'asdf', 972667773, 'asdf', '2019.05.19 10:51:31'),
 ('C914996', 'abcs', 'P.L.D.sdf', 'dffdfdf344', 'asdf', 'jidv', 2424, 'male', '12341', 'sdsdfs@gmai.com', '1234', 116333631, '2019-05-08', '2019.05.18 03:01:36'),
 ('C920834', 'table', 'asdf', 'asdf', 'asdf', 'asdf', 123, 'male', '123', 'asdf@gmail.com', 'asdf', 764335834, '1989/11/04', '2019.05.19 11:10:28'),
@@ -170,8 +170,8 @@ CREATE TABLE `Employee` (
 --
 
 INSERT INTO `Employee` (`empID`, `fullName`, `initials`, `NIC`, `address`, `city`, `postalCode`, `gender`, `tpNO`, `email`, `password`, `Birthday`, `createDate`) VALUES
-('E685322', 'sapkan mohomed', 'm.t', '20002343254', 'dehiwala ', 'dehiwala', 123, 'male', '132', 'sdf@gamail.com', 'asdf', 'sdf156', '2019.05.19 10:52:51'),
-('EMP1212', 'John Silva', 'JS', '023409234v', 'no.100 dehiwala', 'dehiwala', 1234, 'male', '21349532', 'js@gmail.com', 'js121', NULL, NULL);
+('E125295', 'Terry Long', 'TRL', '3456789V', '21st Jump Street', 'California', 900, 'male', '3456789', 'terry@gmail.com', 'terry123', '1897-09-14', '2019.05.21 08:58:12'),
+('EMP1212', 'John Silva', 'JS', '023409234v', 'no.100 dehiwala', 'dehiwala', 1234, 'male', '21349532', 'js@gmail.com', 'silva123', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -208,12 +208,33 @@ INSERT INTO `payments` (`vid`, `amount`, `accountNo`, `date`) VALUES
 --
 
 CREATE TABLE `transactions` (
-  `transactionID` varchar(20) NOT NULL,
+  `transactionID` int(20) NOT NULL,
   `recieverAccNo` int(11) NOT NULL,
   `senderAccNo` int(11) NOT NULL,
-  `transactionDate` datetime NOT NULL,
-  `amount` double NOT NULL
+  `transactionDate` varchar(25) NOT NULL,
+  `amount` double(10,2) NOT NULL,
+  `senderRem` varchar(15) NOT NULL,
+  `recRemark` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transactionID`, `recieverAccNo`, `senderAccNo`, `transactionDate`, `amount`, `senderRem`, `recRemark`) VALUES
+(17, 556177132, 178675381, '2019.22.21 10:22:35', 100.00, 'Sender', 'Ben'),
+(18, 556177132, 178675381, '2019.29.21 10:29:08', 140.90, 'sedner', 'sender'),
+(19, 556177132, 178675381, '2019.30.21 10:30:50', 90.45, 'sender', 'ban'),
+(20, 853057204, 178675381, '2019.10.21 03:10:42', 12.00, 'asdf', 'asdfasd'),
+(21, 853057204, 178675381, '2019.22.21 03:22:55', 150.00, 'mobile payment', 'mobile payment'),
+(22, 853057204, 178675381, '2019.41.18 03:41:38', 500.00, 'mobile payment', 'mobile payment'),
+(23, 910616238, 178675381, '2019.33.21 07:33:54', 678.90, 'asdfasdf', 'asdfasdf'),
+(24, 910616238, 178675381, '2019.34.21 07:34:29', -900000.00, 'sdfasdf', 'asdfasd'),
+(25, 764335834, 178675381, '2019.46.21 07:46:17', 10.00, 'asdfasdf', 'asdfa'),
+(26, 764335834, 178675381, '2019.48.21 07:48:13', 10.00, 'asdf', 'asdf'),
+(27, 764335834, 178675381, '2019.53.21 07:53:14', 100.00, 'asdfas', 'asdfa'),
+(28, 764335834, 178675381, '2019.54.21 07:54:45', 100.00, 'asdfas', 'asdf'),
+(29, 178675381, 556177132, '2019.02.21 09:02:04', 7000.00, 'sending q', 'ben');
 
 -- --------------------------------------------------------
 
@@ -310,6 +331,12 @@ ALTER TABLE `vendor`
 --
 ALTER TABLE `payments`
   MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `transactionID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `vendor`

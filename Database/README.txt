@@ -1,2 +1,5 @@
-IF you make changes to the database,
-pls write it down here
+Database name is : world_bank
+Password : n/a
+Port: 4200
+
+You can find the database configurations in com.banking.dao/Connections servlet
