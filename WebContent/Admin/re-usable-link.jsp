@@ -83,7 +83,7 @@
 										</form>
                                         
                                     	</li>
-                                        <li><a href="support.html">
+                                        <li><a href="support.jsp">
                                         <img src="../assets/icons/icon_admin_support.png" alt="Support Admin Icon">
                                         Support
                                     	</a></li>

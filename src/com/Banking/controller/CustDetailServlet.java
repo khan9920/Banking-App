@@ -10,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.Banking.service.*;
 import com.Banking.*;
 
@@ -30,6 +32,7 @@ public class CustDetailServlet extends HttpServlet {
 		response.setContentType("text/html"); 
 		UserDetails details = new UserDetails(); // method creation 
 		ResultSet rs; // variable to catch the return resultSet
+		
 		
 		try {
 			rs = details.customerDetails(); // get customer details

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.Banking.model.TransactionModel;
+import com.Banking.service.DisplayTransactionService;
 import com.Banking.service.TransactionService;
 import com.Banking.service.UserDetails;
 
@@ -36,7 +37,7 @@ public class TransactionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		
 	}
 
 	/**
@@ -44,54 +45,102 @@ public class TransactionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//Access session in order to get the current user's bankID
 		HttpSession session = request.getSession(true);
+
+		String custID = (String)session.getAttribute("bankID");	//assign bank id to variable
+		double senderBankBalance = 0.0;				//initiate current users's bank balance
 		
-		String custID = (String)session.getAttribute("bankID");
-		double senderBankBalance = 0.0;
-		
-		double amount;
-		String senderRemark;
-		String beneficiaryRemark;
-		String accountNumber;
+		double amount;			//declare variable to store transfer amount								
+		String senderRemark;	//declare variable to store sender's remark
+		String beneficiaryRemark;	//declare variable to store beneficiary remark
+		int recAccNumber;	//declare variable to store reveiver's bank account number
+		int sendAccNo = 0;	// declare variable to store current user's account number
+		int recAccNoDB = 0;	// declare variable to store receivers bank account number retrieved from DB
+		double recBankBalance = 0.0; //declare variable to store receiver's bank balance
 		
 		
 		try {
-			
-			amount = Integer.parseInt(request.getParameter("amount"));
+			//Retrieve data from the transfer form and store in respective variables
+			amount = Double.parseDouble(request.getParameter("amount"));
 			senderRemark = request.getParameter("senderRemark");
 			beneficiaryRemark = request.getParameter("beneficiaryRemark");
-			accountNumber = request.getParameter("accountNumber");
+			recAccNumber = Integer.parseInt(request.getParameter("accountNumber"));
 			
-			TransactionModel transaction = new TransactionModel();
+			//Assign data to the model using constructor
+			TransactionModel transaction = new TransactionModel(custID, amount, senderRemark, beneficiaryRemark, recAccNumber);
+			transaction.setTransactionDate();
 			
-			transaction.setCustomerID(custID);
-			transaction.setTransferAmount(amount);
-			transaction.setSenderRemark(senderRemark);
-			transaction.setBeneficiaryRemark(beneficiaryRemark);
-			transaction.setTransferringCustID(accountNumber);
-						
+			//Getting bank balance using using transaction service
 			TransactionService traDao = new TransactionService();
-			traDao.setCustID(custID);
+			traDao.setCustID(transaction.getCustomerID());
+			traDao.setRecAccount(transaction.getRecAccNo());
 			
-			ResultSet rt = traDao.getBankBalance();
-			while(rt.next()) {
-				senderBankBalance = rt.getDouble("cBalance"); 
+			//get senders's bank balance
+			ResultSet rt1 = traDao.getBankBalance();
+			while(rt1.next()) {
+				senderBankBalance = rt1.getDouble("cBalance"); 
 			}
 			
-			transaction.setBankBalance(senderBankBalance);
-			traDao.setCalculatedBalance(transaction.getCalculatedBalance());
-			traDao.updateSenderDB();
-			traDao.updateTransactionDB();
-			
-			transaction.printTransactionDetails();
-			
-			response.sendRedirect("dashboard.jsp");
-			
+			//check whether the sender has minimum bank balance
+			if(senderBankBalance <= 200.00 ) {
+				response.sendRedirect("error/low-balance-error.jsp");
+			} else if ( amount >= senderBankBalance ) {							//check whether the transferring amount exceeds the current bank balance
+				response.sendRedirect("error/transaction-amount-error.jsp");
+			} else if ( amount < 10.00) {										//check whether the transfer amount is falling behind the minimum transfer amount
+				response.sendRedirect("error/transaction-low-amount-error.jsp");
+			} else {
+				
+				//get sender bank account number
+				ResultSet rt2 = traDao.getBankAccountNumber();
+				while(rt2.next()) {
+					sendAccNo = rt2.getInt("accountNo");
+				}
+				
+				//get receiver's bank balance
+				ResultSet rt3 = traDao.getRecBankBalance();
+				while(rt3.next()) {
+					recBankBalance = rt3.getDouble("cBalance");
+				}
+				
+				//get receiver's bank account number
+				ResultSet rt4 = traDao.getRecBankAccountNumber();
+				while(rt4.next()) {
+					recAccNoDB = rt4.getInt("accountNo");
+				}
+				
+				//check whether the receiver's bank account number exists
+				if ( recAccNumber != recAccNoDB ) {
+					response.sendRedirect("error/transaction-account-error.jsp");
+				} else {
+					//Updating senders table
+					transaction.setBankBalance(senderBankBalance);
+					
+					//Calculate and update senders credit status on bankAccount table
+					traDao.setCalculatedBalance(transaction.getCalculatedBalance());
+					traDao.updateSenderDB();
+					
+					//Calculate and update receivers status on bankAccount table
+					transaction.setRecBankBalance(recBankBalance);
+					traDao.setCalculatedRecAmount(transaction.calculateReceiveBalance());
+					traDao.updateReceiverDB();
+					
+					//update transaction table
+					traDao.setRecAccount(recAccNumber);
+					traDao.setSenderAccount(sendAccNo);
+					traDao.setTranDate(transaction.getTransactionDate());
+					traDao.setTransferAmount(amount);
+					traDao.setSenderRemark(senderRemark);
+					traDao.setBenRemark(beneficiaryRemark);
+					traDao.updateTransactionDB();
+					
+					response.sendRedirect("dashboard.jsp");
+				}
+			}
 			
 		} catch(Exception e) {
 			System.out.println(e);
 		}
-		
 	}
 
 }
